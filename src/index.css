@@ -3,6 +3,44 @@
   padding: 0;
   box-sizing: border-box;
 }
+:root {
+  /* Black and White */
+  --darkGrey: #363636;
+  --grey1: #80848d;
+  --grey2: #c2c3c6;
+  --lightGrey1: #e1e1e1;
+  --lightGrey2: #f3f3f3;
+  /* Primary */
+  --lightBlue: #7fd8ff;
+  --darkBlue: #4859ef;
+  --yellow: #ffd464;
+  --red: #ff706a;
+  --purple: #6d4ddf;
+  --green: #0ee799;
+  --orange: #ff9e57;
+  --darkPurple: #37266c;
+  /* Secondary */
+  --lightBlueS: #e5f7ff;
+  --darkBlueS: #eff1ff;
+  --yellowS: #fdf1cb;
+  --redS: #ffdbda;
+  --purpleS: #ece8fc;
+  --greenS: #e1fcf2;
+  --orangeS: #ffeee1;
+  /* Gradient */
+  --gradientRed: linear-gradient(
+    225deg,
+    #8559d4 0%,
+    #ff736a 59.38%,
+    #ffb667 100%
+  );
+  --gradientBlue: linear-gradient(
+    225deg,
+    #6d4ddf 0%,
+    #779df2 59.38%,
+    #7fcdfd 100%
+  );
+}
 body {
   margin: 0;
   font-family: "Nanum Gothic", "Poppins", "Segoe UI", "Roboto", "Oxygen",
@@ -16,6 +54,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+/* Topography */
 h1 {
   font-size: 28pt;
   line-height: 36pt;
