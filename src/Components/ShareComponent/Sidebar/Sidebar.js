@@ -6,6 +6,7 @@ import Tasks from "../../../Assets/Icons/checklist.png";
 import Plus from "../../../Assets/Icons/plus.png";
 import Right from "../../../Assets/Icons/Sidebar left.png";
 import Team from "../../../Assets/Icons/Team a.png";
+
 export default function Sidebar() {
   return (
     <aside className="sidebar">

@@ -1,9 +1,9 @@
-import style from "../../Styling/Components/navbar.module.css";
-import logo from "../../Assets/Logos/BlueLogo.png";
-import search from "../../Assets/Icons/search.png";
-import notification from "../../Assets/Icons/ringing bell.png";
-import help from "../../Assets/Icons/help.png";
-import profile from "../../Assets/Icons/default pofile picture.png";
+import logo from "../../../Assets/Logos/BlueLogo.png";
+import search from "../../../Assets/Icons/search.png";
+import notification from "../../../Assets/Icons/ringing bell.png";
+import help from "../../../Assets/Icons/help.png";
+import profile from "../../../Assets/Icons/default pofile picture.png";
+import style from "../../../Styling/Components/navbar.module.css";
 
 export default function UserNavbar() {
   return (
