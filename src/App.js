@@ -1,7 +1,11 @@
 import "./App.css";
+import Modals from "./Components/Modals/Modals";
+
 
 function App() {
-  return <>Test</>;
+  return <>
+    <Modals />
+  </>;
 }
 
 export default App;

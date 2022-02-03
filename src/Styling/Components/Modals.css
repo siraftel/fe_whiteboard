@@ -1,0 +1,30 @@
+.title {
+    justify-content: flex-start;
+}
+
+.btn-download {
+    margin-right: 20px;
+}
+
+.input-title {
+    width: 75%;
+    outline: none;
+}
+
+.input-title:focus {
+    border-color: skyblue;
+}
+
+.description-title {
+    margin-top: 20px;
+    margin-bottom: 5px;
+    
+}
+
+.input-description {
+    
+}
+
+.btn-description {
+    border-radius: 150px;
+}
