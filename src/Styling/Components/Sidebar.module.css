@@ -5,7 +5,10 @@
   width: 282px;
   height: 938px;
   background-color: lightgrey;
+  /* display: flex; */
+  position: fixed;
 }
+/* .closeSidebar {} */
 .listSidebar {
   list-style-type: none;
   display: flex;
@@ -48,7 +51,7 @@
   margin-bottom: 32px;
   /* text-align: center; */
 }
-.team-sidebar {
+.team_sidebar {
   width: 80%;
   margin: auto;
   display: flex;
@@ -57,7 +60,7 @@
   font-weight: bold;
 }
 
-.btn-iconSidebar {
+.btn_iconSidebar {
   position: relative;
   top: 75px;
   left: 262px;
@@ -74,23 +77,62 @@
   cursor: pointer;
 }
 
-.btn-iconSidebar img {
+.btn_iconSidebar img {
   vertical-align: baseline;
 }
 
-.team-section {
+.team_section {
   margin: auto;
   padding-top: 20px;
 }
-.team-section ul {
+.team_section ul {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.team-section ul li a {
+.team_section ul li a {
   text-decoration: none;
 }
 li {
   list-style-type: none;
+}
+
+.modal_title {
+  color: var(--grey1);
+  font-style: none;
+  font-size: 16pt;
+  line-height: 24pt;
+}
+.modal_header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cancel_button {
+  background-color: var(--darkBlueS);
+  color: var(--darkBlue);
+  width: 20%;
+  height: 45px;
+  border-radius: 35px;
+  transition-duration: 0.8s;
+  border: none;
+}
+.cancel_button:hover,
+.save_button:hover {
+  background: #f2d555;
+  color: black;
+}
+.save_button {
+  background-color: var(--darkBlue);
+  color: white;
+  width: 20%;
+  height: 45px;
+  border-radius: 35px;
+  transition-duration: 0.8s;
+  border: none;
+}
+.plus_button {
+  border: none;
+  background-color: lightgrey;
 }
