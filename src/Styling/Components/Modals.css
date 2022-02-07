@@ -1,30 +1,123 @@
-.title {
-    justify-content: flex-start;
+.modal-dialog {
+    max-width: 80%;
+}
+
+a {
+    cursor: pointer;
+}
+
+.modal-title {
+    width: 100%;
+    display: flex;
+    flex-wrap: inherit;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title p {
+    font-size: 16px;
+    margin-top: 20px;
+    color: #80848D;
 }
 
 .btn-download {
     margin-right: 20px;
+    background: transparent;
+    border: 0;
+    width: 25px;
+}
+
+.btn-share {
+    margin-right: 20px;
+    background: transparent;
+    border: 0;
+    width: 18px;
 }
 
 .input-title {
-    width: 75%;
-    outline: none;
+    width: 100%;
 }
 
-.input-title:focus {
-    border-color: skyblue;
+.dropdown-button {
+    margin-top: 5px;
 }
 
 .description-title {
     margin-top: 20px;
     margin-bottom: 5px;
-    
+    font-weight: bold;
 }
 
 .input-description {
-    
+    width: 100%;
+    margin-bottom: 15px;
 }
 
 .btn-description {
-    border-radius: 150px;
+    align-items: flex-end;
+    border-radius: 100px;
+    width: 120px;
+    height: 50px;
+    margin: 10px;
+    color: #4859EF;
+}
+
+.cancel {
+    margin-left: 60%;
+}
+
+.btn-description:hover {
+    color: white;
+    background-color: #4859EF;
+}
+
+.comment {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.comment-title{
+    margin-top: 40px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.image-profile {
+    width: 35px;
+}
+
+.input-comment {
+    width: 93%;
+}
+
+.comment-wrapper {
+    display: flex;
+    justify-content:flex-start;
+    gap: 20px;
+    align-items: baseline;
+}
+
+.name-profile {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.date-comment {
+    font-size: 10px;
+}
+
+.this-comment {
+    margin-left: 55px;
+}
+
+.assign-member {
+    display: flex;
+    justify-content:flex-start;
+    gap: 20px;
+    margin-top: 50px;
+}
+
+.assign-member p {
+    font-weight: bold;
 }
