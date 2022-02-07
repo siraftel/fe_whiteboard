@@ -11,81 +11,87 @@ export default function Sidebar() {
   const [sidebarLogic, setSidebarLogic] = useState(true);
   const [show, setShow] = useState(false);
 
+  // setSidebarLogic =
+  const handleSidebarClick = () => {
+    setSidebarLogic(!sidebarLogic);
+  };
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   return (
     <>
-      <aside className={style.sidebar}>
-        <button className={style.btn_iconSidebar}>
+      <aside className={[sidebarLogic ? style.sidebar : style.offSidebar]}>
+        <button className={style.btn_iconSidebar} onClick={handleSidebarClick}>
           <img src={Right} alt="SidebarImages" />
         </button>
-        <ul className={style.unListSidebar}>
-          <li className={style.listSidebar}>
-            <a className={style.anchorSidebar} href="/">
-              <img src={Home} alt="Home" />
-              Home
-            </a>
-          </li>
-          <li className={style.listSidebar}>
-            <a className={style.anchorSidebar} href="/boards">
-              <img src={Clipboard} alt="Clipboard" />
-              Boards
-            </a>
-          </li>
-          <li className={style.listSidebar}>
-            <a className={style.anchorSidebar} href="/tasks">
-              <img src={Tasks} alt="Tasks" />
-              Tasks
-            </a>
-          </li>
-        </ul>
-        <div className={style.line}></div>
-
-        <div className={style.team_sidebar}>
-          <p>TEAM</p>
-          <button className={style.plus_button} onClick={handleShow}>
-            <img src={Plus} alt="icon for add new Board" />
-          </button>
-        </div>
-        <div className={style.team_section}>
+        <div className={style.hideSidebar}>
           <ul className={style.unListSidebar}>
             <li className={style.listSidebar}>
               <a className={style.anchorSidebar} href="/">
-                <Icons variant="purple" />
-                Idev Project
+                <img src={Home} alt="Home" />
+                Home
               </a>
             </li>
             <li className={style.listSidebar}>
-              <a className={style.anchorSidebar} href="/">
-                <Icons variant="yellow" />
-                White Project
+              <a className={style.anchorSidebar} href="/boards">
+                <img src={Clipboard} alt="Clipboard" />
+                Boards
               </a>
             </li>
             <li className={style.listSidebar}>
-              <a className={style.anchorSidebar} href="/">
-                <Icons variant="red" />
-                e-Project
-              </a>
-            </li>
-            <li className={style.listSidebar}>
-              <a className={style.anchorSidebar} href="/">
-                <Icons variant="green" />
-                Everyone Education Center
-              </a>
-            </li>
-            <li className={style.listSidebar}>
-              <a className={style.anchorSidebar} href="/">
-                <Icons variant="blue" />
-                One by Meja Putih
-              </a>
-            </li>
-            <li className={style.listSidebar}>
-              <a className={style.anchorSidebar} href="/">
-                <Icons variant="red" />
-                Millo Project
+              <a className={style.anchorSidebar} href="/tasks">
+                <img src={Tasks} alt="Tasks" />
+                Tasks
               </a>
             </li>
           </ul>
+          <div className={style.line}></div>
+          <div className={style.team_sidebar}>
+            <p>TEAM</p>
+            <button className={style.plus_button} onClick={handleShow}>
+              <img src={Plus} alt="icon for add new Board" />
+            </button>
+          </div>
+          <div className={style.team_section}>
+            <ul className={style.unListSidebar}>
+              <li className={style.listSidebar}>
+                <a className={style.anchorSidebar} href="/">
+                  <Icons variant="purple" />
+                  Idev Project
+                </a>
+              </li>
+              <li className={style.listSidebar}>
+                <a className={style.anchorSidebar} href="/">
+                  <Icons variant="yellow" />
+                  White Project
+                </a>
+              </li>
+              <li className={style.listSidebar}>
+                <a className={style.anchorSidebar} href="/">
+                  <Icons variant="red" />
+                  e-Project
+                </a>
+              </li>
+              <li className={style.listSidebar}>
+                <a className={style.anchorSidebar} href="/">
+                  <Icons variant="green" />
+                  Everyone Education Center
+                </a>
+              </li>
+              <li className={style.listSidebar}>
+                <a className={style.anchorSidebar} href="/">
+                  <Icons variant="blue" />
+                  One by Meja Putih
+                </a>
+              </li>
+              <li className={style.listSidebar}>
+                <a className={style.anchorSidebar} href="/">
+                  <Icons variant="red" />
+                  Millo Project
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
       </aside>
       <Modal show={show} onHide={handleClose} aria-labelledby="contained-modal-title-vcenter" centered>
