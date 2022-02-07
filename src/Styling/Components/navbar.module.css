@@ -53,6 +53,10 @@
 .input_wrapper {
   width: 95%;
 }
+.profile_pict {
+  width: 35px;
+  height: 35px;
+}
 @media (max-width: 768px) {
   .search {
     width: 200px;
@@ -70,10 +74,13 @@
     height: auto;
   }
   .notification_pict,
-  .help_pict,
-  .profile_pict {
+  .help_pict {
     width: 18px;
     height: 18px;
+  }
+  .profile_pict {
+    width: 25px;
+    height: 25px;
   }
 }
 @media (max-width: 425px) {
@@ -98,10 +105,13 @@
     height: auto;
   }
   .notification_pict,
-  .help_pict,
-  .profile_pict {
+  .help_pict {
     width: 15px;
     height: 15px;
+  }
+  .profile_pict {
+    width: 21px;
+    height: 21px;
   }
 }
 .notification_wrapper {
