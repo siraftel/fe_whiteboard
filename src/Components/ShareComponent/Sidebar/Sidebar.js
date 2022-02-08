@@ -5,9 +5,8 @@ import Clipboard from "../../../Assets/Icons/clipboard.png";
 import Tasks from "../../../Assets/Icons/checklist.png";
 import Plus from "../../../Assets/Icons/plus.png";
 import Right from "../../../Assets/Icons/Sidebar left.png";
-import Team from "../../../Assets/Icons/Team a.png";
 import Icons from "./Icons";
-import { Container, Modal, Button, FormControl } from "react-bootstrap";
+import { Modal, FormControl } from "react-bootstrap";
 export default function Sidebar() {
   const [sidebarLogic, setSidebarLogic] = useState(true);
   const [show, setShow] = useState(false);
