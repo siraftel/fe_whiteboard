@@ -4,8 +4,7 @@ import style from "../Styling/Pages/FormLogin.module.css";
 export default function Login() {
   return (
     <div>
-      <div>
-        <h1>Anywhere in your app!</h1>
+      <div className={style.containerLogin}>
         <Formik
           initialValues={{ email: "", password: "" }}
           validate={(values) => {
@@ -21,6 +20,7 @@ export default function Login() {
             setTimeout(() => {
               alert(JSON.stringify(values, null, 2));
               setSubmitting(false);
+              console.log(values);
             }, 400);
           }}
         >
@@ -36,8 +36,12 @@ export default function Login() {
           }) => (
             <form onSubmit={handleSubmit} className={style.formSubmit}>
               <h1>Sign in</h1>
-              <button> Sign in with Google</button>
-              <button> Sign in with Facebook</button>
+              <button type="button" className={style.btn_sosialMedia}>
+                Sign in with Google
+              </button>
+              <button type="button" className={style.btn_sosialMedia}>
+                Sign in with Facebook
+              </button>
               <input type="email" name="email" onChange={handleChange} onBlur={handleBlur} value={values.email} placeholder="masukin email woi" />
               {errors.email && touched.email && errors.email}
               <input type="password" name="password" onChange={handleChange} onBlur={handleBlur} value={values.password} placeholder="masukin Password woi" />
