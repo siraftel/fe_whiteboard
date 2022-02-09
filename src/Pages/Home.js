@@ -21,8 +21,9 @@ export default function Home() {
           </div>
         </div>
         <div className={style.recentTodo}>
-          <div>
+          <div className={style.assignedCounter}>
             <h2 className={style.Assigned}>Assigned to me</h2>
+            <h2 className={style.counter}>2</h2>
           </div>
           <div className={style.lineHome}></div>
           <h2 className={style.Assigned}>TODO</h2>

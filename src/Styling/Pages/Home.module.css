@@ -50,3 +50,18 @@
   width: 95%;
   margin: auto;
 }
+.counter {
+  background-color: var(--lightGrey1);
+  font-size: 12px;
+  padding: 1px 20px;
+  border-radius: 10px;
+}
+.assignedCounter {
+  height: 1%;
+  display: flex;
+  gap: 5%;
+  margin-top: 20px;
+}
+.assignedCounter h2 {
+  line-height: 100%;
+}
