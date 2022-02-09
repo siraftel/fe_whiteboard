@@ -1,0 +1,31 @@
+.Card {
+  width: 21%;
+  height: auto;
+  /* border: 1px solid black; */
+  display: flex;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+/* .containerTeam {
+  width: 80%;
+} */
+.stripedCard {
+  width: 10%;
+  height: auto;
+  background-color: rgb(212, 228, 233);
+}
+.projectTitle {
+  font-weight: bold;
+  font-size: 16px;
+}
+.projectShortcut {
+  font-size: 16px;
+  color: var(--grey2);
+}
+.Icons {
+  position: relative;
+  left: -5%;
+  top: 10px;
+  /* background-color: red; */
+}
