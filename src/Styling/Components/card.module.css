@@ -6,6 +6,9 @@
   overflow: hidden;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  flex-grow: 1;
+  /* flex-shrink: 1; */
+  /* flex-basis: auto; */
 }
 /* .containerTeam {
   width: 80%;
@@ -33,9 +36,22 @@
   display: flex;
   flex-direction: column;
   text-decoration: none;
+  width: 72%;
 }
 
 .containerTeam a {
   text-decoration: none;
   color: black;
+}
+
+.projectTask {
+  display: flex;
+  justify-content: space-between;
+}
+
+.counter {
+  background-color: var(--lightGrey1);
+  font-size: 12px;
+  padding: 0.3% 9%;
+  border-radius: 8px;
 }

@@ -8,14 +8,18 @@
 
 .recentContainer {
   background-color: var(--darkBlueS);
+  height: auto;
+  width: 100%;
 }
 
 .recentDown {
   display: flex;
   width: 95%;
+  height: auto;
   margin: auto;
-  gap: 1%;
+  gap: 2%;
   padding-bottom: 2%;
+  flex-wrap: wrap;
 }
 
 .recentUp {
