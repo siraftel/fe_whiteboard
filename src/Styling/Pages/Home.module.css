@@ -1,0 +1,48 @@
+.Home {
+  display: flex;
+  width: 100%;
+}
+.section {
+  width: 100%;
+}
+
+.recentContainer {
+  background-color: var(--darkBlueS);
+}
+
+.recentDown {
+  display: flex;
+  width: 95%;
+  margin: auto;
+  gap: 1%;
+  padding-bottom: 2%;
+}
+
+.recentUp {
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  margin: auto;
+  padding-top: 2%;
+}
+
+.recentTodo {
+  width: 95%;
+  margin: auto;
+}
+.lineHome {
+  width: 95%;
+  height: 0.5px;
+  background-color: black;
+}
+
+.Assigned {
+  font-size: 16px;
+}
+
+.AssignedHome {
+  font-size: 31px;
+  font-weight: bold;
+  width: 95%;
+  margin: auto;
+}
