@@ -47,7 +47,7 @@ export default function Sidebar() {
           </ul>
           <div className={style.line}></div>
           <div className={style.team_sidebar}>
-            <p>TEAM</p>
+            <p className={style.team_sidebarText}>TEAM</p>
             <button className={style.plus_button} onClick={handleShow}>
               <img src={Plus} alt="icon for add new Board" />
             </button>
