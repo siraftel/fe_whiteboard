@@ -1,6 +1,6 @@
 import React from "react";
 import { Formik } from "formik";
-import style from "../Styling/Pages/FormLogin.module.css";
+import style from "../Styling/Pages/FormRegister.module.css";
 import Logo from "../Assets/Logos/Grey Logo.png";
 import Right from "../Assets/Icons/right blue.png";
 export default function Login() {
@@ -9,12 +9,12 @@ export default function Login() {
       <nav className={style.nav}>
         <img src={Logo} alt="Logo" />
         <button className={style.navButton} type="button">
-          Sign up <img src={Right} alt="Right" />
+          Sign in <img src={Right} alt="Right" />
         </button>
       </nav>
       <div className={style.containerLogin}>
         <Formik
-          initialValues={{ email: "", password: "" }}
+          initialValues={{ email: "", password: "", name: "" }}
           validate={(values) => {
             const errors = {};
             if (!values.email) {
@@ -44,8 +44,22 @@ export default function Login() {
           }) => (
             <form onSubmit={handleSubmit} className={style.formSubmit}>
               <div className={style.text}>
-                <h1>Sign in</h1>
+                <h1>Get started free today</h1>
               </div>
+              <input className={style.formInput} type="name" name="name" onChange={handleChange} onBlur={handleBlur} value={values.name} placeholder="Name" />
+              {errors.name && touched.name && errors.name}
+              <input className={style.formInput} type="email" name="email" onChange={handleChange} onBlur={handleBlur} value={values.email} placeholder="Email" />
+              {errors.email && touched.email && errors.email}
+              <input className={style.formInput} type="password" name="password" onChange={handleChange} onBlur={handleBlur} value={values.password} placeholder="Password 5+ characters" />
+              {errors.password && touched.password && errors.password}
+              <div className={style.checkboxTerms}>
+                <input className={style.checkboxInput} type="checkbox" />
+                <label>I agree with Whiteboard’s terms & conditions</label>
+              </div>
+              <button type="submit" className={style.buttonSubmit} disabled={isSubmitting}>
+                Submit
+              </button>
+              <p className={style.text}>or sign up with:</p>
               <div className={style.signInMedia}>
                 <button type="button" className={style.btn_sosialMedia}>
                   <svg className={style.icon} width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -85,15 +99,6 @@ export default function Login() {
                   Sign in with Facebook
                 </button>
               </div>
-              <p className={style.text}>or use your email to sign in:</p>
-              <input type="email" name="email" onChange={handleChange} onBlur={handleBlur} value={values.email} placeholder="Email" />
-              {errors.email && touched.email && errors.email}
-              <input type="password" name="password" onChange={handleChange} onBlur={handleBlur} value={values.password} placeholder="Password" />
-              {errors.password && touched.password && errors.password}
-              <button type="submit" className={style.buttonSubmit} disabled={isSubmitting}>
-                Submit
-              </button>
-              <a href="https://">Forgot Password</a>
             </form>
           )}
         </Formik>

@@ -12,8 +12,18 @@ export default function Card() {
         <h2 className={style.projectTitle}>Idev Internal System</h2>
         <p className={style.teamProject}>on Idev Project</p>
         <h2 className={style.projectShortcut}>QUICK LINKS</h2>
-        <p className={style.teamTask}>My open tasks</p>
-        <p className={style.taskDone}>Done</p>
+        <div className={style.projectTask}>
+          <a href="/" className={style.teamTask}>
+            My open tasks
+          </a>
+          <p className={style.counter}>2</p>
+        </div>
+        <div className={style.projectTask}>
+          <a href="/" className={style.taskDone}>
+            Done
+          </a>
+          <p className={style.counter}>2</p>
+        </div>
       </div>
     </section>
   );

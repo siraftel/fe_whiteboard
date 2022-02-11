@@ -68,7 +68,7 @@
   width: 80%;
   background-color: #555;
   margin-top: 32px;
-  margin-bottom: 32px;
+  margin-bottom: 12px;
   /* text-align: center; */
 }
 .team_sidebar {
@@ -155,4 +155,7 @@ li {
 .plus_button {
   border: none;
   background-color: var(--lightGrey2);
+}
+.team_sidebarText {
+  padding-top: 20px;
 }
