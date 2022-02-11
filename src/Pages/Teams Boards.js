@@ -1,9 +1,10 @@
 import UserNavbar from "../Components/ShareComponent/Navbar/NavbarIsLogin";
 import style from "../Styling/Pages/TeamsBoards.module.css";
 import Sidebar from "../Components/ShareComponent/Sidebar/Sidebar";
-import { Container, Modal, Button, FormControl } from "react-bootstrap";
+import { Container, Modal, FormControl } from "react-bootstrap";
 import plus from "../Assets/Icons/plus blue.png";
 import team from "../Assets/Icons/team.png";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 
 export default function TeamsBoards() {
@@ -18,25 +19,26 @@ export default function TeamsBoards() {
         <Sidebar />
         <div className={`${style.content_wrapper} container`}>
           <div className={style.team_name}>
-            <p className={style.title3}>
+            <div className={style.title3}>
               {" "}
               One by Meja Putih{" "}
               <div className={style.team_icon_container}>
                 <img className={style.team_icon} src={team} alt="icon teams" />
               </div>
-            </p>
-            <p className={style.link_container}>
+            </div>
+            <div className={style.link_container}>
               <a href="/" className={style.link4}>
-                Boards /
-              </a>{" "}
+                Boards
+              </a>
+              <span> / </span>
               <a href="/" className={style.link3}>
                 One by Meja Putih
               </a>
-            </p>
+            </div>
           </div>
           <Container>
             <div className={style.column_container}>
-              <div className={style.column}>
+              <Link className={style.column}>
                 <div className={style.top_container}>
                   <p className={style.h4}>Design Task</p>
                   <p className={style.body3}>on One by Meja Putih</p>
@@ -49,8 +51,8 @@ export default function TeamsBoards() {
                     <button className={style.button_issue}>0</button>
                   </div>
                 </div>
-              </div>
-              <div className={style.column}>
+              </Link>
+              <Link className={style.column}>
                 <div className={style.top_container}>
                   <p className={style.h4}>Internal Tools</p>
                   <p className={style.body3}>on One by Meja Putih</p>
@@ -63,8 +65,8 @@ export default function TeamsBoards() {
                     <button className={style.button_issue}>0</button>
                   </div>
                 </div>
-              </div>
-              <div className={style.column}>
+              </Link>
+              <Link className={style.column}>
                 <div className={style.top_container}>
                   <p className={style.h4}>Dev Ops</p>
                   <p className={style.body3}>on One by Meja Putih</p>
@@ -77,8 +79,8 @@ export default function TeamsBoards() {
                     <button className={style.button_issue}>0</button>
                   </div>
                 </div>
-              </div>
-              <div className={style.column}>
+              </Link>
+              <Link className={style.column}>
                 <div className={style.top_container}>
                   <p className={style.h4}>Marketing Colateral</p>
                   <p className={style.body3}>on One by Meja Putih</p>
@@ -91,7 +93,7 @@ export default function TeamsBoards() {
                     <button className={style.button_issue}>0</button>
                   </div>
                 </div>
-              </div>
+              </Link>
               <div className={style.column_new_board}>
                 <div className={style.image_container}>
                   <button className={style.plus_button} onClick={handleShow}>

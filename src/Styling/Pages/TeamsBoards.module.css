@@ -1,4 +1,4 @@
-/* .main_container {
+.main_container {
   display: flex;
 }
 .content_wrapper {
@@ -21,6 +21,8 @@
 }
 .link_container {
   margin-bottom: 5%;
+  display: flex;
+  align-items: center;
 }
 .team_icon_container {
   background-color: var(--red);
@@ -42,6 +44,7 @@
   font-size: 12pt;
   line-height: 18pt;
   font-weight: 700;
+  margin-left: clamp(0px, 5px, 10px);
   color: var(--grey1);
 }
 .link4 {
@@ -49,6 +52,7 @@
   font-size: 11pt;
   color: var(--grey1);
   line-height: 15pt;
+  margin-right: clamp(0px, 5px, 10px);
 }
 .column_container {
   display: flex;
@@ -170,4 +174,4 @@
   border-radius: 35px;
   transition-duration: 0.8s;
   border: none;
-} */
+}
