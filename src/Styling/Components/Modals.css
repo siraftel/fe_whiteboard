@@ -15,7 +15,7 @@ a {
 }
 
 .title p {
-    font-size: 16px;
+    font-size: 14px;
     margin-top: 20px;
     color: #80848D;
 }
@@ -46,24 +46,27 @@ a {
     margin-top: 20px;
     margin-bottom: 5px;
     font-weight: bold;
+    font-size: 14px;
 }
 
 .input-description {
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 }
 
 .btn-description {
     align-items: flex-end;
-    border-radius: 100px;
-    width: 120px;
-    height: 50px;
+    border-radius: 80px;
+    width: 100px;
+    height: 40px;
     margin: 10px;
     color: #4859EF;
+    font-size: 14px;
+
 }
 
 .cancel {
-    margin-left: 60%;
+    margin-left: 66%;
 }
 
 .btn-description:hover {
@@ -81,6 +84,7 @@ a {
     margin-top: 40px;
     margin-bottom: 5px;
     font-weight: bold;
+    font-size: 14px;
 }
 
 .image-profile {
@@ -100,24 +104,70 @@ a {
 
 .name-profile {
     font-weight: bold;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .date-comment {
-    font-size: 10px;
+    font-size: 9px;
 }
 
 .this-comment {
     margin-left: 55px;
+    font-size: 13px;
+}
+
+.dropdown-toggle {
+    font-size: 12px;
+    padding: 9px;
+    margin-top: -5px;
 }
 
 .assign-member {
     display: flex;
     justify-content:flex-start;
     gap: 20px;
-    margin-top: 50px;
+    margin-top: 45px;
+    align-items: center;
 }
 
 .assign-member p {
     font-weight: bold;
+    font-size: 14px;
+    align-items: center;
+}
+
+.add-priority {
+    display: flex;
+    justify-content:flex-start;
+    gap: 35px;
+    margin-top: 30px;
+}
+
+.add-priority p {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.add-date {
+    display: flex;
+    justify-content:flex-start;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.add-date p {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.add-labels {
+    display: flex;
+    justify-content:flex-start;
+    gap: 50px;
+    margin-top: 30px;
+}
+
+.add-labels p {
+    font-weight: bold;
+    font-size: 14px;
 }
