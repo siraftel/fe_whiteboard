@@ -1,0 +1,57 @@
+.Card {
+  width: 21%;
+  height: auto;
+  display: flex;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  flex-grow: 1;
+  /* flex-shrink: 1; */
+  /* flex-basis: auto; */
+}
+/* .containerTeam {
+  width: 80%;
+} */
+.stripedCard {
+  width: 10%;
+  height: auto;
+  background-color: rgb(212, 228, 233);
+}
+.projectTitle {
+  font-weight: bold;
+  font-size: 16px;
+}
+.projectShortcut {
+  font-size: 16px;
+  color: var(--grey2);
+}
+.Icons {
+  position: relative;
+  left: -5%;
+  top: 10px;
+  /* background-color: red; */
+}
+.containerTeam {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  width: 72%;
+}
+
+.containerTeam a {
+  text-decoration: none;
+  color: black;
+}
+
+.projectTask {
+  display: flex;
+  justify-content: space-between;
+}
+
+.counter {
+  background-color: var(--lightGrey1);
+  font-size: 12px;
+  padding: 0.3% 9%;
+  border-radius: 8px;
+}
