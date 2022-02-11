@@ -2,16 +2,16 @@
   padding: 0;
 }
 .sidebar {
-  padding-top: 45px;
+  padding: 45px 0;
   width: 282px;
-  height: 100vh;
+  height: auto;
   background-color: lightgrey;
   /* display: flex; */
   position: relative;
-  transition: all 0.5s ease;
+  transition: all 0.5s ease-out;
 }
 .offSidebar {
-  width: 40px;
+  width: 50px;
   height: 100vh;
   overflow: hidden;
   background-color: lightgrey;
@@ -20,10 +20,13 @@
 }
 .offSidebar .hideSidebar {
   display: none;
+  transition: all 0.5 ease;
 }
 
 .offSidebar .btn_iconSidebar {
   transform: rotate(180deg);
+  margin-right: 5px;
+  right: 0;
 }
 /* .closeSidebar {} */
 .listSidebar {
@@ -80,7 +83,7 @@
 .btn_iconSidebar {
   position: absolute;
   top: 45px;
-  right: 0;
+  right: -20px;
   border-radius: 50%;
   width: 40px;
   height: 40px;
