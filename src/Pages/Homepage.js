@@ -1,18 +1,23 @@
 import React from "react";
-import { Container, Nav, Navbar, NavDropdown, Button, Col, Row } from "react-bootstrap";
+import { Container, Nav, Navbar, NavDropdown, Button, Col, Row, Carousel } from "react-bootstrap";
 import Logo from "../Assets/Logos/Grey Logo.png";
 import SignUp from "../Assets/Icons/right white.png";
 import Learn from "../Assets/Icons/right blue.png";
-import Sally from "../Assets/Images/Saly-22.png";
-import saly24 from "../Assets/Images/Saly-24.png";
-import saly5 from "../Assets/Images/Saly-5.png";
-import saly1 from "../Assets/Images/Saly-1.png";
-import saly11 from "../Assets/Images/Saly-11.png";
-import oneone from "../Assets/Images/1 1.png";
+import Sally from "../Assets/Images/Group 32.png";
+import saly24 from "../Assets/Images/Group 31.png";
+import saly5 from "../Assets/Images/Group 36.png";
+import saly1 from "../Assets/Images/Group 16.png";
+import saly11 from "../Assets/Images/Group 17.png";
+import oneone from "../Assets/Images/Group 18.png";
 import saly10 from "../Assets/Images/Saly-10.png";
 import aplle from "../Assets/Icons/appstore.png";
 import playstore from "../Assets/Icons/playstore.png";
 import style from "../Styling/Pages/Homepage.module.css";
+import cisco from "../Assets/Logos/cisco.png";
+import dell from "../Assets/Logos/dell.png";
+import deloite from "../Assets/Logos/deloitte.png";
+import hawlett from "../Assets/Logos/Hawlett.png";
+import sales_force from "../Assets/Logos/sales_force.png";
 export default function Homepage() {
   return (
     <>
@@ -55,52 +60,54 @@ export default function Homepage() {
           Start a board <img src={SignUp} alt="Button" />{" "}
         </Button>
       </div>
-      <Container>
-        <Row className="d-flex align-items-center justify-content-center">
-          <Col>
-            <h3>Work with any team</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing <br /> elit. Quisque eget pretium augue, quis ornare nisl. <br /> Lorem ipsum dolor sit amet, consectetur adipiscing.
-            </p>
-            <a href="http://">
-              Learn more about Whiteboard board <img src={Learn} alt="Linkto" />
-            </a>
-          </Col>
-          <Col>
-            <img src={Sally} alt="WorkWithTeam" />
-          </Col>
-        </Row>
-      </Container>
-      <Container>
-        <Row className="d-flex align-items-center justify-content-center">
-          <Col>
-            <img src={saly24} alt="WorkWithHand" />
-          </Col>
-          <Col>
-            <h3>Information at glance</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing <br /> elit. Quisque eget pretium augue, quis ornare nisl. <br /> Lorem ipsum dolor sit amet, consectetur adipiscing.
-            </p>
-            <a href="http://">
-              Learn more about Whiteboard board <img src={Learn} alt="Linkto" />
-            </a>
-          </Col>
-        </Row>
-        <Row className="d-flex align-items-center justify-content-center">
-          <Col>
-            <h3>Built-in workflow</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing <br /> elit. Quisque eget pretium augue, quis ornare nisl. <br /> Lorem ipsum dolor sit amet, consectetur adipiscing.
-            </p>
-            <a href="http://">
-              Learn more about Whiteboard board <img src={Learn} alt="Linkto" />
-            </a>
-          </Col>
-          <Col>
-            <img src={saly5} alt="WorkWithBycicle" />
-          </Col>
-        </Row>
-      </Container>
+      <div className={style.mainHomepage}>
+        <Container>
+          <Row className="d-flex align-items-center justify-content-center">
+            <Col>
+              <h3>Work with any team</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing <br /> elit. Quisque eget pretium augue, quis ornare nisl. <br /> Lorem ipsum dolor sit amet, consectetur adipiscing.
+              </p>
+              <a href="http://">
+                Learn more about Whiteboard board <img src={Learn} alt="Linkto" />
+              </a>
+            </Col>
+            <Col>
+              <img src={Sally} alt="WorkWithTeam" />
+            </Col>
+          </Row>
+        </Container>
+        <Container>
+          <Row className="d-flex align-items-center justify-content-center">
+            <Col>
+              <img src={saly24} alt="WorkWithHand" />
+            </Col>
+            <Col>
+              <h3>Information at glance</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing <br /> elit. Quisque eget pretium augue, quis ornare nisl. <br /> Lorem ipsum dolor sit amet, consectetur adipiscing.
+              </p>
+              <a href="http://">
+                Learn more about Whiteboard board <img src={Learn} alt="Linkto" />
+              </a>
+            </Col>
+          </Row>
+          <Row className="d-flex align-items-center justify-content-center">
+            <Col>
+              <h3>Built-in workflow</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing <br /> elit. Quisque eget pretium augue, quis ornare nisl. <br /> Lorem ipsum dolor sit amet, consectetur adipiscing.
+              </p>
+              <a href="http://">
+                Learn more about Whiteboard board <img src={Learn} alt="Linkto" />
+              </a>
+            </Col>
+            <Col>
+              <img src={saly5} alt="WorkWithBycicle" />
+            </Col>
+          </Row>
+        </Container>
+      </div>
       <Container>
         <Row className="d-flex align-items-center justify-content-center">
           <Col className="d-flex align-items-center justify-content-center flex-column">
@@ -121,49 +128,79 @@ export default function Homepage() {
             </p>
           </Col>
           <Col className="d-flex align-items-center justify-content-center flex-column">
-            <img src={saly11} alt="WorkWith11" />
+            <img src={oneone} alt="WorkWith11" />
             <p className="text-center">
-              <span>Light & Fast</span>
+              <span>All-in-one</span>
               <br />
               Lorem ipsum dolor sit amet, <br /> consectetur adipiscing elit. Quisque{" "}
             </p>
           </Col>
           <Col className="d-flex align-items-center justify-content-center flex-column">
-            <img src={oneone} alt="WorkWithone" />
+            <img src={saly11} alt="WorkWithone" />
             <p className="text-center">
-              <span>Light & Fast</span>
+              <span>Easy Monitoring </span>
               <br />
               Lorem ipsum dolor sit amet, <br /> consectetur adipiscing elit. Quisque{" "}
             </p>
           </Col>
         </Row>
       </Container>
-      <Container>
-        <Row className="d-flex align-items-center justify-content-center">
-          <Col>
-            <h1>
-              Scale collaboration <br />
-              with confidence
-            </h1>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing <br /> elit. Quisque eget pretium augue, quis ornare nisl. <br /> Lorem ipsum dolor sit amet, consectetur adipiscing.
-            </p>
-            <a href="http://">
-              Learn more about Whiteboard board <img src={Learn} alt="Linkto" />
-            </a>
-          </Col>
-          <Col>
-            <img src={saly10} alt="WorkWithDesk" />
-          </Col>
-        </Row>
-      </Container>
+      <div className={style.ContainerSallyDesk}>
+        <Container>
+          <Row className="d-flex align-items-center justify-content-center">
+            <Col>
+              <h1>
+                Scale collaboration <br />
+                with confidence
+              </h1>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing <br /> elit. Quisque eget pretium augue, quis ornare nisl. <br /> Lorem ipsum dolor sit amet, consectetur adipiscing.
+              </p>
+              <a href="http://">
+                Learn more about Whiteboard board <img src={Learn} alt="Linkto" />
+              </a>
+            </Col>
+            <Col>
+              <img className={style.sallyDesk} src={saly10} alt="WorkWithDesk" />
+            </Col>
+          </Row>
+        </Container>
+      </div>
+      <Carousel variant="dark">
+        <Carousel.Item className={style.containerCarousel}>
+          <div className={style.carouselImage}>
+            <img className={style.cobaCara} src={dell} alt="Second slide" />
+            <img className={style.cobaCara} src={deloite} alt="Second slide" />
+            <img className={style.cobaCara} src={hawlett} alt="Second slide" />
+            <img className={style.cobaCara} src={sales_force} alt="Second slide" />
+            <img className={style.cobaCara} src={cisco} alt="Second slide" />
+          </div>
+          <Carousel.Caption className={style.carouselCaption}>
+            <h1>Work smarter with Whiteboard</h1>
+            <p>join with 10M+ users worldwide</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+        <Carousel.Item className={style.containerCarousel}>
+          <div className={style.carouselImage}>
+            <img className={style.cobaCara} src={dell} alt="third slide" />
+            <img className={style.cobaCara} src={deloite} alt="third slide" />
+            <img className={style.cobaCara} src={hawlett} alt="third slide" />
+            <img className={style.cobaCara} src={sales_force} alt="third slide" />
+            <img className={style.cobaCara} src={cisco} alt="third slide" />
+          </div>
+          <Carousel.Caption className={style.carouselCaption}>
+            <h1>Work smarter with Adam</h1>
+            <p>join with 10M+ users worldwide</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+      </Carousel>
       <div className={style.footer}>
         <Row>
           <Col className="d-flex align-items-center justify-content-center flex-column">
-            <h1>Join over 10 million users</h1> <p>Start planning today – Save time, stay focused and work smarter with Whiteboard</p>{" "}
+            <h1>Join over 10 million users</h1> <p>Start planning today – Save time, stay focused and work smarter with Whiteboard</p>
             <Button className={style.btn_board} variant="board">
-              Get Started – It’s FREE <img src={SignUp} alt="Button" />{" "}
-            </Button>{" "}
+              Get Started – It’s FREE <img src={SignUp} alt="Button" />
+            </Button>
           </Col>
         </Row>
         <Container>

@@ -22,6 +22,39 @@
 .nav_link {
   color: black;
 }
+
+.ContainerSallyDesk {
+  background-color: var(--yellowS);
+}
+
+.sallyDesk {
+  width: 80%;
+  height: 80%;
+}
+
+.mainHomepage {
+  background-color: var(--darkBlueS);
+}
+
+.containerCarousel {
+  width: 100%;
+  height: 50vh;
+}
+
+.carouselCaption {
+  top: 0;
+}
+
+.cobaCara {
+  top: 50px;
+  max-width: 40%;
+  max-height: 40%;
+}
+.carouselImage {
+  display: flex;
+  justify-content: center;
+  margin-top: 10%;
+}
 .footer {
   color: white;
   margin-top: 20px;
