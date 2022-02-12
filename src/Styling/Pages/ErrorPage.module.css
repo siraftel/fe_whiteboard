@@ -1,13 +1,13 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,300,500);
 
 .error_container {
+  margin-top: 17%;
   font-family: "Roboto", sans-serif;
   color: #fff;
-  font-size: 100%;
   line-height: 1.5;
   background-color: #007aff;
   width: 100vw;
-  height: 150vh;
+  height: 50vh;
 }
 
 .error_button {

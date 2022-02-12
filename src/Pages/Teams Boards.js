@@ -1,10 +1,10 @@
 import UserNavbar from "../Components/ShareComponent/Navbar/NavbarIsLogin";
-import style from "../Styling/Pages/TeamsBoards.module.css";
 import Sidebar from "../Components/ShareComponent/Sidebar/Sidebar";
+import { Link } from "react-router-dom";
 import { Container, Modal, FormControl } from "react-bootstrap";
+import style from "../Styling/Pages/TeamsBoards.module.css";
 import plus from "../Assets/Icons/plus blue.png";
 import team from "../Assets/Icons/team.png";
-import { Link } from "react-router-dom";
 import { useState } from "react";
 
 export default function TeamsBoards() {
@@ -38,7 +38,7 @@ export default function TeamsBoards() {
           </div>
           <Container>
             <div className={style.column_container}>
-              <Link className={style.column}>
+              <Link className={style.column} to="/">
                 <div className={style.top_container}>
                   <p className={style.h4}>Design Task</p>
                   <p className={style.body3}>on One by Meja Putih</p>
@@ -52,7 +52,7 @@ export default function TeamsBoards() {
                   </div>
                 </div>
               </Link>
-              <Link className={style.column}>
+              <Link to="/" className={style.column}>
                 <div className={style.top_container}>
                   <p className={style.h4}>Internal Tools</p>
                   <p className={style.body3}>on One by Meja Putih</p>
@@ -66,7 +66,7 @@ export default function TeamsBoards() {
                   </div>
                 </div>
               </Link>
-              <Link className={style.column}>
+              <Link to="/" className={style.column}>
                 <div className={style.top_container}>
                   <p className={style.h4}>Dev Ops</p>
                   <p className={style.body3}>on One by Meja Putih</p>
@@ -80,7 +80,7 @@ export default function TeamsBoards() {
                   </div>
                 </div>
               </Link>
-              <Link className={style.column}>
+              <Link to="/" className={style.column}>
                 <div className={style.top_container}>
                   <p className={style.h4}>Marketing Colateral</p>
                   <p className={style.body3}>on One by Meja Putih</p>

@@ -1,7 +1,23 @@
-import { Overlay, Popover, Modal, FormControl } from "react-bootstrap";
+import {
+  Overlay,
+  Popover,
+  Modal,
+  FormControl,
+  OverlayTrigger,
+  PopoverBody,
+} from "react-bootstrap";
 import team from "../Assets/Icons/team.png";
 import profile from "../Assets/Icons/default pofile picture.png";
+
 import lowest from "../Assets/Icons/lowest.png";
+import low from "../Assets/Icons/low.png";
+import high from "../Assets/Icons/high.png";
+import highest from "../Assets/Icons/highest.png";
+import archive from "../Assets/Icons/archive.png";
+import changePriority from "../Assets/Icons/change priority.png";
+import label from "../Assets/Icons/label.png";
+import assignTo from "../Assets/Icons/arrow right.png";
+
 import attach from "../Assets/Icons/attach.png";
 import check from "../Assets/Icons/check.png";
 import plus from "../Assets/Icons/plus blue.png";
@@ -20,7 +36,7 @@ export default function TeamsDetail() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  //FOR POPOVER
+  //FOR POPOVER INVIE
   const [showInvite, setShowInvite] = useState(false);
   const [targetInvite, setTargetInvite] = useState(null);
   const ref = useRef(null);
@@ -29,6 +45,65 @@ export default function TeamsDetail() {
     setShowInvite(!showInvite);
     setTargetInvite(event.target);
   };
+  //POP OVER CARD
+  const popoverCard = (
+    <Popover id="popover-basic">
+      <Popover.Body className={style.popover_card_body}>
+        <button className={style.card_hovered_button}>
+          <img
+            className={style.card_hovered_img}
+            src={label}
+            alt="label button"
+          />
+          Add Lavel
+        </button>
+        <button className={style.card_hovered_button}>
+          <img
+            className={style.card_hovered_img}
+            src={changePriority}
+            alt="change Prioritybutton"
+          />
+          Change Priority
+        </button>
+        <button className={style.card_hovered_button}>
+          <img className={style.card_hovered_img} src={assignTo} alt="button" />
+          Assign to
+        </button>
+        <button className={style.card_hovered_button}>
+          <img className={style.card_hovered_img} src={archive} alt="button" />
+          Archieve
+        </button>
+      </Popover.Body>
+    </Popover>
+  );
+  const popoverCardLabel = (
+    <Popover id="popover-basic">
+      <PopoverBody className={style.popover_label_body}>
+        Testing Popover
+      </PopoverBody>
+    </Popover>
+  );
+  const popoverCardPriority = (
+    <Popover id="popover-basic">
+      <PopoverBody className={style.popover_priority_body}>
+        Testing Popover
+      </PopoverBody>
+    </Popover>
+  );
+  const popoverCardAssign = (
+    <Popover id="popover-basic">
+      <PopoverBody className={style.popover_assign_body}>
+        Testing Popover
+      </PopoverBody>
+    </Popover>
+  );
+  const popoverCardArchive = (
+    <Popover id="popover-basic">
+      <PopoverBody className={style.popover_archive_body}>
+        Testing Popover
+      </PopoverBody>
+    </Popover>
+  );
   return (
     <>
       <UserNavbar />
@@ -87,7 +162,7 @@ export default function TeamsDetail() {
                 <Overlay
                   show={showInvite}
                   target={targetInvite}
-                  placement="bottom"
+                  placement="bottom-end"
                   container={ref}
                   containerPadding={20}
                 >
@@ -149,7 +224,13 @@ export default function TeamsDetail() {
                     <div className={style.category_container}>
                       <div className={style.box_category}>Category</div>
                     </div>
-                    <button className={style.box_hover_button}>...</button>
+                    <OverlayTrigger
+                      trigger="click"
+                      placement="bottom-end"
+                      overlay={popoverCard}
+                    >
+                      <button className={style.box_hover_button}>...</button>
+                    </OverlayTrigger>
                   </div>
                   <div className={style.title_container}>
                     <div className={style.box_title}>Header Seasional</div>
