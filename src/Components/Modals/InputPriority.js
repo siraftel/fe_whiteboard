@@ -1,8 +1,11 @@
 import { forwardRef } from 'react';
 import { CloseButton, MultiSelect, Box } from '@mantine/core';
-import PriorityIcon from "./PriorityIcon";
+import highest from "./../../Assets/Icons/highest.png"
+import high from "./../../Assets/Icons/high.png"
+import low from "./../../Assets/Icons/low.png"
+import lowest from "./../../Assets/Icons/lowest.png"
 
-function Value({ value, label, onRemove, classNames, ...others }) {
+function Value({ image, value, label, onRemove, ...others }) {
   return (
     <div {...others}>
       <Box
@@ -10,15 +13,15 @@ function Value({ value, label, onRemove, classNames, ...others }) {
           display: 'flex',
           cursor: 'default',
           alignItems: 'center',
-          border: `1px solid ${theme.colors.gray[4]}`,
           paddingLeft: 10,
-          borderRadius: 4,
+          // border: `1px solid ${theme.colors.gray[4]}`,
+          // borderRadius: 4,
         })}
       >
         <div style={{ marginRight: 10 }}>
-          <PriorityIcon />
+          <img src={image} alt="label icon"/>
         </div>
-        <div style={{ lineHeight: 1, fontSize: 12 }}>{label}</div>
+        {/* <div style={{ lineHeight: 1, fontSize: 12 }}>{label}</div> */}
         <CloseButton onMouseDown={onRemove} variant="transparent" size={22} iconSize={14} tabIndex={-1} />
       </Box>
     </div>
@@ -27,28 +30,32 @@ function Value({ value, label, onRemove, classNames, ...others }) {
 
 const countriesData = [
   {
+    image: (highest),
     label: "Highest",
     value: "Highest"
   },
   {
+    image: (high),
     label: "High",
     value: "High"
   },
   {
+    image: (low),
     label: "Low",
     value: "Low"
   },
   {
+    image: (lowest),
     label: "Lowest",
     value: "Lowest"
   }
-]
+];
 
-const Item = forwardRef(({ label, value, ...others }, ref) => (
+const Item = forwardRef(({ image, label, value, ...others }, ref) => (
   <div ref={ref} {...others}>
     <Box sx={{ display: 'flex' }}>
       <Box mr={10}>
-        <PriorityIcon />
+        <img src={image} alt="label icon"/>
       </Box>
       <div>{label}</div>
     </Box>
@@ -59,14 +66,15 @@ export function InputPriority() {
   return (
     <MultiSelect
       size="sm"
+      sx={() => ({ flex: 1 })}
       zIndex={9999}
+      placeholder="Pick countries"
       data={countriesData}
-      limit={20}
-      valueComponent={Value}
       itemComponent={Item}
       searchable
-      defaultValue={['US', 'DE']}
-      placeholder="Pick countries"
+      limit={20}
+      valueComponent={Value}
+      maxSelectedValues={1}
     />
   );
 }

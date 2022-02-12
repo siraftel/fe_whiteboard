@@ -1,21 +1,48 @@
 import { forwardRef } from 'react';
-import { Group, Avatar, Text, MultiSelect } from '@mantine/core';
+import { Group, Avatar, Text, MultiSelect, Box, CloseButton } from '@mantine/core';
+import profile1 from "../../Assets/Icons/profile sample 1.png";
+import profile2 from "../../Assets/Icons/profile sample 2.png";
+import profile3 from "../../Assets/Icons/profile sample 3.png";
 import profile from "../../Assets/Icons/default pofile picture.png";
+
+function Value({ image, value, label, onRemove, ...others }) {
+  return (
+    <div {...others}>
+      <Box
+        sx={(theme) => ({
+          display: 'flex',
+          cursor: 'default',
+          alignItems: 'center',
+          paddingLeft: 10,
+          // border: `1px solid ${theme.colors.gray[4]}`,
+          // borderRadius: 4,
+          // background: 'transparant'
+        })}
+      >
+        <div style={{ marginRight: 5 }}>
+          <img src={image} alt="label icon"/>
+        </div>
+        {/* <div style={{ lineHeight: 1, fontSize: 12 }}>{label}</div> */}
+        <CloseButton onMouseDown={onRemove} variant="transparent" size={22} iconSize={14} tabIndex={-1} />
+      </Box>
+    </div>
+  );
+}
 
 const data = [
   {
-    image: (profile),
+    image: (profile1),
     label: 'Adam Akbar',
     value: 'Adam Akbar',
   },
 
   {
-    image: (profile),
+    image: (profile2),
     label: 'Fakhri Al Fatah',
     value: 'Fakhri Al Fatah',
   },
   {
-    image: (profile),
+    image: (profile3),
     label: 'Hamdani Abdullah',
     value: 'Hamdani Abdullah',
   },
@@ -29,7 +56,6 @@ const data = [
 // !important: Forwarding ref is required
 const SelectItem = forwardRef(
   ({ image, label, ...others }, ref) => {
-    console.log(image, label)
     return (
     <div ref={ref} {...others}>
       <Group noWrap>
@@ -47,17 +73,18 @@ const SelectItem = forwardRef(
 function InputMember() {
   return (
     <MultiSelect
-      zIndex={9999}
       size="sm"
+      sx={() => ({ flex: 1 })}
+      zIndex={9999}
       placeholder="Pick member"
-      itemComponent={SelectItem}
       data={data}
+      itemComponent={SelectItem}
       searchable
-      nothingFound="Nobody here"
-      filter={(value, selected, item) =>
-        !selected &&
-        (item.label.toLowerCase().includes(value.toLowerCase().trim()))
-      }
+      valueComponent={Value}
+      // filter={(value, selected, item) =>
+      //   !selected &&
+      //   (item.label.toLowerCase().includes(value.toLowerCase().trim()))
+      // }
     />
   );
 }

@@ -11,10 +11,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.25.0",
     "bootstrap": "^5.1.3",
-<<<<<<< HEAD
     "dayjs": "^1.10.7",
-=======
->>>>>>> development
     "formik": "^2.2.9",
     "moment": "^2.29.1",
     "react": "^17.0.2",
@@ -24,18 +21,12 @@
     "react-router": "^6.2.1",
     "react-router-dom": "^6.2.1",
     "react-scripts": "^5.0.0",
-<<<<<<< HEAD
     "react-select": "^5.2.2",
-=======
->>>>>>> development
     "react-toastify": "^8.1.1",
     "redux": "^4.1.2",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.1",
-<<<<<<< HEAD
     "select": "^1.1.2",
-=======
->>>>>>> development
     "swiper": "^8.0.2",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"

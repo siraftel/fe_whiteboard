@@ -3,7 +3,8 @@ import { DatePicker } from '@mantine/dates';
 
 function InputDate() {
   const [value, onChange] = useState(new Date());
-  return <DatePicker 
+  return   <DatePicker 
+            sx={() => ({ flex: 1 })}
             zIndex={9999}
             value={value}
             inputFormat="DD/MM/YYYY"
@@ -11,5 +12,10 @@ function InputDate() {
             placeholder="e.g. 27/02/2022  DD/MM/YYYY"
         />;
 }
+
+// function  InputDate() {
+//   const [value, onChange] = useState(new Date());
+//   return <DatePicker value={value} onChange={onChange} />;
+// }
 
 export default InputDate;
