@@ -3,7 +3,7 @@ import { Formik } from "formik";
 import style from "../Styling/Pages/FormRegister.module.css";
 import Logo from "../Assets/Logos/Grey Logo.png";
 import Right from "../Assets/Icons/right blue.png";
-export default function Login() {
+export default function Register() {
   return (
     <div>
       <nav className={style.nav}>

@@ -1,0 +1,359 @@
+.main_container {
+  display: flex;
+}
+.content_wrapper {
+  border-top: 5px solid var(--redS);
+  height: auto;
+}
+.left_container {
+  display: flex;
+  align-items: center;
+}
+.team_name {
+  margin-left: 2%;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #e1e1e1;
+}
+.title3 {
+  font-style: bold;
+  font-size: 31pt;
+  line-height: 40.3pt;
+  font-weight: 700;
+  margin-bottom: 1%;
+  display: flex;
+  align-items: center;
+  gap: 1%;
+  padding-left: 2%;
+  padding-top: 3%;
+}
+.link_container {
+  margin-bottom: 5%;
+  display: flex;
+  align-items: center;
+}
+.team_icon_container {
+  background-color: var(--red);
+  width: auto;
+  height: 30px;
+  width: 30px;
+  box-sizing: content-box;
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  justify-content: center;
+  margin-left: 1%;
+}
+.team_icon {
+  height: 10pt;
+  width: auto;
+}
+.link3 {
+  font-style: bold underline;
+  font-size: 12pt;
+  line-height: 18pt;
+  font-weight: 700;
+  margin-left: clamp(0px, 5px, 10px);
+  color: var(--grey1);
+}
+.link4 {
+  font-style: bold underline;
+  font-size: 11pt;
+  color: var(--grey1);
+  line-height: 15pt;
+  margin-right: clamp(0px, 5px, 10px);
+}
+.header_right_container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10%;
+  margin-bottom: 2%;
+}
+.team_member_container {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+}
+.detail_box {
+  background-color: white;
+  padding: 15px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  margin-bottom: 20px;
+  width: 90%;
+}
+.todo_profile_picture {
+  width: 32px;
+  height: 32px;
+}
+.leftover {
+  width: 32px;
+  height: 32px;
+  background-color: var(--grey2);
+  font-size: 16pt;
+  font-style: bold;
+  border-radius: 50%;
+  color: var(--grey1);
+  border: 1px solid #ffffff;
+}
+.invite_button {
+  background-color: none;
+  border: none;
+  background-color: var(--darkBlueS);
+  color: var(--darkBlue);
+  width: 100px;
+  height: 45px;
+  border-radius: 35px;
+  transition-duration: 0.8s;
+  border: none;
+  font-size: 16px;
+}
+.multiple_container {
+  padding-left: 2%;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overscroll-behavior: contain;
+  gap: 1%;
+}
+.todo_header {
+  display: flex;
+  justify-content: flex-start;
+  gap: 5%;
+  border-bottom: solid var(--grey2) 2px;
+  margin-bottom: 8px;
+  width: 90%;
+  padding-top: 10%;
+  padding-left: 5%;
+}
+.content_column {
+  width: 250px;
+  background-color: var(--lightGrey2);
+  margin-top: 1%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.todo_button {
+  border: none;
+  background-color: var(--lightGrey1);
+  width: 50px;
+  height: 20px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.box_header {
+  display: flex;
+  flex-direction: column;
+}
+.category_container {
+  background-color: var(--redS);
+  margin-top: auto;
+  margin-bottom: 3%;
+  width: fit-content;
+  border-radius: 5px;
+}
+.box_category {
+  padding: 0 15px 0 15px;
+  font-style: none;
+  font-size: 11pt;
+  line-height: 15pt;
+}
+.title_container {
+  width: fit-content;
+  height: auto;
+  margin-bottom: 12%;
+}
+.box_footer {
+  display: flex;
+  justify-content: space-between;
+}
+.left_footer {
+  width: auto;
+}
+.right_footer {
+  width: auto;
+}
+.todo_attach {
+  margin-right: 10px;
+}
+.todo_profile_picture {
+  margin-left: 8px;
+}
+.invite_popover_header {
+  font-style: none;
+  font-size: 12pt;
+  line-height: 18pt;
+  background-color: var(--darkBlueS);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.invite_popover_body {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.popover_invite {
+  min-width: 409px !important;
+  min-height: 315px !important;
+}
+.invite_input_container {
+  width: 100%;
+}
+.invite_input {
+  width: 100%;
+  padding: 1%;
+  font-style: none;
+  font-size: 12pt;
+  line-height: 18pt;
+  border: 1px solid var(--darkBlue);
+  box-sizing: border-box;
+  border-radius: 3px;
+}
+.invite_with_link {
+  font-style: none;
+  font-size: 11pt;
+  line-height: 15pt;
+}
+.invite_body3 {
+  color: var(--grey1);
+  font-style: none;
+  font-size: 14pt;
+  line-height: 21pt;
+  font-weight: 400;
+}
+.create_link_invite_container {
+  margin-top: 2%;
+}
+.create_link_invite {
+  font-style: bold underline;
+  font-size: 14pt;
+  line-height: 21pt;
+  color: var(--darkBlue);
+  font-weight: 700;
+}
+.send_invitation_button {
+  background-color: var(--darkBlue);
+  color: white;
+  width: 100%;
+  height: 45px;
+  border-radius: 35px;
+  transition-duration: 0.8s;
+  border: none;
+  font-weight: 700;
+  margin-top: 20%;
+}
+.add_todo {
+  border: none;
+  background-color: none;
+  display: flex;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+  color: var(--grey1);
+  text-align: center;
+}
+.column_new_board {
+  background-color: var(--darkBlueS);
+  border: 1.5px dashed #4859ef;
+  border-radius: 4px;
+  width: 350px;
+  height: 98px;
+  display: flex;
+  flex-direction: column;
+  margin: 1%;
+  align-items: center;
+  justify-content: center;
+}
+.image_container {
+  padding-top: 20%;
+  padding-bottom: 3%;
+}
+.plus_button {
+  border: none;
+  background-color: none;
+}
+.text_container {
+  padding-bottom: 17%;
+}
+.modal_title {
+  color: var(--grey1);
+  font-style: none;
+  font-size: 16pt;
+  line-height: 24pt;
+}
+.modal_header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cancel_button {
+  background-color: var(--darkBlueS);
+  color: var(--darkBlue);
+  width: 20%;
+  height: 45px;
+  border-radius: 35px;
+  transition-duration: 0.8s;
+  border: none;
+}
+.cancel_button:hover,
+.save_button:hover {
+  background: #f2d555;
+  color: black;
+}
+.save_button {
+  background-color: var(--darkBlue);
+  color: white;
+  width: 20%;
+  height: 45px;
+  border-radius: 35px;
+  transition-duration: 0.8s;
+  border: none;
+}
+.box_hover_button {
+  font-size: larger;
+  border: none;
+  background-color: white;
+  width: 15%;
+  border-radius: 5px;
+}
+.box_hover_button:active,
+:focus {
+  background-color: var(--lightGrey1);
+}
+.box_hover_button:hover {
+  background-color: var(--grey2);
+}
+.box_header_content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.popover_card_body {
+  display: flex;
+  background-color: none;
+  flex-direction: column;
+  width: 164px;
+  height: 164px;
+  gap: 8%;
+  padding: 2%;
+}
+
+.card_hovered_button {
+  background: none;
+  border: none;
+  margin-top: 10px;
+  padding-right: 10px;
+  display: flex;
+  gap: 5%;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 12px;
+}
+.card_hovered_img {
+  height: 14px;
+  width: 14px;
+}

@@ -1,6 +1,15 @@
 import React from "react";
-import { Container, Nav, Navbar, NavDropdown, Button, Col, Row, Carousel } from "react-bootstrap";
-import Logo from "../Assets/Logos/Grey Logo.png";
+import {
+  Container,
+  Nav,
+  Navbar,
+  NavDropdown,
+  Button,
+  Col,
+  Row,
+  Carousel,
+} from "react-bootstrap";
+import Logo from "../Assets/Logos/GreyLogo.png";
 import SignUp from "../Assets/Icons/right white.png";
 import Learn from "../Assets/Icons/right blue.png";
 import Sally from "../Assets/Images/Group 32.png";
@@ -18,6 +27,7 @@ import dell from "../Assets/Logos/dell.png";
 import deloite from "../Assets/Logos/deloitte.png";
 import hawlett from "../Assets/Logos/Hawlett.png";
 import sales_force from "../Assets/Logos/sales_force.png";
+import Icons from "../Components/ShareComponent/Sidebar/Icons";
 export default function Homepage() {
   return (
     <>
@@ -27,14 +37,14 @@ export default function Homepage() {
             <img src={Logo} alt="Logo" />
           </Navbar.Brand>
           <Nav>
-            <NavDropdown title="Products" menuVariant="light">
+            <NavDropdown className={style.NavDropdown} title="Products" menuVariant="light">
               <NavDropdown.Item href="/">Item 1</NavDropdown.Item>
               <NavDropdown.Item href="/">Item 2</NavDropdown.Item>
               <NavDropdown.Item href="/">Item 3</NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Nav>
-            <NavDropdown title="Supports" menuVariant="light">
+            <NavDropdown className={style.NavDropdown} title="Supports" menuVariant="light">
               <NavDropdown.Item href="/">Item 1</NavDropdown.Item>
               <NavDropdown.Item href="/">Item 2</NavDropdown.Item>
               <NavDropdown.Item href="/">Item 3</NavDropdown.Item>
@@ -42,19 +52,21 @@ export default function Homepage() {
           </Nav>
         </Container>
         <Container className="d-flex align-items-center justify-content-end">
+          <Icons variant="purple" />
           <Nav.Link href="/">Log In</Nav.Link>
           <Button className={style.btn_SignUp} variant="SignUp">
             Sign up free <img src={SignUp} alt="Button" />
           </Button>
         </Container>
       </Navbar>
-      <div className="d-flex align-items-center justify-content-center flex-column">
+      <div className={style.hero}>
         <h1 className="text-center">
           Where distributed <br />
           teams <span className="text-primary">get work done</span> ✨
         </h1>
         <p className="text-center">
-          The online collaborative to-do list platform to <br /> bring teams together, anytime, anywhere.
+          The online collaborative to-do list platform to <br /> bring teams
+          together, anytime, anywhere.
         </p>
         <Button className={style.btn_board} variant="board">
           Start a board <img src={SignUp} alt="Button" />{" "}
@@ -62,33 +74,39 @@ export default function Homepage() {
       </div>
       <div className={style.mainHomepage}>
         <Container>
-          <Row className="d-flex align-items-center justify-content-center">
+          <Row className={style.imageHero} d-flex align-items-center justify-content-center>
             <Col>
               <h3>Work with any team</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing <br /> elit. Quisque eget pretium augue, quis ornare nisl. <br /> Lorem ipsum dolor sit amet, consectetur adipiscing.
+                Lorem ipsum dolor sit amet, consectetur adipiscing <br /> elit.
+                Quisque eget pretium augue, quis ornare nisl. <br /> Lorem ipsum
+                dolor sit amet, consectetur adipiscing.
               </p>
               <a href="http://">
-                Learn more about Whiteboard board <img src={Learn} alt="Linkto" />
+                Learn more about Whiteboard board{" "}
+                <img src={Learn} alt="Linkto" />
               </a>
             </Col>
             <Col>
-              <img src={Sally} alt="WorkWithTeam" />
+              <img className={style.imageMain} src={Sally} alt="WorkWithTeam" />
             </Col>
           </Row>
         </Container>
         <Container>
           <Row className="d-flex align-items-center justify-content-center">
             <Col>
-              <img src={saly24} alt="WorkWithHand" />
+              <img className={style.imageMain} src={saly24} alt="WorkWithHand" />
             </Col>
             <Col>
               <h3>Information at glance</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing <br /> elit. Quisque eget pretium augue, quis ornare nisl. <br /> Lorem ipsum dolor sit amet, consectetur adipiscing.
+                Lorem ipsum dolor sit amet, consectetur adipiscing <br /> elit.
+                Quisque eget pretium augue, quis ornare nisl. <br /> Lorem ipsum
+                dolor sit amet, consectetur adipiscing.
               </p>
               <a href="http://">
-                Learn more about Whiteboard board <img src={Learn} alt="Linkto" />
+                Learn more about Whiteboard board{" "}
+                <img src={Learn} alt="Linkto" />
               </a>
             </Col>
           </Row>
@@ -96,19 +114,22 @@ export default function Homepage() {
             <Col>
               <h3>Built-in workflow</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing <br /> elit. Quisque eget pretium augue, quis ornare nisl. <br /> Lorem ipsum dolor sit amet, consectetur adipiscing.
+                Lorem ipsum dolor sit amet, consectetur adipiscing <br /> elit.
+                Quisque eget pretium augue, quis ornare nisl. <br /> Lorem ipsum
+                dolor sit amet, consectetur adipiscing.
               </p>
               <a href="http://">
-                Learn more about Whiteboard board <img src={Learn} alt="Linkto" />
+                Learn more about Whiteboard board{" "}
+                <img src={Learn} alt="Linkto" />
               </a>
             </Col>
             <Col>
-              <img src={saly5} alt="WorkWithBycicle" />
+              <img className={style.imageHeroDown} src={saly5} alt="WorkWithBycicle" />
             </Col>
           </Row>
         </Container>
       </div>
-      <Container>
+      <Container className={style.containerDown}>
         <Row className="d-flex align-items-center justify-content-center">
           <Col className="d-flex align-items-center justify-content-center flex-column">
             <h1 className="text-center">Whiteboard your way</h1>
@@ -124,7 +145,8 @@ export default function Homepage() {
             <p className="text-center">
               <span>Light & Fast</span>
               <br />
-              Lorem ipsum dolor sit amet, <br /> consectetur adipiscing elit. Quisque{" "}
+              Lorem ipsum dolor sit amet, <br /> consectetur adipiscing elit.
+              Quisque{" "}
             </p>
           </Col>
           <Col className="d-flex align-items-center justify-content-center flex-column">
@@ -132,7 +154,8 @@ export default function Homepage() {
             <p className="text-center">
               <span>All-in-one</span>
               <br />
-              Lorem ipsum dolor sit amet, <br /> consectetur adipiscing elit. Quisque{" "}
+              Lorem ipsum dolor sit amet, <br /> consectetur adipiscing elit.
+              Quisque{" "}
             </p>
           </Col>
           <Col className="d-flex align-items-center justify-content-center flex-column">
@@ -140,7 +163,8 @@ export default function Homepage() {
             <p className="text-center">
               <span>Easy Monitoring </span>
               <br />
-              Lorem ipsum dolor sit amet, <br /> consectetur adipiscing elit. Quisque{" "}
+              Lorem ipsum dolor sit amet, <br /> consectetur adipiscing elit.
+              Quisque{" "}
             </p>
           </Col>
         </Row>
@@ -154,25 +178,36 @@ export default function Homepage() {
                 with confidence
               </h1>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing <br /> elit. Quisque eget pretium augue, quis ornare nisl. <br /> Lorem ipsum dolor sit amet, consectetur adipiscing.
+                Lorem ipsum dolor sit amet, consectetur adipiscing <br /> elit.
+                Quisque eget pretium augue, quis ornare nisl. <br /> Lorem ipsum
+                dolor sit amet, consectetur adipiscing.
               </p>
               <a href="http://">
-                Learn more about Whiteboard board <img src={Learn} alt="Linkto" />
+                Learn more about Whiteboard board{" "}
+                <img src={Learn} alt="Linkto" />
               </a>
             </Col>
             <Col>
-              <img className={style.sallyDesk} src={saly10} alt="WorkWithDesk" />
+              <img
+                className={style.sallyDesk}
+                src={saly10}
+                alt="WorkWithDesk"
+              />
             </Col>
           </Row>
         </Container>
       </div>
-      <Carousel variant="dark">
+      <Carousel className={style.containerCarouselUp} variant="dark">
         <Carousel.Item className={style.containerCarousel}>
           <div className={style.carouselImage}>
             <img className={style.cobaCara} src={dell} alt="Second slide" />
             <img className={style.cobaCara} src={deloite} alt="Second slide" />
             <img className={style.cobaCara} src={hawlett} alt="Second slide" />
-            <img className={style.cobaCara} src={sales_force} alt="Second slide" />
+            <img
+              className={style.cobaCara}
+              src={sales_force}
+              alt="Second slide"
+            />
             <img className={style.cobaCara} src={cisco} alt="Second slide" />
           </div>
           <Carousel.Caption className={style.carouselCaption}>
@@ -182,10 +217,14 @@ export default function Homepage() {
         </Carousel.Item>
         <Carousel.Item className={style.containerCarousel}>
           <div className={style.carouselImage}>
-            <img className={style.cobaCara} src={dell} alt="third slide" />
             <img className={style.cobaCara} src={deloite} alt="third slide" />
+            <img className={style.cobaCara} src={dell} alt="third slide" />
             <img className={style.cobaCara} src={hawlett} alt="third slide" />
-            <img className={style.cobaCara} src={sales_force} alt="third slide" />
+            <img
+              className={style.cobaCara}
+              src={sales_force}
+              alt="third slide"
+            />
             <img className={style.cobaCara} src={cisco} alt="third slide" />
           </div>
           <Carousel.Caption className={style.carouselCaption}>
@@ -196,66 +235,99 @@ export default function Homepage() {
       </Carousel>
       <div className={style.footer}>
         <Row>
-          <Col className="d-flex align-items-center justify-content-center flex-column">
+          <Col className={style.footerUp}>
             <h1>Join over 10 million users</h1> <p>Start planning today – Save time, stay focused and work smarter with Whiteboard</p>
             <Button className={style.btn_board} variant="board">
               Get Started – It’s FREE <img src={SignUp} alt="Button" />
             </Button>
           </Col>
         </Row>
-        <Container>
+        <Container className={style.linkFooter}>
           <Row>
             <Col>
               <h2>Product</h2>
-              <ul>
-                <li>
-                  <a href="http://">Our Whiteboard</a>
+              <ul className={style.products}>
+                <li className={style.linkFooterLI}>
+                  <a className={style.linkFooterA} href="http://">
+                    Our Whiteboard
+                  </a>
                 </li>
-                <li>
-                  <a href="http://">Templates</a>
+                <li className={style.linkFooterLI}>
+                  <a className={style.linkFooterA} href="http://">
+                    Templates
+                  </a>
                 </li>
-                <li>
-                  <a href="http://">Slack Integration</a>
+                <li className={style.linkFooterLI}>
+                  <a className={style.linkFooterA} href="http://">
+                    Slack Integration
+                  </a>
                 </li>
-                <li>
-                  <a href="http://">Dropbox Integration</a>
+                <li className={style.linkFooterLI}>
+                  <a className={style.linkFooterA} href="http://">
+                    Dropbox Integration
+                  </a>
                 </li>
               </ul>
             </Col>
             <Col>
               <h2>Company</h2>
-              <ul>
-                <li>
-                  <a href="http://">About</a>
+              <ul className={style.products}>
+                <li className={style.linkFooterLI}>
+                  <a className={style.linkFooterA} href="http://">
+                    About
+                  </a>
                 </li>
-                <li>
-                  <a href="http://">Careers</a>
+                <li className={style.linkFooterLI}>
+                  <a className={style.linkFooterA} href="http://">
+                    Careers
+                  </a>
                 </li>
               </ul>
             </Col>
             <Col>
               <h2>Support</h2>
-              <ul>
-                <li>
-                  <a href="http://">Help Center</a>
+              <ul className={style.products}>
+                <li className={style.linkFooterLI}>
+                  <a className={style.linkFooterA} href="http://">
+                    Help Center
+                  </a>
                 </li>
-                <li>
-                  <a href="http://">FAQ</a>
+                <li className={style.linkFooterLI}>
+                  <a className={style.linkFooterA} href="http://">
+                    FAQ
+                  </a>
                 </li>
-                <li>
-                  <a href="http://">Contact Us</a>
+                <li className={style.linkFooterLI}>
+                  <a className={style.linkFooterA} href="http://">
+                    Contact Us
+                  </a>
                 </li>
               </ul>
             </Col>
             <Col xs={5} className={style.cobaFooter}>
-              <svg width="120" height="20" viewBox="0 0 120 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M15.3103 7.53569L12.9433 14.7197L10.6769 7.53569H7.75588L5.48955 14.7197L3.1225 7.53569H0L4.07939 18.8392H6.89972L9.21641 11.5547L11.5331 18.8392H14.3534L18.4328 7.53569H15.3103Z" fill="white" />
+              <svg
+                width="120"
+                height="20"
+                viewBox="0 0 120 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15.3103 7.53569L12.9433 14.7197L10.6769 7.53569H7.75588L5.48955 14.7197L3.1225 7.53569H0L4.07939 18.8392H6.89972L9.21641 11.5547L11.5331 18.8392H14.3534L18.4328 7.53569H15.3103Z"
+                  fill="white"
+                />
                 <path
                   d="M29.7751 11.7054C29.7751 8.867 27.3073 7.03331 24.8143 7.03331C23.8071 7.03331 22.7243 7.30962 21.9688 8.11343V0H18.9471V18.8392H21.9688V12.1073C21.9688 10.8514 23.0768 9.74616 24.487 9.74616C25.8216 9.74616 26.7533 10.6253 26.7533 11.831V18.8392H29.7751V11.7054Z"
                   fill="white"
                 />
-                <path d="M35.0711 0H32.0493V3.26547H35.0711V0ZM35.0711 7.53569H32.0493V18.8392H35.0711V7.53569Z" fill="white" />
-                <path d="M43.375 7.53569H41.3605V0H38.3387V7.53569H36.3242V10.1732H38.3387V18.8392H41.3605V10.1732H43.375V7.53569Z" fill="white" />
+                <path
+                  d="M35.0711 0H32.0493V3.26547H35.0711V0ZM35.0711 7.53569H32.0493V18.8392H35.0711V7.53569Z"
+                  fill="white"
+                />
+                <path
+                  d="M43.375 7.53569H41.3605V0H38.3387V7.53569H36.3242V10.1732H38.3387V18.8392H41.3605V10.1732H43.375V7.53569Z"
+                  fill="white"
+                />
                 <path
                   d="M56.4655 13.1875C56.4655 9.7964 53.6955 7.03331 50.296 7.03331C46.8965 7.03331 44.1265 9.7964 44.1265 13.1875C44.1265 16.5785 46.8965 19.3416 50.296 19.3416C52.5875 19.3416 54.5768 18.1108 55.6345 16.2771L53.0911 14.77C52.5875 15.9254 51.5299 16.7041 50.296 16.7041C48.9614 16.7041 47.8282 15.7747 47.375 14.4685H56.3395C56.4151 14.0666 56.4655 13.6396 56.4655 13.1875ZM47.4001 11.831C47.8786 10.55 48.9866 9.67081 50.296 9.67081C51.6054 9.67081 52.7134 10.5751 53.1919 11.831H47.4001Z"
                   fill="white"
