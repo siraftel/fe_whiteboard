@@ -4,26 +4,18 @@ import Home from "../../../Assets/Icons/home default.png";
 import Clipboard from "../../../Assets/Icons/clipboard.png";
 import Tasks from "../../../Assets/Icons/checklist.png";
 import Plus from "../../../Assets/Icons/plus.png";
-import Right from "../../../Assets/Icons/Sidebar left.png";
 import Icons from "./Icons";
 import { Modal, FormControl } from "react-bootstrap";
-export default function Sidebar() {
-  const [sidebarLogic, setSidebarLogic] = useState(true);
+export default function SidebarStatic() {
   const [show, setShow] = useState(false);
 
   // setSidebarLogic =
-  const handleSidebarClick = () => {
-    setSidebarLogic(!sidebarLogic);
-  };
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   return (
     <>
-      <aside className={[sidebarLogic ? style.sidebar : style.offSidebar]}>
-        <button className={style.btn_iconSidebar} onClick={handleSidebarClick}>
-          <img src={Right} alt="SidebarImages" />
-        </button>
+      <aside className={style.sidebar}>
         <div className={style.hideSidebar}>
           <ul className={style.unListSidebar}>
             <li className={style.listSidebar}>
