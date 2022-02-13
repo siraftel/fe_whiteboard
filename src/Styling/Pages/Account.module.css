@@ -1,0 +1,63 @@
+/* .bodyAccount {
+  background-color: var(--grey2);
+  width: 100%;
+  height: 100%;
+} */
+.account {
+  background-color: aqua;
+  margin: auto;
+  width: 70%;
+  height: 100%;
+  border: var(--grey2) solid 1px;
+}
+.Line {
+  margin-bottom: 2%;
+  width: 90%;
+  margin: auto;
+  height: 1px;
+  background-color: gray;
+}
+.accountPict {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.accountNameRole {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5%;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.accountIndustryCompany {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2%;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.containerEmail {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: 1% auto 1% auto;
+}
+.accountImage {
+  width: 150px;
+  height: 150px;
+  /* position: absolute; */
+  border: var(--grey2) solid 1px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.Image {
+  position: relative;
+  right: 60px;
+}
+.NavDropdown {
+  background-color: red;
+  padding: 1px 40px;
+  border-radius: 12px;
+}

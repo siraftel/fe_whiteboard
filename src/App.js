@@ -1,7 +1,9 @@
 import "./App.css";
 // import TodoList from "../src/Components/Assets/Todo";
 // import Sidebar from "../src/Components/ShareComponent/Sidebar/Sidebar";
-import Task from "../src/Pages/Task";
+// import Task from "../src/Pages/Task";
+// import Boards from "../src/Pages/Boards";
+import Account from "../src/Pages/Account";
 // import Homepage from "../src/Pages/Homepage";
 // import Login from "../src/Pages/Login";
 // import Register from "../src/Pages/Register";
@@ -10,9 +12,11 @@ import Task from "../src/Pages/Task";
 function App() {
   return (
     <div>
-      <Task />
+      {/* <Task /> */}
+      {/* <Boards /> */}
       {/* <Homepage /> */}
       {/* <Sidebar /> */}
+      <Account />
       {/* <Home /> */}
       {/* <TodoList /> */}
       {/* <Login /> */}

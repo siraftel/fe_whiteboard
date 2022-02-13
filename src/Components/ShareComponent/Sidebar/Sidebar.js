@@ -99,7 +99,7 @@ export default function Sidebar() {
           <p className={style.modal_title}>Create Team</p>
         </Modal.Header>
         <Modal.Body>
-          <FormControl placeholder="Board Name" aria-label="Board Name" aria-describedby="basic-addon1" />
+          <FormControl placeholder="Team Name" aria-label="Team Name" aria-describedby="basic-addon1" />
         </Modal.Body>
         <Modal.Footer>
           <button className={style.cancel_button} onClick={handleClose}>
