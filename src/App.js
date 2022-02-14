@@ -1,4 +1,5 @@
 import "./App.css";
+// import Modals from "./Components/Modals/Modals";
 // import TodoList from "../src/Components/Assets/Todo";
 // import Sidebar from "../src/Components/ShareComponent/Sidebar/Sidebar";
 // import Task from "../src/Pages/Task";
