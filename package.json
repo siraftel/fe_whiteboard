@@ -21,10 +21,13 @@
     "react-router": "^6.2.1",
     "react-router-dom": "^6.2.1",
     "react-scripts": "^5.0.0",
+    "react-select": "^5.2.2",
     "react-toastify": "^8.1.1",
     "redux": "^4.1.2",
     "redux-devtools-extension": "^2.13.9",
+    "redux-persist": "^6.0.0",
     "redux-thunk": "^2.4.1",
+    "select": "^1.1.2",
     "swiper": "^8.0.2",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"
