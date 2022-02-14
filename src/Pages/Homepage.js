@@ -27,6 +27,7 @@ import dell from "../Assets/Logos/dell.png";
 import deloite from "../Assets/Logos/deloitte.png";
 import hawlett from "../Assets/Logos/Hawlett.png";
 import sales_force from "../Assets/Logos/sales_force.png";
+import Icons from "../Components/ShareComponent/Sidebar/Icons";
 export default function Homepage() {
   return (
     <>
@@ -36,14 +37,14 @@ export default function Homepage() {
             <img src={Logo} alt="Logo" />
           </Navbar.Brand>
           <Nav>
-            <NavDropdown title="Products" menuVariant="light">
+            <NavDropdown className={style.NavDropdown} title="Products" menuVariant="light">
               <NavDropdown.Item href="/">Item 1</NavDropdown.Item>
               <NavDropdown.Item href="/">Item 2</NavDropdown.Item>
               <NavDropdown.Item href="/">Item 3</NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Nav>
-            <NavDropdown title="Supports" menuVariant="light">
+            <NavDropdown className={style.NavDropdown} title="Supports" menuVariant="light">
               <NavDropdown.Item href="/">Item 1</NavDropdown.Item>
               <NavDropdown.Item href="/">Item 2</NavDropdown.Item>
               <NavDropdown.Item href="/">Item 3</NavDropdown.Item>
@@ -51,13 +52,14 @@ export default function Homepage() {
           </Nav>
         </Container>
         <Container className="d-flex align-items-center justify-content-end">
+          <Icons variant="purple" />
           <Nav.Link href="/">Log In</Nav.Link>
           <Button className={style.btn_SignUp} variant="SignUp">
             Sign up free <img src={SignUp} alt="Button" />
           </Button>
         </Container>
       </Navbar>
-      <div className="d-flex align-items-center justify-content-center flex-column">
+      <div className={style.hero}>
         <h1 className="text-center">
           Where distributed <br />
           teams <span className="text-primary">get work done</span> ✨
@@ -72,7 +74,7 @@ export default function Homepage() {
       </div>
       <div className={style.mainHomepage}>
         <Container>
-          <Row className="d-flex align-items-center justify-content-center">
+          <Row className={style.imageHero} d-flex align-items-center justify-content-center>
             <Col>
               <h3>Work with any team</h3>
               <p>
@@ -86,14 +88,14 @@ export default function Homepage() {
               </a>
             </Col>
             <Col>
-              <img src={Sally} alt="WorkWithTeam" />
+              <img className={style.imageMain} src={Sally} alt="WorkWithTeam" />
             </Col>
           </Row>
         </Container>
         <Container>
           <Row className="d-flex align-items-center justify-content-center">
             <Col>
-              <img src={saly24} alt="WorkWithHand" />
+              <img className={style.imageMain} src={saly24} alt="WorkWithHand" />
             </Col>
             <Col>
               <h3>Information at glance</h3>
@@ -122,12 +124,12 @@ export default function Homepage() {
               </a>
             </Col>
             <Col>
-              <img src={saly5} alt="WorkWithBycicle" />
+              <img className={style.imageHeroDown} src={saly5} alt="WorkWithBycicle" />
             </Col>
           </Row>
         </Container>
       </div>
-      <Container>
+      <Container className={style.containerDown}>
         <Row className="d-flex align-items-center justify-content-center">
           <Col className="d-flex align-items-center justify-content-center flex-column">
             <h1 className="text-center">Whiteboard your way</h1>
@@ -195,7 +197,7 @@ export default function Homepage() {
           </Row>
         </Container>
       </div>
-      <Carousel variant="dark">
+      <Carousel className={style.containerCarouselUp} variant="dark">
         <Carousel.Item className={style.containerCarousel}>
           <div className={style.carouselImage}>
             <img className={style.cobaCara} src={dell} alt="Second slide" />
@@ -215,8 +217,8 @@ export default function Homepage() {
         </Carousel.Item>
         <Carousel.Item className={style.containerCarousel}>
           <div className={style.carouselImage}>
-            <img className={style.cobaCara} src={dell} alt="third slide" />
             <img className={style.cobaCara} src={deloite} alt="third slide" />
+            <img className={style.cobaCara} src={dell} alt="third slide" />
             <img className={style.cobaCara} src={hawlett} alt="third slide" />
             <img
               className={style.cobaCara}
@@ -233,58 +235,72 @@ export default function Homepage() {
       </Carousel>
       <div className={style.footer}>
         <Row>
-          <Col className="d-flex align-items-center justify-content-center flex-column">
-            <h1>Join over 10 million users</h1>{" "}
-            <p>
-              Start planning today – Save time, stay focused and work smarter
-              with Whiteboard
-            </p>
+          <Col className={style.footerUp}>
+            <h1>Join over 10 million users</h1> <p>Start planning today – Save time, stay focused and work smarter with Whiteboard</p>
             <Button className={style.btn_board} variant="board">
               Get Started – It’s FREE <img src={SignUp} alt="Button" />
             </Button>
           </Col>
         </Row>
-        <Container>
+        <Container className={style.linkFooter}>
           <Row>
             <Col>
               <h2>Product</h2>
-              <ul>
-                <li>
-                  <a href="http://">Our Whiteboard</a>
+              <ul className={style.products}>
+                <li className={style.linkFooterLI}>
+                  <a className={style.linkFooterA} href="http://">
+                    Our Whiteboard
+                  </a>
                 </li>
-                <li>
-                  <a href="http://">Templates</a>
+                <li className={style.linkFooterLI}>
+                  <a className={style.linkFooterA} href="http://">
+                    Templates
+                  </a>
                 </li>
-                <li>
-                  <a href="http://">Slack Integration</a>
+                <li className={style.linkFooterLI}>
+                  <a className={style.linkFooterA} href="http://">
+                    Slack Integration
+                  </a>
                 </li>
-                <li>
-                  <a href="http://">Dropbox Integration</a>
+                <li className={style.linkFooterLI}>
+                  <a className={style.linkFooterA} href="http://">
+                    Dropbox Integration
+                  </a>
                 </li>
               </ul>
             </Col>
             <Col>
               <h2>Company</h2>
-              <ul>
-                <li>
-                  <a href="http://">About</a>
+              <ul className={style.products}>
+                <li className={style.linkFooterLI}>
+                  <a className={style.linkFooterA} href="http://">
+                    About
+                  </a>
                 </li>
-                <li>
-                  <a href="http://">Careers</a>
+                <li className={style.linkFooterLI}>
+                  <a className={style.linkFooterA} href="http://">
+                    Careers
+                  </a>
                 </li>
               </ul>
             </Col>
             <Col>
               <h2>Support</h2>
-              <ul>
-                <li>
-                  <a href="http://">Help Center</a>
+              <ul className={style.products}>
+                <li className={style.linkFooterLI}>
+                  <a className={style.linkFooterA} href="http://">
+                    Help Center
+                  </a>
                 </li>
-                <li>
-                  <a href="http://">FAQ</a>
+                <li className={style.linkFooterLI}>
+                  <a className={style.linkFooterA} href="http://">
+                    FAQ
+                  </a>
                 </li>
-                <li>
-                  <a href="http://">Contact Us</a>
+                <li className={style.linkFooterLI}>
+                  <a className={style.linkFooterA} href="http://">
+                    Contact Us
+                  </a>
                 </li>
               </ul>
             </Col>
