@@ -102,12 +102,12 @@ export default function Sidebar() {
           <FormControl placeholder="Team Name" aria-label="Team Name" aria-describedby="basic-addon1" />
         </Modal.Body>
         <Modal.Footer>
-          <button className={style.cancel_button} onClick={handleClose}>
+          {/* <button className={style.cancel_button} onClick={handleClose}>
             Cancel
           </button>
           <button className={style.save_button} onClick={handleClose}>
             Save
-          </button>
+          </button> */}
         </Modal.Footer>
       </Modal>
     </>
