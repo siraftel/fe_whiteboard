@@ -1024,7 +1024,7 @@ export default function TeamsDetail() {
                       src={check}
                       alt="checklist"
                     />
-                    <span className={style.finish_todo}>3/4</span>
+                    <span className={style.finish_todo}>3/5</span>
                   </div>
                   <div className={style.right_footer}>
                     <img

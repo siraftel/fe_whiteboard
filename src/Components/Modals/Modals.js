@@ -27,16 +27,16 @@ function Modals() {
         keyboard={false}
       >
         <Modal.Header closeButton>
-          <Modal.Title className="modal-title">
+          <Modal.Title className="modal_title">
             <div className="title">
               <p>Design Tasks | One by Meja Putih</p>
             </div>
-            <div className="btn-header">  
+            <div className="btn_header">  
               <a>
-                <img className="btn-download" src={download} />
+                <img className="btn_download" alt="button download" src={download} />
               </a>
               <a>
-                <img className="btn-share" src={share} />
+                <img className="btn_share" alt="button share" src={share} />
               </a>
             </div>
           </Modal.Title>
@@ -46,44 +46,44 @@ function Modals() {
         <Container>
           <Row>
             <Col xs={11} md={7}>
-              <InputGroup className="input-title" placeholder="Card Title" >
+              <InputGroup className="input_title" placeholder="Card Title" >
                 <FormControl aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Card Title" />
               </InputGroup>
-              <div className="description-section">
-                <p className="description-title">Description</p>
-                <Form.Group className="input-description" controlId="exampleForm.ControlTextarea1">
-                  <Form.Control as="textarea" rows={7} />
+              <div className="description_section">
+                <p className="description_title">Description</p>
+                <Form.Group className="input_description" controlId="exampleForm.ControlTextarea1">
+                  <Form.Control as="textarea" rows={6} />
                 </Form.Group>
-                <Button variant="light" className="btn-description cancel">Cancel</Button>
-                <Button variant="light" className="btn-description save">Save</Button>
+                <Button variant="light" className="btn_description cancel">Cancel</Button>
+                <Button variant="light" className="btn_description save">Save</Button>
               </div>
-              <div className="comment-section">
-                <p className="comment-title">Comments</p>
+              <div className="comment_section">
+                <p className="comment_title">Comments</p>
                 <div className="comment">
-                  <a className="profile-wrapper">
-                    <img className="image-profile" src={profile} />
+                  <a className="profile_wrapper">
+                    <img className="image_profile" src={profile} />
                   </a>
-                  <Form.Group className="input-comment" controlId="exampleForm.ControlTextarea1">
+                  <Form.Group className="input_comment" controlId="exampleForm.ControlTextarea1">
                     <Form.Control as="textarea" rows={2} />
                   </Form.Group>
                 </div>
-                <Button size="" variant="light" className="btn-description cancel">Cancel</Button>
-                <Button variant="light" className="btn-description save">Save</Button>
-                <div className="comment-wrapper">
+                <Button size="" variant="light" className="btn_description cancel">Cancel</Button>
+                <Button variant="light" className="btn_description save">Save</Button>
+                <div className="comment_wrapper">
                   <a>
-                    <img className="image-profile" src={profile} alt="image-profile"/>
+                    <img className="image_profile" src={profile} alt="image-profile"/>
                   </a>
-                  <p className="name-profile">Susi Susanti</p>
-                  <p className="date-comment">Wed, 27 Jan 2022 | 5:03 PM</p>
+                  <p className="name_profile">Susi Susanti</p>
+                  <p className="date_comment">Wed, 27 Jan 2022 | 5:03 PM</p>
                 </div>
-                <p className="this-comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. At corrupti ex facere quam animi, suscipit voluptatem obcaecati similique optio maxime illum natus</p>
+                <p className="this_comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. At corrupti ex facere quam animi, suscipit voluptatem obcaecati similique optio maxime illum natus</p>
               </div>
             </Col>
 
             <Col xs={7} md={5}>
               <DropdownButton 
                 color="grey" 
-                className="dropdown-button" 
+                className="dropdown_button" 
                 title="TO DO "
                 size="sm"
                 variant="light" >
@@ -91,19 +91,19 @@ function Modals() {
                   <Dropdown.Item href="#/action-2">TO DO 2</Dropdown.Item>
                   <Dropdown.Item href="#/action-3">TO DO 3</Dropdown.Item>
               </DropdownButton>
-              <div className="assign-member"> 
+              <div className="assign_member"> 
                 <p>Assign To</p>
                 <InputMember/>
               </div>
-              <div className="add-priority" >
+              <div className="add_priority" >
                 <p>Priority</p>
                 <InputPriority className="label" />
               </div>
-              <div className="add-date" >
+              <div className="add_date" >
                 <p>Due Date</p>
                 <InputDate />
               </div>
-              <div className="add-labels" >
+              <div className="add_labels" >
                 <p>labels</p>
                 <InputLabels />
               </div>

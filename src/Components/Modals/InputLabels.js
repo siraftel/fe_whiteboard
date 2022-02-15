@@ -17,7 +17,7 @@ function InputLabels() {
         <MultiSelect
         sx={() => ({ flex: 1 })}
         zIndex={9999}
-        maxSelectedValues={1}
+        // maxSelectedValues={1}
         data={data}
         placeholder="Pick label"
         />
