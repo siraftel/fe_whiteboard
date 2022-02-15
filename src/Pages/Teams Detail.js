@@ -5,6 +5,14 @@ import {
   FormControl,
   OverlayTrigger,
   PopoverBody,
+  Form,
+  Col,
+  Row,
+  Button,
+  Dropdown,
+  DropdownButton,
+  InputGroup,
+  Container,
 } from "react-bootstrap";
 import team from "../Assets/Icons/team.png";
 import profile from "../Assets/Icons/default pofile picture.png";
@@ -17,6 +25,8 @@ import archive from "../Assets/Icons/archive.png";
 import changePriority from "../Assets/Icons/change priority.png";
 import label from "../Assets/Icons/label.png";
 import assignTo from "../Assets/Icons/arrow right.png";
+import download from "../Assets/Icons/download.png"
+import share from "../Assets/Icons/share.png"
 
 import attach from "../Assets/Icons/attach.png";
 import check from "../Assets/Icons/check.png";
@@ -25,21 +35,30 @@ import todoPlus from "../Assets/Icons/plus.png";
 
 import UserNavbar from "../Components/ShareComponent/Navbar/NavbarIsLogin";
 import Sidebar from "../Components/ShareComponent/Sidebar/Sidebar";
+import InputMember from "../Components/Modals/InputMember"
+import InputPriority from "../Components/Modals/InputPriority";
+import InputDate from "../Components/Modals/InputDate";
+import InputLabels from "../Components/Modals/InputLabels";
 
 import { useState, useRef } from "react";
 import style from "../Styling/Pages/TeamsDetail.module.css";
 
 export default function TeamsDetail() {
-  //FOR MODALS
+  //FOR MODALS NEW BOARD
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  //FOR MODALS NEW CARD
+  const [showNewCard, setShowNewCard] = useState(false);
+  const handleCloseNewCard = () => setShowNewCard(false);
+  const handleShowNewCard = () => setShowNewCard(true);
 
   //FOR POPOVER INVIE
   const [showInvite, setShowInvite] = useState(false);
   const [targetInvite, setTargetInvite] = useState(null);
   const ref = useRef(null);
+
 
   const handleClickInvite = (event) => {
     setShowInvite(!showInvite);
@@ -375,7 +394,7 @@ export default function TeamsDetail() {
                   </div>
                 </div>
               </div>
-              <button className={style.add_todo}>
+              <button className={style.add_todo} onClick={handleShowNewCard} >
                 <img className={style.todo_plus} src={todoPlus} alt="Plus" />
                 <p className={style.add_todo_text}>Add New Card</p>
               </button>
@@ -426,7 +445,7 @@ export default function TeamsDetail() {
                   </div>
                 </div>
               </div>
-              <button className={style.add_todo}>
+              <button className={style.add_todo} onClick={handleShowNewCard}>
                 <img className={style.todo_plus} src={todoPlus} alt="Plus" />
                 <p className={style.add_todo_text}>Add New Card</p>
               </button>
@@ -477,7 +496,7 @@ export default function TeamsDetail() {
                   </div>
                 </div>
               </div>
-              <button className={style.add_todo}>
+              <button className={style.add_todo} onClick={handleShowNewCard}>
                 <img className={style.todo_plus} src={todoPlus} alt="Plus" />
                 <p className={style.add_todo_text}>Add New Card</p>
               </button>
@@ -528,7 +547,7 @@ export default function TeamsDetail() {
                   </div>
                 </div>
               </div>
-              <button className={style.add_todo}>
+              <button className={style.add_todo} onClick={handleShowNewCard}>
                 <img className={style.todo_plus} src={todoPlus} alt="Plus" />
                 <p className={style.add_todo_text}>Add New Card</p>
               </button>
@@ -544,6 +563,7 @@ export default function TeamsDetail() {
           </div>
         </div>
       </div>
+      {/* MODALS NEW BOARD */}
       <Modal
         show={show}
         onHide={handleClose}
@@ -568,6 +588,100 @@ export default function TeamsDetail() {
             Save
           </button>
         </Modal.Footer>
+      </Modal>
+      {/* MODALS NEW CARD */}
+      <Modal
+        show={showNewCard}
+        onHide={handleCloseNewCard}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title className="modal_title">
+            <div className="title">
+              <p>Design Tasks | One by Meja Putih</p>
+            </div>
+            <div className="btn_header">  
+              <a>
+                <img className="btn_download" alt="button download" src={download} />
+              </a>
+              <a>
+                <img className="btn_share" alt="button share" src={share} />
+              </a>
+            </div>
+          </Modal.Title>
+        </Modal.Header>
+
+        <Modal.Body>
+        <Container>
+          <Row>
+            <Col xs={11} md={7}>
+              <InputGroup className="input_title" placeholder="Card Title" >
+                <FormControl aria-label="Large" aria-describedby="inputGroup-sizing-sm" placeholder="Card Title" />
+              </InputGroup>
+              <div className="description_section">
+                <p className="description_title">Description</p>
+                <Form.Group className="input_description" controlId="exampleForm.ControlTextarea1">
+                  <Form.Control as="textarea" rows={6} />
+                </Form.Group>
+                <Button variant="light" className="btn_description cancel">Cancel</Button>
+                <Button variant="light" className="btn_description save">Save</Button>
+              </div>
+              <div className="comment_section">
+                <p className="comment_title">Comments</p>
+                <div className="comment">
+                  <a className="profile_wrapper">
+                    <img className="image_profile" src={profile} />
+                  </a>
+                  <Form.Group className="input_comment" controlId="exampleForm.ControlTextarea1">
+                    <Form.Control as="textarea" rows={2} />
+                  </Form.Group>
+                </div>
+                <Button size="" variant="light" className="btn_description cancel">Cancel</Button>
+                <Button variant="light" className="btn_description save">Save</Button>
+                <div className="comment_wrapper">
+                  <a>
+                    <img className="image_profile" src={profile} alt="image-profile"/>
+                  </a>
+                  <p className="name_profile">Susi Susanti</p>
+                  <p className="date_comment">Wed, 27 Jan 2022 | 5:03 PM</p>
+                </div>
+                <p className="this_comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. At corrupti ex facere quam animi, suscipit voluptatem obcaecati similique optio maxime illum natus</p>
+              </div>
+            </Col>
+
+            <Col xs={7} md={5}>
+              <DropdownButton 
+                color="grey" 
+                className="dropdown_button" 
+                title="TO DO "
+                size="sm"
+                variant="light" >
+                  <Dropdown.Item href="#/action-1">TO DO 1</Dropdown.Item>
+                  <Dropdown.Item href="#/action-2">TO DO 2</Dropdown.Item>
+                  <Dropdown.Item href="#/action-3">TO DO 3</Dropdown.Item>
+              </DropdownButton>
+              <div className="assign_member"> 
+                <p>Assign To</p>
+                <InputMember/>
+              </div>
+              <div className="add_priority" >
+                <p>Priority</p>
+                <InputPriority className="label" />
+              </div>
+              <div className="add_date" >
+                <p>Due Date</p>
+                <InputDate />
+              </div>
+              <div className="add_labels" >
+                <p>labels</p>
+                <InputLabels />
+              </div>
+            </Col>
+          </Row>
+        </Container>
+          
+        </Modal.Body>
       </Modal>
     </>
   );
