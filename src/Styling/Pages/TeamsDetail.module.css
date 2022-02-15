@@ -376,6 +376,28 @@
   color: var(--grey1);
   text-align: center;
 }
+.add_todo:hover,
+:focus {
+  background-color: none !important;
+}
+.new_list_input_container {
+  display: flex;
+  border-bottom: solid var(--grey2) 2px;
+  width: 90%;
+  padding-top: 7%;
+  padding-left: 5%;
+}
+.input_new_list {
+  padding: 4px;
+  font-style: none;
+  font-size: 12px;
+  line-height: 18px;
+  margin-bottom: 20px;
+}
+/* .input_new_list:hover,
+:focus {
+  border: 1.5px solid #4859ef;
+} */
 .column_new_board {
   background-color: var(--darkBlueS);
   border: 1.5px dashed #4859ef;
@@ -484,6 +506,7 @@
 :focus {
   background-color: var(--darkBlueS);
 }
+
 .card_hovered_img {
   height: auto;
   width: 14px;

@@ -522,7 +522,9 @@ export default function TeamsDetail() {
                     </button>
                   </div>
                   <div className={style.title_container}>
-                    <div className={style.box_title}>Header Seasional</div>
+                    <div className={style.box_title}>
+                      Reveral For Cryptosional
+                    </div>
                   </div>
                 </div>
                 <div className={style.box_footer}>
@@ -537,7 +539,7 @@ export default function TeamsDetail() {
                       src={check}
                       alt="checklist"
                     />
-                    <span className={style.finish_todo}>3/5</span>
+                    <span className={style.finish_todo}>1/6</span>
                   </div>
                   <div className={style.right_footer}>
                     <img
@@ -559,7 +561,9 @@ export default function TeamsDetail() {
                     <div className={style.box_category}>Category</div>
                   </div>
                   <div className={style.title_container}>
-                    <div className={style.box_title}>Header Seasional</div>
+                    <div className={style.box_title}>
+                      UEFA Championship sional
+                    </div>
                   </div>
                 </div>
                 <div className={style.box_footer}>
@@ -574,7 +578,7 @@ export default function TeamsDetail() {
                       src={check}
                       alt="checklist"
                     />
-                    <span className={style.finish_todo}>3/5</span>
+                    <span className={style.finish_todo}>3/7</span>
                   </div>
                   <div className={style.right_footer}>
                     <img
@@ -596,7 +600,7 @@ export default function TeamsDetail() {
                     <div className={style.box_category}>Category</div>
                   </div>
                   <div className={style.title_container}>
-                    <div className={style.box_title}>Header Seasional</div>
+                    <div className={style.box_title}>FIFA Interview</div>
                   </div>
                 </div>
                 <div className={style.box_footer}>
@@ -611,7 +615,7 @@ export default function TeamsDetail() {
                       src={check}
                       alt="checklist"
                     />
-                    <span className={style.finish_todo}>3/5</span>
+                    <span className={style.finish_todo}>1/2</span>
                   </div>
                   <div className={style.right_footer}>
                     <img
@@ -633,7 +637,7 @@ export default function TeamsDetail() {
                     <div className={style.box_category}>Category</div>
                   </div>
                   <div className={style.title_container}>
-                    <div className={style.box_title}>Header Seasional</div>
+                    <div className={style.box_title}>Rescheduling sional</div>
                   </div>
                 </div>
                 <div className={style.box_footer}>
@@ -648,7 +652,7 @@ export default function TeamsDetail() {
                       src={check}
                       alt="checklist"
                     />
-                    <span className={style.finish_todo}>3/5</span>
+                    <span className={style.finish_todo}>9/10</span>
                   </div>
                   <div className={style.right_footer}>
                     <img
@@ -778,7 +782,9 @@ export default function TeamsDetail() {
                     </button>
                   </div>
                   <div className={style.title_container}>
-                    <div className={style.box_title}>Header Seasional</div>
+                    <div className={style.box_title}>
+                      Bug for Stack Leadsional
+                    </div>
                   </div>
                 </div>
                 <div className={style.box_footer}>
@@ -793,7 +799,7 @@ export default function TeamsDetail() {
                       src={check}
                       alt="checklist"
                     />
-                    <span className={style.finish_todo}>3/5</span>
+                    <span className={style.finish_todo}>3/4</span>
                   </div>
                   <div className={style.right_footer}>
                     <img
@@ -815,7 +821,9 @@ export default function TeamsDetail() {
                     <div className={style.box_category}>Category</div>
                   </div>
                   <div className={style.title_container}>
-                    <div className={style.box_title}>Header Seasional</div>
+                    <div className={style.box_title}>
+                      Problem for UI/UXsional
+                    </div>
                   </div>
                 </div>
                 <div className={style.box_footer}>
@@ -830,7 +838,7 @@ export default function TeamsDetail() {
                       src={check}
                       alt="checklist"
                     />
-                    <span className={style.finish_todo}>3/5</span>
+                    <span className={style.finish_todo}>5/6</span>
                   </div>
                   <div className={style.right_footer}>
                     <img
@@ -960,7 +968,9 @@ export default function TeamsDetail() {
                     </button>
                   </div>
                   <div className={style.title_container}>
-                    <div className={style.box_title}>Header Seasional</div>
+                    <div className={style.box_title}>
+                      Problem for UI/UXsional
+                    </div>
                   </div>
                 </div>
                 <div className={style.box_footer}>
@@ -975,7 +985,7 @@ export default function TeamsDetail() {
                       src={check}
                       alt="checklist"
                     />
-                    <span className={style.finish_todo}>3/5</span>
+                    <span className={style.finish_todo}>7/8</span>
                   </div>
                   <div className={style.right_footer}>
                     <img
@@ -997,7 +1007,9 @@ export default function TeamsDetail() {
                     <div className={style.box_category}>Category</div>
                   </div>
                   <div className={style.title_container}>
-                    <div className={style.box_title}>Header Seasional</div>
+                    <div className={style.box_title}>
+                      API Quality Checkersional
+                    </div>
                   </div>
                 </div>
                 <div className={style.box_footer}>
@@ -1012,7 +1024,7 @@ export default function TeamsDetail() {
                       src={check}
                       alt="checklist"
                     />
-                    <span className={style.finish_todo}>3/5</span>
+                    <span className={style.finish_todo}>3/4</span>
                   </div>
                   <div className={style.right_footer}>
                     <img
@@ -1142,7 +1154,9 @@ export default function TeamsDetail() {
                     </button>
                   </div>
                   <div className={style.title_container}>
-                    <div className={style.box_title}>Header Seasional</div>
+                    <div className={style.box_title}>
+                      Waiting for Project Ownersional
+                    </div>
                   </div>
                 </div>
                 <div className={style.box_footer}>
@@ -1173,6 +1187,19 @@ export default function TeamsDetail() {
                   </div>
                 </div>
               </div>{" "}
+              <button className={style.add_todo}>
+                <img className={style.todo_plus} src={todoPlus} alt="Plus" />
+                <p className={style.add_todo_text}>Add New Card</p>
+              </button>
+            </div>
+            <div className={style.content_column}>
+              <div className={style.new_list_input_container}>
+                <input
+                  placeholder="List Name"
+                  type="text"
+                  className={style.input_new_list}
+                />
+              </div>
               <button className={style.add_todo}>
                 <img className={style.todo_plus} src={todoPlus} alt="Plus" />
                 <p className={style.add_todo_text}>Add New Card</p>
