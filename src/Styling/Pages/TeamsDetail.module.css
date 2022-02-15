@@ -99,6 +99,7 @@
   display: flex;
   align-items: center;
 }
+
 .form_group {
   color: darkgrey;
   font-style: none;
@@ -126,16 +127,6 @@
   width: 32px;
   height: 32px;
 }
-/* .leftover {
-  width: 32px;
-  height: 32px;
-  background-color: var(--grey2);
-  font-size: 16pt;
-  font-style: bold;
-  border-radius: 50%;
-  color: var(--grey1);
-  border: 1px solid #ffffff;
-} */
 .invite_button {
   background-color: none;
   border: none;
@@ -149,6 +140,7 @@
   font-size: 16px;
 }
 .multiple_container {
+  /* min-width: 80vw; */
   padding-left: 2%;
   display: flex;
   flex-wrap: nowrap;
@@ -158,12 +150,12 @@
 }
 .todo_header {
   display: flex;
-  gap: 5%;
   border-bottom: solid var(--grey2) 2px;
   margin-bottom: 8px;
   width: 90%;
   padding-top: 10%;
   padding-left: 5%;
+  justify-content: space-between;
 }
 .todo_container {
   display: flex;
@@ -253,7 +245,7 @@
   max-width: 100%;
 }
 .content_column {
-  width: 250px;
+  width: 350px;
   background-color: var(--lightGrey2);
   margin-top: 1%;
   display: flex;
@@ -543,5 +535,38 @@
 .popover_priority_body {
   display: flex;
   flex-direction: column;
+  gap: 5%;
+}
+.popover_asign {
+  width: 245px !important;
+  height: auto !important;
+}
+.popover_asign_header {
+  background-color: var(--lightGrey2) !important;
+  display: flex;
+  justify-content: space-around;
+}
+.asign_name {
+  background-color: var(--lightGrey1);
+  font-style: none;
+  font-size: 11px;
+  line-height: 15px;
+  padding: 3px;
+}
+.profile_picture_asign {
+  width: 32px;
+  height: 32px;
+}
+.asign_pp_container {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  margin-bottom: 0% !important;
+  padding-left: 0% !important;
+}
+.pp_wrapper {
+  display: flex;
+  justify-content: start;
+  align-items: center;
   gap: 5%;
 }
