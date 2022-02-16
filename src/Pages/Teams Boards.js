@@ -1,5 +1,5 @@
 import UserNavbar from "../Components/ShareComponent/Navbar/NavbarIsLogin";
-import Sidebar from "../Components/ShareComponent/Sidebar/Sidebar";
+import SidebarStatic from "../Components/ShareComponent/Sidebar/SidebarStatic";
 import { Link } from "react-router-dom";
 import { Container, Modal, FormControl } from "react-bootstrap";
 import style from "../Styling/Pages/TeamsBoards.module.css";
@@ -16,7 +16,7 @@ export default function TeamsBoards() {
     <>
       <UserNavbar />
       <div className={style.main_container}>
-        <Sidebar />
+        <SidebarStatic />
         <div className={`${style.content_wrapper} container`}>
           <div className={style.team_name}>
             <div className={style.title3}>

@@ -1,9 +1,11 @@
 .main_container {
   display: flex;
+  margin-top: 6%;
 }
 .content_wrapper {
   border-top: 5px solid var(--redS);
   height: auto;
+  margin-left: 22% !important;
 }
 .team_name {
   padding-top: 3%;
