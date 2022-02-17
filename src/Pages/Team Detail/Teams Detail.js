@@ -7,35 +7,35 @@ import {
   PopoverBody,
   PopoverHeader,
 } from "react-bootstrap";
-import team from "../Assets/Icons/team.png";
-import profile from "../Assets/Icons/default pofile picture.png";
+import team from "../../Assets/Icons/team.png";
+import profile from "../../Assets/Icons/default pofile picture.png";
 
-import lowest from "../Assets/Icons/lowest.png";
-import low from "../Assets/Icons/low.png";
-import high from "../Assets/Icons/high.png";
-import highest from "../Assets/Icons/highest.png";
-import archive from "../Assets/Icons/archive.png";
-import changePriority from "../Assets/Icons/change priority.png";
-import label from "../Assets/Icons/label.png";
-import assignTo from "../Assets/Icons/arrow right.png";
-import greenCheck from "../Assets/Icons/green check.png";
+import lowest from "../../Assets/Icons/lowest.png";
+import low from "../../Assets/Icons/low.png";
+import high from "../../Assets/Icons/high.png";
+import highest from "../../Assets/Icons/highest.png";
+import archive from "../../Assets/Icons/archive.png";
+import changePriority from "../../Assets/Icons/change priority.png";
+import label from "../../Assets/Icons/label.png";
+import assignTo from "../../Assets/Icons/arrow right.png";
+import greenCheck from "../../Assets/Icons/green check.png";
 
-import pp1 from "../Assets/Icons/pp1.png";
-import pp2 from "../Assets/Icons/pp2.png";
-import pp3 from "../Assets/Icons/pp3.png";
-import pp4 from "../Assets/Icons/pp4.png";
-import pp5 from "../Assets/Icons/pp5.png";
+import pp1 from "../../Assets/Icons/pp1.png";
+import pp2 from "../../Assets/Icons/pp2.png";
+import pp3 from "../../Assets/Icons/pp3.png";
+import pp4 from "../../Assets/Icons/pp4.png";
+import pp5 from "../../Assets/Icons/pp5.png";
 
-import attach from "../Assets/Icons/attach.png";
-import check from "../Assets/Icons/check.png";
-import plus from "../Assets/Icons/plus blue.png";
-import todoPlus from "../Assets/Icons/plus.png";
+import attach from "../../Assets/Icons/attach.png";
+import check from "../../Assets/Icons/check.png";
+import plus from "../../Assets/Icons/plus blue.png";
+import todoPlus from "../../Assets/Icons/plus.png";
 
-import UserNavbar from "../Components/ShareComponent/Navbar/NavbarIsLogin";
-import SidebarStatic from "../Components/ShareComponent/Sidebar/SidebarStatic";
+import UserNavbar from "../../Components/ShareComponent/Navbar/NavbarIsLogin";
+import SidebarStatic from "../../Components/ShareComponent/Sidebar/SidebarStatic";
 
 import { useState, useRef } from "react";
-import style from "../Styling/Pages/TeamsDetail.module.css";
+import style from "../../Styling/Pages/Team Detail/TeamsDetail.module.css";
 
 export default function TeamsDetail() {
   const [priority, setPriority] = useState("");

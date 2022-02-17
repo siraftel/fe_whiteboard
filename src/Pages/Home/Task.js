@@ -1,7 +1,7 @@
 import React from "react";
-import Todo from "../Components/Assets/Todo";
-import SidebarStatic from "../Components/ShareComponent/Sidebar/SidebarStatic";
-import style from "../Styling/Pages/Task.module.css";
+import Todo from "../../Components/Assets/Todo";
+import SidebarStatic from "../../Components/ShareComponent/Sidebar/SidebarStatic";
+import style from "../Styling/Pages/Home/Task.module.css";
 export default function Task() {
   return (
     <div className={style.Task}>

@@ -1,16 +1,13 @@
-import {
-  Overlay,
-  Popover,
-} from "react-bootstrap";
-import team from "../Assets/Icons/team.png";
-import profile from "../Assets/Icons/default pofile picture.png";
-import saly6 from "../Assets/Images/Saly-6.png";
+import { Overlay, Popover } from "react-bootstrap";
+import team from "../../Assets/Icons/team.png";
+import profile from "../../Assets/Icons/default pofile picture.png";
+import saly6 from "../../Assets/Images/Saly-6.png";
 
-import UserNavbar from "../Components/ShareComponent/Navbar/NavbarIsLogin";
-import Sidebar from "../Components/ShareComponent/Sidebar/Sidebar";
+import UserNavbar from "../../Components/ShareComponent/Navbar/NavbarIsLogin";
+import Sidebar from "../../Components/ShareComponent/Sidebar/Sidebar";
 
 import { useState, useRef } from "react";
-import style from "../Styling/Pages/TeamsDetail.module.css";
+import style from "../../Styling/Pages/Team Detail/TeamsDetail.module.css";
 
 export default function TeamsDetail() {
   //FOR POPOVER INVITE
@@ -130,9 +127,7 @@ export default function TeamsDetail() {
             <img src={saly6} alt="icon for add new Board" />
             <p className={style.empty_state_p1}>No List Created</p>
             <p className={style.empty_state_p2}>Let's Make One For Your Team</p>
-            <button className={style.create_board_button}>
-              Create List
-            </button>
+            <button className={style.create_board_button}>Create List</button>
           </div>
         </div>
       </div>

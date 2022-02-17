@@ -1,10 +1,10 @@
-import UserNavbar from "../Components/ShareComponent/Navbar/NavbarIsLogin";
-import SidebarStatic from "../Components/ShareComponent/Sidebar/SidebarStatic";
+import UserNavbar from "../../Components/ShareComponent/Navbar/NavbarIsLogin";
+import SidebarStatic from "../../Components/ShareComponent/Sidebar/SidebarStatic";
 import { Link } from "react-router-dom";
 import { Container, Modal, FormControl } from "react-bootstrap";
-import style from "../Styling/Pages/TeamsBoards.module.css";
-import plus from "../Assets/Icons/plus blue.png";
-import team from "../Assets/Icons/team.png";
+import style from "../../Styling/Pages/Teams Boards/TeamsBoards.module.css";
+import plus from "../../Assets/Icons/plus blue.png";
+import team from "../../Assets/Icons/team.png";
 import { useState } from "react";
 
 export default function TeamsBoards() {

@@ -9,25 +9,25 @@ import {
   Row,
   Carousel,
 } from "react-bootstrap";
-import Logo from "../Assets/Logos/GreyLogo.png";
-import SignUp from "../Assets/Icons/right white.png";
-import Learn from "../Assets/Icons/right blue.png";
-import Sally from "../Assets/Images/Group 32.png";
-import saly24 from "../Assets/Images/Group 31.png";
-import saly5 from "../Assets/Images/Group 36.png";
-import saly1 from "../Assets/Images/Group 16.png";
-import saly11 from "../Assets/Images/Group 17.png";
-import oneone from "../Assets/Images/Group 18.png";
-import saly10 from "../Assets/Images/Saly-10.png";
-import aplle from "../Assets/Icons/appstore.png";
-import playstore from "../Assets/Icons/playstore.png";
-import style from "../Styling/Pages/Homepage.module.css";
-import cisco from "../Assets/Logos/cisco.png";
-import dell from "../Assets/Logos/dell.png";
-import deloite from "../Assets/Logos/deloitte.png";
-import hawlett from "../Assets/Logos/Hawlett.png";
-import sales_force from "../Assets/Logos/sales_force.png";
-import Icons from "../Components/ShareComponent/Sidebar/Icons";
+import Logo from "../../Assets/Logos/GreyLogo.png";
+import SignUp from "../../Assets/Icons/right white.png";
+import Learn from "../../Assets/Icons/right blue.png";
+import Sally from "../../Assets/Images/Group 32.png";
+import saly24 from "../../Assets/Images/Group 31.png";
+import saly5 from "../../Assets/Images/Group 36.png";
+import saly1 from "../../Assets/Images/Group 16.png";
+import saly11 from "../../Assets/Images/Group 17.png";
+import oneone from "../../Assets/Images/Group 18.png";
+import saly10 from "../../Assets/Images/Saly-10.png";
+import aplle from "../../Assets/Icons/appstore.png";
+import playstore from "../../Assets/Icons/playstore.png";
+import style from "../../Styling/Pages/Homepage/Homepage.module.css";
+import cisco from "../../Assets/Logos/cisco.png";
+import dell from "../../Assets/Logos/dell.png";
+import deloite from "../../Assets/Logos/deloitte.png";
+import hawlett from "../../Assets/Logos/Hawlett.png";
+import sales_force from "../../Assets/Logos/sales_force.png";
+import Icons from "../../Components/ShareComponent/Sidebar/Icons";
 export default function Homepage() {
   return (
     <>
@@ -37,14 +37,22 @@ export default function Homepage() {
             <img src={Logo} alt="Logo" />
           </Navbar.Brand>
           <Nav>
-            <NavDropdown className={style.NavDropdown} title="Products" menuVariant="light">
+            <NavDropdown
+              className={style.NavDropdown}
+              title="Products"
+              menuVariant="light"
+            >
               <NavDropdown.Item href="/">Item 1</NavDropdown.Item>
               <NavDropdown.Item href="/">Item 2</NavDropdown.Item>
               <NavDropdown.Item href="/">Item 3</NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Nav>
-            <NavDropdown className={style.NavDropdown} title="Supports" menuVariant="light">
+            <NavDropdown
+              className={style.NavDropdown}
+              title="Supports"
+              menuVariant="light"
+            >
               <NavDropdown.Item href="/">Item 1</NavDropdown.Item>
               <NavDropdown.Item href="/">Item 2</NavDropdown.Item>
               <NavDropdown.Item href="/">Item 3</NavDropdown.Item>
@@ -74,7 +82,12 @@ export default function Homepage() {
       </div>
       <div className={style.mainHomepage}>
         <Container>
-          <Row className={style.imageHero} d-flex align-items-center justify-content-center>
+          <Row
+            className={style.imageHero}
+            d-flex
+            align-items-center
+            justify-content-center
+          >
             <Col>
               <h3>Work with any team</h3>
               <p>
@@ -95,7 +108,11 @@ export default function Homepage() {
         <Container>
           <Row className="d-flex align-items-center justify-content-center">
             <Col>
-              <img className={style.imageMain} src={saly24} alt="WorkWithHand" />
+              <img
+                className={style.imageMain}
+                src={saly24}
+                alt="WorkWithHand"
+              />
             </Col>
             <Col>
               <h3>Information at glance</h3>
@@ -124,7 +141,11 @@ export default function Homepage() {
               </a>
             </Col>
             <Col>
-              <img className={style.imageHeroDown} src={saly5} alt="WorkWithBycicle" />
+              <img
+                className={style.imageHeroDown}
+                src={saly5}
+                alt="WorkWithBycicle"
+              />
             </Col>
           </Row>
         </Container>
@@ -236,7 +257,11 @@ export default function Homepage() {
       <div className={style.footer}>
         <Row>
           <Col className={style.footerUp}>
-            <h1>Join over 10 million users</h1> <p>Start planning today – Save time, stay focused and work smarter with Whiteboard</p>
+            <h1>Join over 10 million users</h1>{" "}
+            <p>
+              Start planning today – Save time, stay focused and work smarter
+              with Whiteboard
+            </p>
             <Button className={style.btn_board} variant="board">
               Get Started – It’s FREE <img src={SignUp} alt="Button" />
             </Button>

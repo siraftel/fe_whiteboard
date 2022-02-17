@@ -1,8 +1,8 @@
 import React from "react";
 import { Formik } from "formik";
-import style from "../Styling/Pages/FormLogin.module.css";
-import Logo from "../Assets/Logos/GreyLogo.png";
-import Right from "../Assets/Icons/right blue.png";
+import style from "../../Styling/Pages/Login/FormLogin.module.css";
+import Logo from "../../Assets/Logos/GreyLogo.png";
+import Right from "../../Assets/Icons/right blue.png";
 export default function Login() {
   return (
     <div>

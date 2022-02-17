@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import style from "../../../Styling/Components/Sidebar.module.css";
+import style from "../../../Styling/ShareComponent/Sidebar.module.css";
 import Home from "../../../Assets/Icons/home default.png";
 import Clipboard from "../../../Assets/Icons/clipboard.png";
 import Tasks from "../../../Assets/Icons/checklist.png";

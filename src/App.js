@@ -1,14 +1,14 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 
-import TeamsBoards from "./Pages/Teams Boards";
-import TeamsDetail from "./Pages/Teams Detail";
+import TeamsBoards from "./Pages/Teams Board/Teams Boards";
+import TeamsDetail from "./Pages/Team Detail/Teams Detail";
 import ErrorPage from "./Pages/Error/Error";
-import Homepage from "../src/Pages/Homepage";
-import Login from "./Pages/Login";
+import Homepage from "./Pages/Homepage/Homepage";
+import Login from "./Pages/Login/Login";
 import Modals from "./Components/Modals/Modals";
-import TeamsBoardsEmptyState from "./Pages/TeamsBoardsEmptyState";
-import TeamsDetailEmptyState from "./Pages/TeamsDetailEmptyState";
+import TeamsBoardsEmptyState from "./Pages/Teams Board/TeamsBoardsEmptyState";
+import TeamsDetailEmptyState from "./Pages/Team Detail/TeamsDetailEmptyState";
 // import Modals from "./Components/Modals/Modals";
 // import TodoList from "../src/Components/Assets/Todo";
 // import Sidebar from "../src/Components/ShareComponent/Sidebar/Sidebar";

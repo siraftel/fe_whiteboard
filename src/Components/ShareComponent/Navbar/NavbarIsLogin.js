@@ -3,7 +3,7 @@ import search from "../../../Assets/Icons/search.png";
 import notification from "../../../Assets/Icons/ringing bell.png";
 import help from "../../../Assets/Icons/help.png";
 import profile from "../../../Assets/Icons/default pofile picture.png";
-import style from "../../../Styling/Components/navbarUser.module.css";
+import style from "../../../Styling/ShareComponent/navbarUser.module.css";
 
 export default function UserNavbar() {
   return (

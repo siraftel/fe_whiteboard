@@ -1,8 +1,8 @@
-import UserNavbar from "../Components/ShareComponent/Navbar/NavbarIsLogin";
-import Sidebar from "../Components/ShareComponent/Sidebar/Sidebar";
-import team from "../Assets/Icons/team.png";
-import saly17 from "../Assets/Images/Saly-17.png";
-import style from "../Styling/Pages/TeamsBoards.module.css";
+import UserNavbar from "../../Components/ShareComponent/Navbar/NavbarIsLogin";
+import Sidebar from "../../Components/ShareComponent/Sidebar/Sidebar";
+import team from "../../Assets/Icons/team.png";
+import saly17 from "../../Assets/Images/Saly-17.png";
+import style from "../../Styling/Pages/Teams Boards/TeamsBoards.module.css";
 
 export default function TeamsBoardsEmptyState() {
   return (
@@ -33,9 +33,7 @@ export default function TeamsBoardsEmptyState() {
             <img src={saly17} alt="icon for add new Board" />
             <p className={style.empty_state_p1}>No Boards Created</p>
             <p className={style.empty_state_p2}>Let's Make One For Your Team</p>
-            <button className={style.create_board_button}>
-              Create Board
-            </button>
+            <button className={style.create_board_button}>Create Board</button>
           </div>
         </div>
       </div>
