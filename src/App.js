@@ -26,7 +26,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/home" element={<Homepage />} />
+        {/* <Route path="/home" element={<Homepage />} /> */}
         <Route path="/login" element={<Login />} />
         <Route path="/modals" element={<Modals />} />
         <Route path="/teams-boards" element={<TeamsBoards />} />
@@ -36,15 +36,6 @@ function App() {
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </>
-    // {/* <Task /> */
-    // {/* <Boards /> */
-    // {/* <Homepage /> */
-    // {/* <Sidebar /> */
-    // {/* <Account /> */
-    // {/* <Home /> */
-    // {/* <TodoList /> */
-    // {/* <Login /> */
-    // {/* <Register /> */
   );
 }
 export default App;

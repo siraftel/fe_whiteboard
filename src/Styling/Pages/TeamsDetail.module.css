@@ -5,7 +5,7 @@
 .content_wrapper {
   border-top: 5px solid var(--redS);
   height: auto;
-  margin-left: 21%;
+  margin-left: 282px;
 }
 .left_container {
   display: flex;
@@ -140,6 +140,10 @@
   transition-duration: 0.8s;
   border: none;
   font-size: 16px;
+}
+.invite_button :hover {
+  background: #f2d555;
+  color: black;
 }
 .multiple_container {
   /* min-width: 80vw; */
@@ -381,6 +385,7 @@
 .add_todo:hover,
 :focus {
   background-color: none !important;
+  color: var(--darkBlue);
 }
 .new_list_input_container {
   display: flex;
@@ -396,9 +401,8 @@
   line-height: 18px;
   margin-bottom: 20px;
 }
-/* .input_new_list:hover,
-:focus {
-  border: 1.5px solid #4859ef;
+/* .input_new_list :focus {
+  box-shadow: 2px solid #4859ef !important;
 } */
 .column_new_board {
   background-color: var(--darkBlueS);

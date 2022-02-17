@@ -135,7 +135,7 @@ export default function TeamsDetail() {
               <span>Highest</span>
             </div>
             <div className={style.check_container}>
-              {priority == "highest" ? (
+              {priority === "highest" ? (
                 <img
                   src={greenCheck}
                   className={style.priority_image_check}
@@ -159,7 +159,7 @@ export default function TeamsDetail() {
               <span>High</span>
             </div>
             <div className={style.check_container}>
-              {priority == "high" ? (
+              {priority === "high" ? (
                 <img
                   src={greenCheck}
                   className={style.priority_image_check}
@@ -179,7 +179,7 @@ export default function TeamsDetail() {
               <span>Low</span>
             </div>
             <div className={style.check_container}>
-              {priority == "low" ? (
+              {priority === "low" ? (
                 <img
                   src={greenCheck}
                   className={style.priority_image_check}
@@ -203,7 +203,7 @@ export default function TeamsDetail() {
               <span>Lowest</span>
             </div>
             <div className={style.check_container}>
-              {priority == "lowest" ? (
+              {priority === "lowest" ? (
                 <img
                   src={greenCheck}
                   className={style.priority_image_check}
@@ -383,7 +383,7 @@ export default function TeamsDetail() {
                     <Popover.Body className={style.invite_popover_body}>
                       <div className={style.invite_input_container}>
                         <input
-                          className={style.invite_input}
+                          className={`${style.invite_input} form-control`}
                           required
                           type="text"
                           placeholder="Email Adress or Name"
@@ -1197,7 +1197,7 @@ export default function TeamsDetail() {
                 <input
                   placeholder="List Name"
                   type="text"
-                  className={style.input_new_list}
+                  className={`${style.input_new_list} form-control`}
                 />
               </div>
               <button className={style.add_todo}>
