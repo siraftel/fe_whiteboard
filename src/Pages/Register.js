@@ -1,7 +1,7 @@
 import React from "react";
 import { Formik } from "formik";
 import style from "../Styling/Pages/FormRegister.module.css";
-import Logo from "../Assets/Logos/Grey Logo.png";
+import Logo from "../Assets/Logos/GreyLogo.png";
 import Right from "../Assets/Icons/right blue.png";
 export default function Register() {
   return (
