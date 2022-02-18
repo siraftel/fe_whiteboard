@@ -7,7 +7,7 @@ import {
   PopoverBody,
   PopoverHeader,
 } from "react-bootstrap";
-import team from "../../Assets/Icons/team.png";
+import teampict from "../../Assets/Icons/team.png";
 import profile from "../../Assets/Icons/default pofile picture.png";
 
 import lowest from "../../Assets/Icons/lowest.png";
@@ -36,8 +36,19 @@ import SidebarStatic from "../../Components/ShareComponent/Sidebar/SidebarStatic
 
 import { useState, useRef } from "react";
 import style from "../../Styling/Pages/Team Detail/TeamsDetail.module.css";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { getTeam } from "../../Redux/Action/Team Action";
+import { useSelector } from "react-redux";
 
 export default function TeamsDetail() {
+  const team = useSelector((state) => state.getTeamReducer);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getTeam());
+  }, []);
+
   const [priority, setPriority] = useState("");
   //FOR MODALS
   const [show, setShow] = useState(false);
@@ -290,7 +301,11 @@ export default function TeamsDetail() {
           <div className={style.title3}>
             <span>Design Task</span>
             <div className={style.team_icon_container}>
-              <img className={style.team_icon} src={team} alt="icon teams" />
+              <img
+                className={style.team_icon}
+                src={teampict}
+                alt="icon teams"
+              />
             </div>
           </div>
           <div className={style.team_name}>
