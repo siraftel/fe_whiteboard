@@ -1,8 +1,8 @@
 import React from "react";
-import SidebarStatic from "../Components/ShareComponent/Sidebar/SidebarStatic";
-import style from "../Styling/Pages/Boards.module.css";
-import Card from "../Components/ShareComponent/Navbar/Card";
 import NavbarIsLogin from "../Components/ShareComponent/Navbar/NavbarIsLogin";
+import SidebarStatic from "../../Components/ShareComponent/Sidebar/SidebarStatic";
+import style from "../Styling/Pages/Home/Boards.module.css";
+import Card from "../../Components/ShareComponent/Navbar/Card";
 export default function Boards() {
   return (
     <>

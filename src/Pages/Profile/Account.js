@@ -1,9 +1,9 @@
 import React from "react";
 
-import style from "../Styling/Pages/Account.module.css";
-import sally11 from "../Assets/Images/Saly-11.png";
-import BlueLogo from "../Assets/Logos/BlueLogo.png";
-import squareHome from "../Assets/Icons/SquareHome.png";
+import style from "../../Styling/Pages/Profile/Account.module.css";
+import sally11 from "../../Assets/Images/Saly-11.png";
+import BlueLogo from "../../Assets/Logos/Blue Logo.png";
+import squareHome from "../../Assets/Icons/SquareHome.png";
 export default function Account() {
   return (
     <body className={style.bodyAccount}>

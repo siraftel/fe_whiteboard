@@ -12,7 +12,7 @@ import oneone from "../Assets/Images/Group 18.png";
 import saly10 from "../Assets/Images/Saly-10.png";
 import aplle from "../Assets/Icons/appstore.png";
 import playstore from "../Assets/Icons/playstore.png";
-import style from "../Styling/Pages/Homepage.module.css";
+import style from "../../Styling/Pages/Homepage/Homepage.module.css";
 import cisco from "../Assets/Logos/cisco.png";
 import dell from "../Assets/Logos/dell.png";
 import deloite from "../Assets/Logos/deloitte.png";

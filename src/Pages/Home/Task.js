@@ -1,7 +1,7 @@
 import React from "react";
 import Todo from "../Components/Assets/Todo";
 import SidebarStatic from "../Components/ShareComponent/Sidebar/SidebarStatic";
-import style from "../Styling/Pages/Task.module.css";
+import style from "../Styling/Pages/Home/Task.module.css";
 import NavbarIsLogin from "../Components/ShareComponent/Navbar/NavbarIsLogin";
 export default function Task() {
   return (

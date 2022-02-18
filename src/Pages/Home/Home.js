@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "../Components/ShareComponent/Navbar/Card";
-import style from "../Styling/Pages/Home.module.css";
+import style from "../Styling/Pages/Home/Home.module.css";
 import Todo from "../Components/Assets/Todo";
 import Sidebar from "../Components/ShareComponent/Sidebar/Sidebar";
 import NavbarIsLogin from "../Components/ShareComponent/Navbar/NavbarIsLogin";

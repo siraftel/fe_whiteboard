@@ -68,7 +68,7 @@ export function InputPriority() {
       size="sm"
       sx={() => ({ flex: 1 })}
       zIndex={9999}
-      placeholder="Pick countries"
+      placeholder="Pick priority"
       data={countriesData}
       itemComponent={Item}
       searchable

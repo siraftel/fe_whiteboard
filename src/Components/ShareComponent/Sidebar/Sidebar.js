@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import style from "../../../Styling/Components/Sidebar.module.css";
+import style from "../../../Styling/ShareComponent/Sidebar.module.css";
 import Home from "../../../Assets/Icons/home default.png";
 import Clipboard from "../../../Assets/Icons/clipboard.png";
 import Tasks from "../../../Assets/Icons/checklist.png";
@@ -102,12 +102,12 @@ export default function Sidebar() {
           <FormControl placeholder="Team Name" aria-label="Team Name" aria-describedby="basic-addon1" />
         </Modal.Body>
         <Modal.Footer>
-          {/* <button className={style.cancel_button} onClick={handleClose}>
+          <button className={style.cancel_button} onClick={handleClose}>
             Cancel
           </button>
           <button className={style.save_button} onClick={handleClose}>
             Save
-          </button> */}
+          </button>
         </Modal.Footer>
       </Modal>
     </>

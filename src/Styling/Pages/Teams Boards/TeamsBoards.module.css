@@ -1,9 +1,11 @@
 .main_container {
   display: flex;
+  margin-top: 6%;
 }
 .content_wrapper {
   border-top: 5px solid var(--redS);
   height: auto;
+  margin-left: 282px !important;
 }
 .team_name {
   padding-top: 3%;
@@ -177,4 +179,33 @@
   border-radius: 35px;
   transition-duration: 0.8s;
   border: none;
+}
+
+.empty_state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.empty_state_p1 {
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.empty_state_p2 {
+  margin-top: -5px;
+}
+
+.create_board_button {
+  background-color: var(--darkBlue);
+  color: white;
+  width: 100%;
+  height: 50px;
+  border-radius: 35px;
+  transition-duration: 0.8s;
+  border: none;
+  font-weight: 600;
+  font-size: 15px;
+  margin-top: -5px;
+  width: 190px;
 }
