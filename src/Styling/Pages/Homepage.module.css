@@ -1,6 +1,20 @@
+.homepageLeft {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start !important;
+}
+
+.homepageRight {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end !important;
+}
+
 .btn_SignUp {
-  border-radius: 2rem;
   background-color: darkBlue;
+  border-radius: 2rem;
+  padding: 7px 20px;
+  border: none;
   color: white;
 }
 .btn_SignUp:hover {
@@ -11,6 +25,9 @@
 .btn_board {
   border-radius: 2rem;
   background-color: orange;
+  border-radius: 2rem;
+  padding: 7px 20px;
+  border: none;
   color: white;
 }
 
