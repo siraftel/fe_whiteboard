@@ -1,24 +1,24 @@
 import React from "react";
 import { Container, Nav, Navbar, NavDropdown, Col, Row, Carousel } from "react-bootstrap";
-import Logo from "../Assets/Logos/GreyLogo.png";
-import SignUp from "../Assets/Icons/right white.png";
-import Learn from "../Assets/Icons/right blue.png";
-import Sally from "../Assets/Images/Group 32.png";
-import saly24 from "../Assets/Images/Group 31.png";
-import saly5 from "../Assets/Images/Group 36.png";
-import saly1 from "../Assets/Images/Group 16.png";
-import saly11 from "../Assets/Images/Group 17.png";
-import oneone from "../Assets/Images/Group 18.png";
-import saly10 from "../Assets/Images/Saly-10.png";
-import aplle from "../Assets/Icons/appstore.png";
-import playstore from "../Assets/Icons/playstore.png";
+import Logo from "../../Assets/Logos/GreyLogo.png";
+import SignUp from "../../Assets/Icons/right white.png";
+import Learn from "../../Assets/Icons/right blue.png";
+import Sally from "../../Assets/Images/Group 32.png";
+import saly24 from "../../Assets/Images/Group 31.png";
+import saly5 from "../../Assets/Images/Group 36.png";
+import saly1 from "../../Assets/Images/Group 16.png";
+import saly11 from "../../Assets/Images/Group 17.png";
+import oneone from "../../Assets/Images/Group 18.png";
+import saly10 from "../../Assets/Images/Saly-10.png";
+import aplle from "../../Assets/Icons/appstore.png";
+import playstore from "../../Assets/Icons/playstore.png";
 import style from "../../Styling/Pages/Homepage/Homepage.module.css";
-import cisco from "../Assets/Logos/cisco.png";
-import dell from "../Assets/Logos/dell.png";
-import deloite from "../Assets/Logos/deloitte.png";
-import hawlett from "../Assets/Logos/Hawlett.png";
-import sales_force from "../Assets/Logos/sales_force.png";
-import Icons from "../Components/ShareComponent/Sidebar/Icons";
+import cisco from "../../Assets/Logos/cisco.png";
+import dell from "../../Assets/Logos/dell.png";
+import deloite from "../../Assets/Logos/deloitte.png";
+import hawlett from "../../Assets/Logos/Hawlett.png";
+import sales_force from "../../Assets/Logos/sales_force.png";
+import Icons from "../../Components/ShareComponent/Sidebar/Icons";
 export default function Homepage() {
   return (
     <>

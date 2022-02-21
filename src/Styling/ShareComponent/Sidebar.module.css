@@ -7,7 +7,7 @@
   height: auto;
   background-color: var(--lightGrey2);
   /* display: flex; */
-  position: fixed;
+  position: relative;
   transition: all 0.5s ease-out;
 }
 .offSidebar {
@@ -158,4 +158,41 @@ li {
 }
 .team_sidebarText {
   padding-top: 20px;
+}
+/* responsive */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 25%;
+  }
+  .anchorSidebar {
+    font-size: 12px;
+  }
+  .anchorSidebar img {
+    width: 30%;
+    height: 20px;
+  }
+}
+@media (max-width: 768px) and (min-width: 425px) {
+  .sidebar {
+    width: 30%;
+  }
+  .anchorSidebar {
+    font-size: 10px;
+  }
+  .anchorSidebar img {
+    width: 30%;
+    height: 20px;
+  }
+}
+@media (max-width: 424px) and (min-width: 0) {
+  .sidebar {
+    width: 30%;
+  }
+  .anchorSidebar {
+    font-size: 10px;
+  }
+  .anchorSidebar img {
+    width: 30%;
+    height: 20px;
+  }
 }
