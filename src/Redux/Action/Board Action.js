@@ -1,11 +1,15 @@
 import axios from "axios";
 
-export const getBoard = () => {
+export const getBoard = (id) => {
   return (dispatch, getState) => {
     dispatch({ type: "GET_BOARD_REQUEST" });
     //API CALL
     axios
-      .get(`${process.env.REACT_APP_BASE_URL}/board`)
+      .get(`${process.env.REACT_APP_BASE_URL}/board/${id}`, {
+        headers: {
+          Authorization: localStorage.getItem("token"),
+        },
+      })
       .then((response) => {
         const board = response.data.result;
         //FOR TESTING
