@@ -14,15 +14,11 @@ function Value({ image, value, label, onRemove, ...others }) {
           cursor: 'default',
           alignItems: 'center',
           paddingLeft: 10,
-          // border: `1px solid ${theme.colors.gray[4]}`,
-          // borderRadius: 4,
-          // background: 'transparant'
         })}
       >
         <div style={{ marginRight: 5 }}>
           <img src={image} alt="label icon"/>
         </div>
-        {/* <div style={{ lineHeight: 1, fontSize: 12 }}>{label}</div> */}
         <CloseButton onMouseDown={onRemove} variant="transparent" size={22} iconSize={14} tabIndex={-1} />
       </Box>
     </div>
