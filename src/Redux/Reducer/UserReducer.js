@@ -31,6 +31,12 @@ export const getAuthRegister = (state = initialState, action) => {
         Loading: false,
         Token: action.payload,
       };
+    case "USER_LOGIN_SUCCES":
+      return {
+        ...state,
+        Loading: false,
+        User: action.payload,
+      };
 
     default:
       return state;
