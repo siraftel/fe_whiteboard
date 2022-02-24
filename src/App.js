@@ -21,7 +21,7 @@ import TeamsDetailEmptyState from "./Pages/Team Detail/TeamsDetailEmptyState";
 // import Account from "../src/Pages/Account";
 // import Homepage from "../src/Pages/Homepage";
 // import Login from "../src/Pages/Login";
-// import Register from "../src/Pages/Register";
+import Register from "../src/Pages/Register/Register";
 // import Home from "../src/Pages/Home/Home";
 // import Card from "../src/Components/ShareComponent/Navbar/Card";
 
@@ -37,6 +37,7 @@ function App() {
         <Route path="/teams-detail" element={<TeamsDetail />} />
         <Route path="/teams-detail-empty" element={<TeamsDetailEmptyState />} />
         <Route path="*" element={<ErrorPage />} />
+        <Route path="register" element={<Register />} />
 
         {/* PROTECTED ROUTE PERSIST GATE (JATAH HAMDANI) */}
         {/*<Route

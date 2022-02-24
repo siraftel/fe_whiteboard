@@ -1,9 +1,12 @@
 import React from "react";
 import { Formik } from "formik";
 import style from "../../Styling/Pages/Register/FormRegister.module.css";
-import Logo from "../Assets/Logos/GreyLogo.png";
-import Right from "../Assets/Icons/right blue.png";
+import Logo from "../../Assets/Logos/GreyLogo.png";
+import Right from "../../Assets/Icons/right blue.png";
+import { useDispatch } from "react-redux";
+import { getUserRegister } from "../../Redux/Action/UserAction";
 export default function Register() {
+  const dispatch = useDispatch();
   return (
     <div>
       <nav className={style.nav}>
@@ -25,11 +28,9 @@ export default function Register() {
             return errors;
           }}
           onSubmit={(values, { setSubmitting }) => {
-            setTimeout(() => {
-              alert(JSON.stringify(values, null, 2));
-              setSubmitting(false);
-              console.log(values);
-            }, 400);
+            console.log(values);
+            dispatch(getUserRegister(values));
+            setSubmitting(false);
           }}
         >
           {({
@@ -63,7 +64,7 @@ export default function Register() {
               <div className={style.signInMedia}>
                 <button type="button" className={style.btn_sosialMedia}>
                   <svg className={style.icon} width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g clip-path="url(#clip0_19_358)">
+                    <g clipPath="url(#clip0_19_358)">
                       <path
                         d="M6.64863 18.1294L5.60437 22.0277L1.78764 22.1085C0.646992 19.9928 0 17.5723 0 15C0 12.5126 0.604922 10.167 1.67719 8.10164H1.67801L5.07598 8.72461L6.56449 12.1022C6.25295 13.0104 6.08314 13.9854 6.08314 15C6.08326 16.1011 6.28271 17.1561 6.64863 18.1294Z"
                         fill="#FBBB00"
@@ -88,15 +89,6 @@ export default function Register() {
                     </defs>
                   </svg>
                   Sign in with Google
-                </button>
-                <button type="button" className={`${style.btn_sosialMedia} ${style.btnFB}`}>
-                  <svg className={style.icon} width="14" height="25" viewBox="0 0 14 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M3.49744 24.375H8.49744V14.3625H13.0024L13.4974 9.3875H8.49744V6.875C8.49744 6.54348 8.62914 6.22554 8.86356 5.99112C9.09798 5.7567 9.41592 5.625 9.74744 5.625H13.4974V0.625H9.74744C8.08984 0.625 6.50013 1.28348 5.32802 2.45558C4.15592 3.62769 3.49744 5.2174 3.49744 6.875V9.3875H0.997441L0.502441 14.3625H3.49744V24.375Z"
-                      fill="white"
-                    />
-                  </svg>
-                  Sign in with Facebook
                 </button>
               </div>
             </form>
