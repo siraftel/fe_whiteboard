@@ -19,7 +19,6 @@
 }
 
 .formSubmit {
-  /* background-color: brown; */
   display: flex;
   flex-direction: column;
   border-radius: 4px;
@@ -44,13 +43,14 @@
   border-radius: 23px;
   border: var(--grey2) solid 1px;
   padding: 9px;
+  width: 100%;
 }
 
 .formInput {
   border: var(--grey2) solid 1px;
   border-radius: 6px;
   width: 100%;
-  min-height: 65%;
+  height: 2.5rem;
   margin: auto;
 }
 
@@ -75,10 +75,7 @@
   color: white;
   margin: auto;
 }
-.btnFB {
-  background-color: #3a559f;
-  color: white;
-}
+
 .icon {
   width: 20px;
   height: 20px;
@@ -87,4 +84,31 @@
 .text {
   display: flex;
   justify-content: flex-start;
+}
+
+@media (max-width: 1024px) {
+  .formSubmit {
+    width: 40%;
+  }
+}
+
+@media (max-width: 768px) {
+  .formSubmit {
+    width: 50%;
+  }
+}
+@media (max-width: 600px) and (min-width: 425px) {
+  .formSubmit {
+    width: 70%;
+  }
+}
+@media (max-width: 424px) and (min-width: 0px) {
+  .formSubmit {
+    width: 70%;
+  }
+}
+@media (max-width: 390px) {
+  .btn_sosialMedia {
+    font-size: 10px;
+  }
 }

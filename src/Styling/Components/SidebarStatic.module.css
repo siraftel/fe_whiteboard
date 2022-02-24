@@ -4,30 +4,13 @@
 .sidebar {
   padding: 45px 0;
   width: 282px;
-  height: auto;
+  height: 100vh;
   background-color: var(--lightGrey2);
   /* display: flex; */
-  position: relative;
+  position: absolute;
   transition: all 0.5s ease-out;
 }
-.offSidebar {
-  width: 50px;
-  height: 100vh;
-  overflow: hidden;
-  background-color: var(--lightGrey2);
-  position: relative;
-  transition: all 0.5s ease;
-}
-.offSidebar .hideSidebar {
-  display: none;
-  transition: all 0.5 ease;
-}
 
-.offSidebar .btn_iconSidebar {
-  transform: rotate(180deg);
-  margin-right: 5px;
-  right: 0;
-}
 /* .closeSidebar {} */
 .listSidebar {
   list-style-type: none;
@@ -158,41 +141,4 @@ li {
 }
 .team_sidebarText {
   padding-top: 20px;
-}
-/* responsive */
-@media (max-width: 768px) {
-  .sidebar {
-    width: 25%;
-  }
-  .anchorSidebar {
-    font-size: 12px;
-  }
-  .anchorSidebar img {
-    width: 30%;
-    height: 20px;
-  }
-}
-@media (max-width: 768px) and (min-width: 425px) {
-  .sidebar {
-    width: 30%;
-  }
-  .anchorSidebar {
-    font-size: 10px;
-  }
-  .anchorSidebar img {
-    width: 30%;
-    height: 20px;
-  }
-}
-@media (max-width: 424px) and (min-width: 0) {
-  .sidebar {
-    width: 30%;
-  }
-  .anchorSidebar {
-    font-size: 10px;
-  }
-  .anchorSidebar img {
-    width: 30%;
-    height: 20px;
-  }
 }

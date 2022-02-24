@@ -27,12 +27,7 @@ export default function Account() {
           <div className={style.accountImage}>
             <img src={sally11} alt="sally11" className={style.Image} />
           </div>
-          <input
-            type="file"
-            placeholder="ganti"
-            id="file"
-            className={style.photo}
-          />
+          <input type="file" placeholder="ganti" id="file" className={style.photo} />
           <label className={style.btnUpload} for="file">
             Upload
           </label>
@@ -83,11 +78,7 @@ export default function Account() {
           <div className={style.accountCompanyName}>
             <p>Company Name</p>
             <div>
-              <input
-                className={style.inputName}
-                type="text"
-                placeholder="Company Name"
-              />
+              <input className={style.inputName} type="text" placeholder="Company Name" />
             </div>
           </div>
         </div>
