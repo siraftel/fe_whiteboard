@@ -4,7 +4,7 @@ const inititailState = {
   error: "",
 };
 
-export const getTeamReducer = (state = inititailState, action) => {
+export const teamReducer = (state = inititailState, action) => {
   switch (action.type) {
     case "GET_TEAM_REQUEST":
       return {

@@ -1,23 +1,77 @@
 const inititailState = {
-  board: [],
+  boards: [],
+  boardDetail: [],
+  members: [],
+  member: [],
   loading: true,
   error: "",
 };
 
-export const getboardReducer = (state = inititailState, action) => {
+export const boardReducer = (state = inititailState, action) => {
   switch (action.type) {
-    case "GET_BOARD_REQUEST":
+    case "GET_BOARDS_REQUEST":
       return {
         ...state,
         loading: true,
       };
-    case "GET_BOARD_SUCCES":
+    case "GET_BOARDS_SUCCESS":
       return {
         ...state,
         loading: false,
-        board: action.payload,
+        boards: action.payload,
       };
-    case "GET_BOARD_FAILED":
+    case "GET_BOARDS_FAILED":
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+    case "GET_BOARD_DETAIL_REQUEST":
+      return {
+        ...state,
+        loading: true,
+      };
+    case "GET_BOARD_DETAIL_SUCCESS":
+      return {
+        ...state,
+        loading: false,
+        boardDetail: action.payload,
+      };
+    case "GET_BOARD_DETAIL_FAILED":
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+    case "GET_BOARD_MEMBERS_REQUEST":
+      return {
+        ...state,
+        loading: true,
+      };
+    case "GET_BOARD_MEMBERS_SUCCESS":
+      return {
+        ...state,
+        loading: false,
+        members: action.payload,
+      };
+    case "GET_BOARD_MEMBERS_FAILED":
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+    case "GET_BOARD_MEMBER_REQUEST":
+      return {
+        ...state,
+        loading: true,
+      };
+    case "GET_BOARD_MEMBER_SUCCESS":
+      return {
+        ...state,
+        loading: false,
+        member: action.payload,
+      };
+    case "GET_BOARD_MEMBER_FAILED":
       return {
         ...state,
         loading: false,
