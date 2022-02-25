@@ -59,7 +59,7 @@ export default function Homepage() {
           The online collaborative to-do list platform to <br /> bring teams together, anytime, anywhere.
         </p>
         <button className={style.btn_board} variant="board">
-          Start a board <img src={SignUp} alt="Button" />{" "}
+          Start a board <img src={SignUp} alt="Button" />
         </button>
       </div>
       <div className={style.mainHomepage}>
@@ -68,7 +68,7 @@ export default function Homepage() {
             <Col>
               <h3>Work with any team</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing <br /> elit. Quisque eget pretium augue, quis ornare nisl. <br /> Lorem ipsum dolor sit amet, consectetur adipiscing.
+                Make your teamwork easier than before <br /> with whiteboard your team can manage work more efficiences <br /> that you have done before
               </p>
               <a href="http://">
                 Learn more about Whiteboard board <img src={Learn} alt="Linkto" />
@@ -87,7 +87,7 @@ export default function Homepage() {
             <Col>
               <h3>Information at glance</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing <br /> elit. Quisque eget pretium augue, quis ornare nisl. <br /> Lorem ipsum dolor sit amet, consectetur adipiscing.
+                easy to use, use to watch <br /> your team can easier to understand your work <br /> it's Simple !
               </p>
               <a href="http://">
                 Learn more about Whiteboard board <img src={Learn} alt="Linkto" />
@@ -98,7 +98,7 @@ export default function Homepage() {
             <Col>
               <h3>Built-in workflow</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing <br /> elit. Quisque eget pretium augue, quis ornare nisl. <br /> Lorem ipsum dolor sit amet, consectetur adipiscing.
+                You will realize that your workflow <br /> will be so smooth without dificult <br /> because you can handle your workflow
               </p>
               <a href="http://">
                 Learn more about Whiteboard board <img src={Learn} alt="Linkto" />
@@ -126,7 +126,7 @@ export default function Homepage() {
             <p className="text-center">
               <span>Light & Fast</span>
               <br />
-              Lorem ipsum dolor sit amet, <br /> consectetur adipiscing elit. Quisque{" "}
+              compatible for all device <br /> and without boring
             </p>
           </Col>
           <Col className="d-flex align-items-center justify-content-center flex-column">
@@ -134,7 +134,7 @@ export default function Homepage() {
             <p className="text-center">
               <span>All-in-one</span>
               <br />
-              Lorem ipsum dolor sit amet, <br /> consectetur adipiscing elit. Quisque{" "}
+              Everything on your hands <br /> controling everything that your team can
             </p>
           </Col>
           <Col className="d-flex align-items-center justify-content-center flex-column">
@@ -142,7 +142,7 @@ export default function Homepage() {
             <p className="text-center">
               <span>Easy Monitoring </span>
               <br />
-              Lorem ipsum dolor sit amet, <br /> consectetur adipiscing elit. Quisque{" "}
+              Dont worry being boring cause missing <br /> because of it you never miss
             </p>
           </Col>
         </Row>
@@ -156,7 +156,7 @@ export default function Homepage() {
                 with confidence
               </h1>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing <br /> elit. Quisque eget pretium augue, quis ornare nisl. <br /> Lorem ipsum dolor sit amet, consectetur adipiscing.
+                Dont worry about big Project or so many People <br /> Just sit, relax, and working ! <br /> we will help it !
               </p>
               <a href="http://">
                 Learn more about Whiteboard board <img src={Learn} alt="Linkto" />

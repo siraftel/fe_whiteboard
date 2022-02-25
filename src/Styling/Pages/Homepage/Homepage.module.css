@@ -84,7 +84,10 @@
   justify-content: center;
   align-items: center;
 }
-
+.imageMain {
+  width: auto;
+  height: auto;
+}
 .containerDown {
   margin-top: 10%;
 }
@@ -149,4 +152,10 @@
 }
 .linkFooterLI {
   list-style-type: none;
+}
+@media (max-width: 768px) {
+  .containerCarouselUp {
+    width: auto;
+    height: auto;
+  }
 }
