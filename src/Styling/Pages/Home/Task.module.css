@@ -5,9 +5,11 @@
 
 .ContainerTodo {
   overflow-x: auto;
-  width: auto;
+  width: calc(100vw - 282px);
   margin-top: 1%;
-  margin-left: 20%;
+  margin-left: 285px;
+  white-space: nowrap;
+  padding: 20px;
 }
 .Todos {
   width: 100%;

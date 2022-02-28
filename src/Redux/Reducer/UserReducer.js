@@ -1,8 +1,8 @@
 const initialState = {
-  User: {},
-  Loading: true,
+  user: {},
+  loading: true,
   error: "",
-  Token: "",
+  token: "",
 };
 
 export const getAuthRegister = (state = initialState, action) => {
@@ -10,32 +10,32 @@ export const getAuthRegister = (state = initialState, action) => {
     case "GET_USER_REGISTER_REQUEST":
       return {
         ...state,
-        Loading: true,
+        loading: true,
       };
 
     case "USER_REGISTER_SUCCES":
       return {
         ...state,
-        Loading: false,
-        User: action.payload,
+        loading: false,
+        user: action.payload,
       };
     case "USER_REGISTER_FAILED":
       return {
         ...state,
-        Loading: false,
+        loading: false,
         error: action.payload,
       };
     case "GET_USER_TOKEN":
       return {
         ...state,
-        Loading: false,
-        Token: action.payload,
+        loading: false,
+        token: action.payload,
       };
     case "USER_LOGIN_SUCCES":
       return {
         ...state,
-        Loading: false,
-        User: action.payload,
+        loading: false,
+        user: action.payload,
       };
 
     default:

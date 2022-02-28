@@ -18,7 +18,7 @@ import TodoList from "../src/Components/Assets/Todo";
 // import Sidebar from "../src/Components/ShareComponent/Sidebar/Sidebar";
 import Task from "../src/Pages/Home/Task";
 import Boards from "../src/Pages/Home/Boards";
-// import Account from "../src/Pages/Account";
+import Account from "../src/Pages/Profile/Account";
 // import Homepage from "../src/Pages/Homepage";
 // import Login from "../src/Pages/Login";
 import Register from "../src/Pages/Register/Register";
@@ -43,6 +43,7 @@ function App() {
         <Route path="boards" element={<Boards />} />
         <Route path="todoList" element={<TodoList />} />
         <Route path="sidebarStatic" element={<SidebarStatic />} />
+        <Route path="profil" element={<Account />} />
 
         {/* PROTECTED ROUTE PERSIST GATE (JATAH HAMDANI) */}
         {/*<Route

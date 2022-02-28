@@ -5,12 +5,18 @@ import Logo from "../../Assets/Logos/GreyLogo.png";
 import Right from "../../Assets/Icons/right blue.png";
 import { useDispatch } from "react-redux";
 import { userLogin } from "../../Redux/Action/UserAction";
+// import GoogleLogin from "react-google-login";
 export default function Login() {
+  // const responseGoogle = (res) => {
+  //   console.log(res);
+  // };
   const dispatch = useDispatch();
   return (
     <div>
       <nav className={style.nav}>
-        <img src={Logo} alt="Logo" />
+        <a href="/">
+          <img src={Logo} alt="Logo" />
+        </a>
         <button className={style.navButton} type="button">
           Sign up <img src={Right} alt="Right" />
         </button>
@@ -86,6 +92,14 @@ export default function Login() {
                   Sign in with Google
                 </button>
               </div>
+              {/* <GoogleLogin
+                className={style.btn_sosialMedia}
+                clientId="940474167336-thrrdmsfle2qbuj3p0afkaq1j5ig5cu5.apps.googleusercontent.com"
+                buttonText="Sign in with Google"
+                onSuccess={responseGoogle}
+                onFailure={responseGoogle}
+                cookiePolicy={"single_host_origin"}
+              /> */}
             </form>
           )}
         </Formik>
