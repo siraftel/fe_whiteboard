@@ -1,0 +1,25 @@
+.TodoContainer {
+  display: flex;
+  gap: 1%;
+}
+.textTodo {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.input {
+  margin-top: 9px;
+  width: 1%;
+}
+
+.form {
+  display: flex;
+  gap: 1%;
+}
+
+.formLabel {
+  display: flex;
+  gap: 20%;
+  width: 100%;
+}

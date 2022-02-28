@@ -1,0 +1,17 @@
+.boardsContainer {
+  display: flex;
+  margin-top: 5%;
+}
+.Boards {
+  width: 100%;
+  margin-left: 20%;
+  margin-top: 1%;
+}
+.Board {
+  margin-top: 3%;
+}
+.cards {
+  display: flex;
+  width: 100%;
+  gap: 2%;
+}

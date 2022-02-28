@@ -3,13 +3,13 @@ import search from "../../../Assets/Icons/search.png";
 import notification from "../../../Assets/Icons/ringing bell.png";
 import help from "../../../Assets/Icons/help.png";
 import profile from "../../../Assets/Icons/default pofile picture.png";
-import style from "../../../Styling/Components/navbarUser.module.css";
+import style from "../../../Styling/ShareComponent/navbarUser.module.css";
 
 export default function UserNavbar() {
   return (
     <>
       <nav
-        className={`${style.navbar} navbar sticky-top navbar-expand-lg navbar-expand-md navbar-expand-sm mx-auto`}
+        className={`${style.navbar} navbar fixed-top navbar-expand-lg navbar-expand-md navbar-expand-sm mx-auto`}
       >
         <div className={`${style.main_container} container`}>
           <a className={style.left_container} href="/">
