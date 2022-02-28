@@ -36,8 +36,8 @@ function App() {
         <Route path="/teams-boards-empty" element={<TeamsBoardsEmptyState />} />
         <Route path="/teams-detail" element={<TeamsDetail />} />
         <Route path="/teams-detail-empty" element={<TeamsDetailEmptyState />} />
-        <Route path="*" element={<ErrorPage />} />
         <Route path="register" element={<Register />} />
+        <Route path="*" element={<ErrorPage />} />
 
         {/* PROTECTED ROUTE PERSIST GATE (JATAH HAMDANI) */}
         {/*<Route
