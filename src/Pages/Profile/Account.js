@@ -2,7 +2,7 @@ import React from "react";
 
 import style from "../../Styling/Pages/Profile/Account.module.css";
 import sally11 from "../../Assets/Images/Saly-11.png";
-import BlueLogo from "../../Assets/Logos/Blue Logo.png";
+import BlueLogo from "../../Assets/Logos/BlueLogo.png";
 import squareHome from "../../Assets/Icons/SquareHome.png";
 export default function Account() {
   return (

@@ -7,6 +7,10 @@
   margin-top: 1%;
   margin-bottom: 7%;
 }
+
+.nav a img {
+  object-fit: contain;
+}
 .checkboxTerms {
   display: flex;
 }
@@ -15,7 +19,7 @@
   color: var(--darkBlue);
   background-color: var(--darkBlueS);
   border: none;
-  padding: 0 20px;
+  padding: 10px 20px;
 }
 
 .formSubmit {
@@ -56,7 +60,7 @@
 
 .checkboxInput {
   margin-top: 6px;
-  margin-right: 10px;
+  width: 5%;
 }
 
 .signInMedia {

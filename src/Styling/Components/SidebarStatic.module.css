@@ -142,3 +142,27 @@ li {
 .team_sidebarText {
   padding-top: 20px;
 }
+/*media*/
+@media (min-width: 425px) and (max-width: 650px) {
+  .sidebar {
+    width: 30%;
+  }
+  .anchorSidebar {
+    font-size: 70%;
+  }
+
+  .anchorSidebar img {
+    width: 30%;
+  }
+}
+@media (min-width: 0px) and (max-width: 424px) {
+  .sidebar {
+    width: 30%;
+  }
+  .anchorSidebar {
+    font-size: 50%;
+  }
+  .anchorSidebar img {
+    width: 30%;
+  }
+}

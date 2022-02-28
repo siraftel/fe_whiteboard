@@ -7,13 +7,15 @@
   margin-top: 1%;
   margin-bottom: 7%;
 }
-
+.nav a img {
+  object-fit: contain;
+}
 .navButton {
   border-radius: 20px;
   color: var(--darkBlue);
   background-color: var(--darkBlueS);
   border: none;
-  padding: 0 20px;
+  padding: 10px 20px;
 }
 
 .formSubmit {
@@ -39,8 +41,8 @@
 }
 
 .btn_sosialMedia {
-  border-radius: 23px;
-  border: var(--grey2) solid 1px;
+  border-radius: 23px !important;
+  border: var(--grey2) solid 1px !important;
   padding: 9px;
   width: 100%;
 }

@@ -22,7 +22,7 @@ import Icons from "../../Components/ShareComponent/Sidebar/Icons";
 export default function Homepage() {
   return (
     <>
-      <Navbar variant="white">
+      <Navbar className={style.navbarHomepage} variant="white">
         <Container className={style.homepageLeft}>
           <Navbar.Brand>
             <img src={Logo} alt="Logo" />
@@ -44,10 +44,12 @@ export default function Homepage() {
         </Container>
         <Container className={style.homepageRight}>
           <Icons variant="purple" />
-          <Nav.Link href="/">Log In</Nav.Link>
-          <button className={style.btn_SignUp} variant="SignUp">
-            Sign up free <img src={SignUp} alt="Button" />
-          </button>
+          <Nav.Link href="/login">Log In</Nav.Link>
+          <a href="/register">
+            <button className={style.btn_SignUp} variant="SignUp">
+              Sign up free <img src={SignUp} alt="Button" />
+            </button>
+          </a>
         </Container>
       </Navbar>
       <div className={style.hero}>
@@ -58,9 +60,11 @@ export default function Homepage() {
         <p className="text-center">
           The online collaborative to-do list platform to <br /> bring teams together, anytime, anywhere.
         </p>
-        <button className={style.btn_board} variant="board">
-          Start a board <img src={SignUp} alt="Button" />{" "}
-        </button>
+        <a href="/register">
+          <button className={style.btn_board} variant="board">
+            Start a board <img src={SignUp} alt="Button" />
+          </button>
+        </a>
       </div>
       <div className={style.mainHomepage}>
         <Container>
@@ -68,9 +72,9 @@ export default function Homepage() {
             <Col>
               <h3>Work with any team</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing <br /> elit. Quisque eget pretium augue, quis ornare nisl. <br /> Lorem ipsum dolor sit amet, consectetur adipiscing.
+                Make your teamwork easier than before <br /> with whiteboard your team can manage work more efficiences <br /> that you have done before
               </p>
-              <a href="http://">
+              <a href="/register">
                 Learn more about Whiteboard board <img src={Learn} alt="Linkto" />
               </a>
             </Col>
@@ -87,9 +91,9 @@ export default function Homepage() {
             <Col>
               <h3>Information at glance</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing <br /> elit. Quisque eget pretium augue, quis ornare nisl. <br /> Lorem ipsum dolor sit amet, consectetur adipiscing.
+                easy to use, use to watch <br /> your team can easier to understand your work <br /> it's Simple !
               </p>
-              <a href="http://">
+              <a href="/register">
                 Learn more about Whiteboard board <img src={Learn} alt="Linkto" />
               </a>
             </Col>
@@ -98,9 +102,9 @@ export default function Homepage() {
             <Col>
               <h3>Built-in workflow</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing <br /> elit. Quisque eget pretium augue, quis ornare nisl. <br /> Lorem ipsum dolor sit amet, consectetur adipiscing.
+                You will realize that your workflow <br /> will be so smooth without dificult <br /> because you can handle your workflow
               </p>
-              <a href="http://">
+              <a href="/register">
                 Learn more about Whiteboard board <img src={Learn} alt="Linkto" />
               </a>
             </Col>
@@ -126,7 +130,7 @@ export default function Homepage() {
             <p className="text-center">
               <span>Light & Fast</span>
               <br />
-              Lorem ipsum dolor sit amet, <br /> consectetur adipiscing elit. Quisque{" "}
+              compatible for all device <br /> and without boring
             </p>
           </Col>
           <Col className="d-flex align-items-center justify-content-center flex-column">
@@ -134,7 +138,7 @@ export default function Homepage() {
             <p className="text-center">
               <span>All-in-one</span>
               <br />
-              Lorem ipsum dolor sit amet, <br /> consectetur adipiscing elit. Quisque{" "}
+              Everything on your hands <br /> controling everything that your team can
             </p>
           </Col>
           <Col className="d-flex align-items-center justify-content-center flex-column">
@@ -142,7 +146,7 @@ export default function Homepage() {
             <p className="text-center">
               <span>Easy Monitoring </span>
               <br />
-              Lorem ipsum dolor sit amet, <br /> consectetur adipiscing elit. Quisque{" "}
+              Dont worry being boring cause missing <br /> because of it you never miss
             </p>
           </Col>
         </Row>
@@ -156,9 +160,9 @@ export default function Homepage() {
                 with confidence
               </h1>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing <br /> elit. Quisque eget pretium augue, quis ornare nisl. <br /> Lorem ipsum dolor sit amet, consectetur adipiscing.
+                Dont worry about big Project or so many People <br /> Just sit, relax, and working ! <br /> we will help it !
               </p>
-              <a href="http://">
+              <a href="/register">
                 Learn more about Whiteboard board <img src={Learn} alt="Linkto" />
               </a>
             </Col>
@@ -168,8 +172,8 @@ export default function Homepage() {
           </Row>
         </Container>
       </div>
-      <Carousel className={style.containerCarouselUp} variant="dark">
-        <Carousel.Item className={style.containerCarousel}>
+      <Carousel className={`${style.containerCarouselUp} `} variant="dark">
+        <Carousel.Item className={`${style.containerCarousel} md={1}`}>
           <div className={style.carouselImage}>
             <img className={style.cobaCara} src={dell} alt="Second slide" />
             <img className={style.cobaCara} src={deloite} alt="Second slide" />
@@ -200,9 +204,11 @@ export default function Homepage() {
         <Row>
           <Col className={style.footerUp}>
             <h1>Join over 10 million users</h1> <p>Start planning today – Save time, stay focused and work smarter with Whiteboard</p>
-            <button className={style.btn_board} variant="board">
-              Get Started – It’s FREE <img src={SignUp} alt="Button" />
-            </button>
+            <a href="/register">
+              <button className={style.btn_board} variant="board">
+                Get Started – It’s FREE <img src={SignUp} alt="Button" />
+              </button>
+            </a>
           </Col>
         </Row>
         <Container className={style.linkFooter}>
@@ -307,6 +313,10 @@ export default function Homepage() {
                 <img src={playstore} alt="playstore" />
               </div>
             </Col>
+          </Row>
+          <Row className={style.lineFooter}></Row>
+          <Row>
+            <Col></Col>
           </Row>
         </Container>
       </div>

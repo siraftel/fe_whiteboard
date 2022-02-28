@@ -12,6 +12,13 @@ export const getUserRegister = (values) => {
           type: "USER_REGISTER_SUCCES",
           payload: response.data.result,
         });
+      })
+      .catch((error) => {
+        console.log(error.response.data.message);
+        dispatch({
+          type: "USER_REGISTER_FAILED",
+          payload: error.response.data.message,
+        });
       });
   };
 };

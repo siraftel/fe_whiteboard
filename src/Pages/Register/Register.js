@@ -10,7 +10,9 @@ export default function Register() {
   return (
     <div>
       <nav className={style.nav}>
-        <img src={Logo} alt="Logo" />
+        <a href="/">
+          <img src={Logo} alt="Logo" />
+        </a>
         <button className={style.navButton} type="button">
           Sign in <img src={Right} alt="Right" />
         </button>
@@ -51,7 +53,7 @@ export default function Register() {
               {errors.name && touched.name && errors.name}
               <input className={style.formInput} type="email" name="email" onChange={handleChange} onBlur={handleBlur} value={values.email} placeholder="Email" />
               {errors.email && touched.email && errors.email}
-              <input className={style.formInput} type="password" name="password" onChange={handleChange} onBlur={handleBlur} value={values.password} placeholder="Password 5+ characters" />
+              <input className={style.formInput} type="password" name="password" onChange={handleChange} onBlur={handleBlur} value={values.password} placeholder="Password min 8 characters" />
               {errors.password && touched.password && errors.password}
               <div className={style.checkboxTerms}>
                 <input className={style.checkboxInput} type="checkbox" />
