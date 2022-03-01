@@ -1,6 +1,33 @@
+.navbarHomepage {
+  width: 100%;
+}
+
+.homepageLeft {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start !important;
+}
+.homepageLeft img {
+  width: 100%;
+  height: 100%;
+}
+
+.homepageLeft span {
+  margin: 0;
+}
+.homepageRight {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end !important;
+}
+.homepageRight a {
+  color: #000;
+}
 .btn_SignUp {
-  border-radius: 2rem;
   background-color: darkBlue;
+  border-radius: 2rem;
+  padding: 10px 20px;
+  border: none;
   color: white;
 }
 .btn_SignUp:hover {
@@ -11,6 +38,9 @@
 .btn_board {
   border-radius: 2rem;
   background-color: orange;
+  border-radius: 2rem;
+  padding: 7px 20px;
+  border: none;
   color: white;
 }
 
@@ -67,7 +97,10 @@
   justify-content: center;
   align-items: center;
 }
-
+.imageMain {
+  width: 100%;
+  height: 100%;
+}
 .containerDown {
   margin-top: 10%;
 }
@@ -118,9 +151,22 @@
   padding: 0;
 }
 
+.NavDropdown {
+  width: 100%;
+  height: 100%;
+}
 .NavDropdown a {
   text-decoration: none;
   color: #000;
+  width: 100%;
+  height: 100%;
+}
+
+.lineFooter {
+  height: 1px;
+  width: 100%;
+  background-color: azure;
+  margin: auto;
 }
 
 .cobaFooter {
@@ -132,4 +178,53 @@
 }
 .linkFooterLI {
   list-style-type: none;
+}
+@media (max-width: 1024) {
+  .imageMain {
+    width: 70%;
+    height: 70%;
+  }
+}
+@media (max-width: 768px) {
+  .carouselImage {
+    display: flex;
+    justify-content: center;
+    margin-top: 20%;
+    width: 36%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .navbarHomepage {
+    width: 100%;
+  }
+}
+@media (max-width: 1240px) {
+  .carouselImage {
+    display: flex;
+    justify-content: center;
+    margin-top: 20%;
+    width: 36%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 516px) {
+  .btn_SignUp {
+    padding: 6px 12px;
+    font-size: 9px;
+  }
+  .NavDropdown a {
+    font-size: 10px;
+  }
+  .homepageRight a {
+    font-size: 12px;
+    width: 60%;
+    height: 70%;
+  }
+}
+@media (max-width: 375px) {
+  .NavDropdown a {
+    font-size: 8px;
+  }
 }

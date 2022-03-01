@@ -25,3 +25,17 @@
 .icon-purple {
   background-color: rgb(168, 24, 168);
 }
+@media (max-width: 600px) and (min-width: 425px) {
+  .icon {
+    width: 25%;
+    height: 25%;
+    padding: 3px;
+  }
+}
+@media (max-width: 424px) and (min-width: 0) {
+  .icon {
+    width: 25%;
+    height: 25%;
+    padding: 3px;
+  }
+}

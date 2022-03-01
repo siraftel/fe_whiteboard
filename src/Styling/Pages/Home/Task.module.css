@@ -1,10 +1,15 @@
 .Task {
   display: flex;
+  margin-top: 5%;
 }
 
 .ContainerTodo {
-  width: 75%;
-  margin-left: 2%;
+  overflow-x: auto;
+  width: calc(100vw - 282px);
+  margin-top: 1%;
+  margin-left: 285px;
+  white-space: nowrap;
+  padding: 20px;
 }
 .Todos {
   width: 100%;
@@ -45,4 +50,8 @@
   background-color: var(--darkBlueS);
   color: var(--darkBlue);
   font-weight: bold;
+}
+@media (min-width: 500px) and (max-width: 767px) {
+}
+@media (min-width: 0px) and (max-width: 499px) {
 }

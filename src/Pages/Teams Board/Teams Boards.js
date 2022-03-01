@@ -97,7 +97,11 @@ export default function TeamsBoards() {
               <div className={style.column_new_board}>
                 <div className={style.image_container}>
                   <button className={style.plus_button} onClick={handleShow}>
-                    <img src={plus} alt="icon for add new Board" />
+                    <img
+                      src={plus}
+                      alt="icon for add new Board"
+                      className={style.plus_button_image}
+                    />
                   </button>
                 </div>
                 <div className={style.text_container}>Create new Board</div>

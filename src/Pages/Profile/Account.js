@@ -2,7 +2,7 @@ import React from "react";
 
 import style from "../../Styling/Pages/Profile/Account.module.css";
 import sally11 from "../../Assets/Images/Saly-11.png";
-import BlueLogo from "../../Assets/Logos/Blue Logo.png";
+import BlueLogo from "../../Assets/Logos/BlueLogo.png";
 import squareHome from "../../Assets/Icons/SquareHome.png";
 export default function Account() {
   return (
@@ -27,12 +27,7 @@ export default function Account() {
           <div className={style.accountImage}>
             <img src={sally11} alt="sally11" className={style.Image} />
           </div>
-          <input
-            type="file"
-            placeholder="ganti"
-            id="file"
-            className={style.photo}
-          />
+          <input type="file" placeholder="ganti" id="file" className={style.photo} />
           <label className={style.btnUpload} for="file">
             Upload
           </label>
@@ -83,11 +78,7 @@ export default function Account() {
           <div className={style.accountCompanyName}>
             <p>Company Name</p>
             <div>
-              <input
-                className={style.inputName}
-                type="text"
-                placeholder="Company Name"
-              />
+              <input className={style.inputName} type="text" placeholder="Company Name" />
             </div>
           </div>
         </div>

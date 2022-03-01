@@ -7,25 +7,19 @@ import {
   PopoverBody,
   PopoverHeader,
 } from "react-bootstrap";
-import team from "../../Assets/Icons/team.png";
-import profile from "../../Assets/Icons/default pofile picture.png";
 
+import teampict from "../../Assets/Icons/team.png";
+import profile from "../../Assets/Icons/default pofile picture.png";
 import lowest from "../../Assets/Icons/lowest.png";
-import low from "../../Assets/Icons/low.png";
-import high from "../../Assets/Icons/high.png";
-import highest from "../../Assets/Icons/highest.png";
 import archive from "../../Assets/Icons/archive.png";
 import changePriority from "../../Assets/Icons/change priority.png";
 import label from "../../Assets/Icons/label.png";
 import assignTo from "../../Assets/Icons/arrow right.png";
-import greenCheck from "../../Assets/Icons/green check.png";
-
 import pp1 from "../../Assets/Icons/pp1.png";
 import pp2 from "../../Assets/Icons/pp2.png";
 import pp3 from "../../Assets/Icons/pp3.png";
 import pp4 from "../../Assets/Icons/pp4.png";
 import pp5 from "../../Assets/Icons/pp5.png";
-
 import attach from "../../Assets/Icons/attach.png";
 import check from "../../Assets/Icons/check.png";
 import plus from "../../Assets/Icons/plus blue.png";
@@ -33,12 +27,29 @@ import todoPlus from "../../Assets/Icons/plus.png";
 
 import UserNavbar from "../../Components/ShareComponent/Navbar/NavbarIsLogin";
 import SidebarStatic from "../../Components/ShareComponent/Sidebar/SidebarStatic";
+import PopoverCardAssign from "./PopoverCardAssign";
+import PopoverCardLabel from "./PopoverCardLabel";
+// import PopoverCardPriority from "./PopoverCardPriority";
+import PopoverTodo from "./PopoverTodo";
 
-import { useState, useRef } from "react";
 import style from "../../Styling/Pages/Team Detail/TeamsDetail.module.css";
+import { useState, useRef, useEffect, forwardRef } from "react";
+import { useDispatch } from "react-redux";
+import { getTeam } from "../../Redux/Action/Team Action";
+
+// for testing
+import greenCheck from "../../Assets/Icons/green check.png";
+import low from "../../Assets/Icons/low.png";
+import high from "../../Assets/Icons/high.png";
+import highest from "../../Assets/Icons/highest.png";
 
 export default function TeamsDetail() {
-  const [priority, setPriority] = useState("");
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getTeam());
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
   //FOR MODALS
   const [show, setShow] = useState(false);
 
@@ -54,67 +65,35 @@ export default function TeamsDetail() {
     setShowInvite(!showInvite);
     setTargetInvite(event.target);
   };
+
   //FOR POPOVER
   const [showCard, setShowCard] = useState(false);
   const [targetCard, setTargetCard] = useState(null);
+
+  //testing click popover todo
+  const addCardClick = () => {
+    alert("Testing");
+  };
+  const copyListClick = () => {
+    alert("Testing");
+  };
+  const moveAllCardClick = () => {
+    alert("Testing");
+  };
+  const archiveAllCardClick = () => {
+    alert("Testing");
+  };
+  const archiveListClick = () => {
+    alert("Testing");
+  };
 
   const handleClickCard = (event) => {
     setShowCard(!showCard);
     setTargetCard(event.target);
   };
 
-  //POP OVER TODO
-  const popoverTodo = (
-    <Popover id="popover-basic" className={style.popover_todo}>
-      <PopoverHeader className={style.todo_popover_header}>
-        Action List
-      </PopoverHeader>
-      <PopoverBody className={style.popover_todo_body}>
-        <div className={style.popover_todo_body_container1}>
-          <button className={style.todo1_button}>Add Card</button>
-          <button className={style.todo2_button}>Copy List</button>
-        </div>
-        <div className={style.popover_todo_body_container2}>
-          <button className={style.todo3_button}>
-            Move All Card in This List
-          </button>
-          <button className={style.todo4_button}>
-            Archive All Card in This List
-          </button>
-        </div>
-        <div className={style.popover_todo_body_container3}>
-          <button className={style.todo5_button}>Archive This List</button>
-        </div>
-      </PopoverBody>
-    </Popover>
-  );
-
-  //POP OVER CARD
-  const popoverCardLabel = (
-    <Popover id="popover-basic" className={style.popover_label}>
-      <PopoverHeader className={style.popover_label_header}>
-        <div className={style.label_category_popover}>
-          <div className={style.label_category}>Category</div>
-        </div>
-      </PopoverHeader>
-      <PopoverBody className={style.popover_label_body}>
-        <div className={style.popover_label_body_top}>
-          Select an Option or Create One
-        </div>
-        <div className={style.label_all_category_container}>
-          <div className={style.label_category_popover}>
-            <div className={style.label_category}>Category</div>
-          </div>
-          <div className={style.label_category_popover}>
-            <div className={style.label_category}>Category</div>
-          </div>
-          <div className={style.label_category_popover}>
-            <div className={style.label_category}>Category</div>
-          </div>
-        </div>
-      </PopoverBody>
-    </Popover>
-  );
+  //testing popover
+  const [priority, setPriority] = useState("");
   const popoverCardPriority = (
     <Popover id="popover-basic" className={style.popover_card_priority}>
       <PopoverHeader className={style.popover_priority_header}>
@@ -218,69 +197,7 @@ export default function TeamsDetail() {
       </PopoverBody>
     </Popover>
   );
-  const popoverCardAssign = (
-    <Popover id="popover-basic" className={style.popover_asign}>
-      <PopoverHeader className={style.popover_asign_header}>
-        <span className={style.asign_name}>Hamdani</span>
-        <span className={style.asign_name}>Hamdani</span>
-        <span className={style.asign_name}>Hamdani</span>
-      </PopoverHeader>
-      <PopoverBody className={style.popover_assign_body}>
-        <div className={style.popover_label_body_top}>
-          Select an Option or Create One
-        </div>
-        <ol className={style.asign_pp_container}>
-          <li className={style.pp_wrapper}>
-            <img
-              className={style.profile_picture_asign}
-              src={pp1}
-              alt="profile"
-            />
-            <span>Hamdani</span>
-          </li>
-          <li className={style.pp_wrapper}>
-            <img
-              className={style.profile_picture_asign}
-              src={pp2}
-              alt="profile"
-            />
-            <span>Adam</span>
-          </li>
-          <li className={style.pp_wrapper}>
-            <img
-              className={style.profile_picture_asign}
-              src={pp3}
-              alt="profile"
-            />
-            <span>Fakhri</span>
-          </li>
-          <li className={style.pp_wrapper}>
-            <img
-              className={style.profile_picture_asign}
-              src={pp4}
-              alt="profile"
-            />
-            <span>Juan</span>
-          </li>
-          <li className={style.pp_wrapper}>
-            <img
-              className={style.profile_picture_asign}
-              src={pp5}
-              alt="profile"
-            />
-            <span>Khalid</span>
-          </li>
-        </ol>
-      </PopoverBody>
-    </Popover>
-  );
-  const popoverCardArchive = (
-    <Popover id="popover-basic">
-      <PopoverBody className={style.popover_archive_body}>
-        Set Your Function Bro!!
-      </PopoverBody>
-    </Popover>
-  );
+
   return (
     <>
       <UserNavbar />
@@ -290,7 +207,11 @@ export default function TeamsDetail() {
           <div className={style.title3}>
             <span>Design Task</span>
             <div className={style.team_icon_container}>
-              <img className={style.team_icon} src={team} alt="icon teams" />
+              <img
+                className={style.team_icon}
+                src={teampict}
+                alt="icon teams"
+              />
             </div>
           </div>
           <div className={style.team_name}>
@@ -425,7 +346,15 @@ export default function TeamsDetail() {
                   <OverlayTrigger
                     trigger="click"
                     placement="bottom-end"
-                    overlay={popoverTodo}
+                    overlay={
+                      <PopoverTodo
+                        addCardClick={addCardClick}
+                        copyListClick={copyListClick}
+                        moveAllCardClick={moveAllCardClick}
+                        archiveAllCardClick={archiveAllCardClick}
+                        archiveListClick={archiveListClick}
+                      />
+                    }
                   >
                     <button className={style.todo_hover_button}>...</button>
                   </OverlayTrigger>
@@ -450,7 +379,7 @@ export default function TeamsDetail() {
                           <OverlayTrigger
                             trigger="click"
                             placement="right"
-                            overlay={popoverCardLabel}
+                            overlay={PopoverCardLabel}
                           >
                             <button className={style.card_button_container}>
                               <img
@@ -482,7 +411,7 @@ export default function TeamsDetail() {
                           <OverlayTrigger
                             trigger="click"
                             placement="right"
-                            overlay={popoverCardAssign}
+                            overlay={PopoverCardAssign}
                           >
                             <button className={style.card_button_container}>
                               <img
@@ -495,22 +424,16 @@ export default function TeamsDetail() {
                               </div>
                             </button>
                           </OverlayTrigger>
-                          <OverlayTrigger
-                            trigger="click"
-                            placement="right"
-                            overlay={popoverCardArchive}
-                          >
-                            <button className={style.card_button_container}>
-                              <img
-                                className={style.card_hovered_img}
-                                src={archive}
-                                alt="button"
-                              />
-                              <div className={style.card_hovered_button}>
-                                Archieve
-                              </div>
-                            </button>
-                          </OverlayTrigger>
+                          <button className={style.card_button_container}>
+                            <img
+                              className={style.card_hovered_img}
+                              src={archive}
+                              alt="button"
+                            />
+                            <div className={style.card_hovered_button}>
+                              Archieve
+                            </div>
+                          </button>
                         </Popover.Body>
                       </Popover>
                     </Overlay>
@@ -685,7 +608,15 @@ export default function TeamsDetail() {
                   <OverlayTrigger
                     trigger="click"
                     placement="bottom-end"
-                    overlay={popoverTodo}
+                    overlay={
+                      <PopoverTodo
+                        addCardClick={addCardClick}
+                        copyListClick={copyListClick}
+                        moveAllCardClick={moveAllCardClick}
+                        archiveAllCardClick={archiveAllCardClick}
+                        archiveListClick={archiveListClick}
+                      />
+                    }
                   >
                     <button className={style.todo_hover_button}>...</button>
                   </OverlayTrigger>
@@ -710,7 +641,7 @@ export default function TeamsDetail() {
                           <OverlayTrigger
                             trigger="click"
                             placement="right"
-                            overlay={popoverCardLabel}
+                            overlay={PopoverCardLabel}
                           >
                             <button className={style.card_button_container}>
                               <img
@@ -742,7 +673,7 @@ export default function TeamsDetail() {
                           <OverlayTrigger
                             trigger="click"
                             placement="right"
-                            overlay={popoverCardAssign}
+                            overlay={PopoverCardAssign}
                           >
                             <button className={style.card_button_container}>
                               <img
@@ -755,22 +686,17 @@ export default function TeamsDetail() {
                               </div>
                             </button>
                           </OverlayTrigger>
-                          <OverlayTrigger
-                            trigger="click"
-                            placement="right"
-                            overlay={popoverCardArchive}
-                          >
-                            <button className={style.card_button_container}>
-                              <img
-                                className={style.card_hovered_img}
-                                src={archive}
-                                alt="button"
-                              />
-                              <div className={style.card_hovered_button}>
-                                Archieve
-                              </div>
-                            </button>
-                          </OverlayTrigger>
+
+                          <button className={style.card_button_container}>
+                            <img
+                              className={style.card_hovered_img}
+                              src={archive}
+                              alt="button"
+                            />
+                            <div className={style.card_hovered_button}>
+                              Archieve
+                            </div>
+                          </button>
                         </Popover.Body>
                       </Popover>
                     </Overlay>
@@ -821,9 +747,7 @@ export default function TeamsDetail() {
                     <div className={style.box_category}>Category</div>
                   </div>
                   <div className={style.title_container}>
-                    <div className={style.box_title}>
-                      Problem for UI/UXsional
-                    </div>
+                    <div className={style.box_title}>Problem for UI/UX</div>
                   </div>
                 </div>
                 <div className={style.box_footer}>
@@ -871,7 +795,15 @@ export default function TeamsDetail() {
                   <OverlayTrigger
                     trigger="click"
                     placement="bottom-end"
-                    overlay={popoverTodo}
+                    overlay={
+                      <PopoverTodo
+                        addCardClick={addCardClick}
+                        copyListClick={copyListClick}
+                        moveAllCardClick={moveAllCardClick}
+                        archiveAllCardClick={archiveAllCardClick}
+                        archiveListClick={archiveListClick}
+                      />
+                    }
                   >
                     <button className={style.todo_hover_button}>...</button>
                   </OverlayTrigger>
@@ -896,7 +828,7 @@ export default function TeamsDetail() {
                           <OverlayTrigger
                             trigger="click"
                             placement="right"
-                            overlay={popoverCardLabel}
+                            overlay={PopoverCardLabel}
                           >
                             <button className={style.card_button_container}>
                               <img
@@ -928,7 +860,7 @@ export default function TeamsDetail() {
                           <OverlayTrigger
                             trigger="click"
                             placement="right"
-                            overlay={popoverCardAssign}
+                            overlay={PopoverCardAssign}
                           >
                             <button className={style.card_button_container}>
                               <img
@@ -941,22 +873,16 @@ export default function TeamsDetail() {
                               </div>
                             </button>
                           </OverlayTrigger>
-                          <OverlayTrigger
-                            trigger="click"
-                            placement="right"
-                            overlay={popoverCardArchive}
-                          >
-                            <button className={style.card_button_container}>
-                              <img
-                                className={style.card_hovered_img}
-                                src={archive}
-                                alt="button"
-                              />
-                              <div className={style.card_hovered_button}>
-                                Archieve
-                              </div>
-                            </button>
-                          </OverlayTrigger>
+                          <button className={style.card_button_container}>
+                            <img
+                              className={style.card_hovered_img}
+                              src={archive}
+                              alt="button"
+                            />
+                            <div className={style.card_hovered_button}>
+                              Archieve
+                            </div>
+                          </button>
                         </Popover.Body>
                       </Popover>
                     </Overlay>
@@ -1057,7 +983,15 @@ export default function TeamsDetail() {
                   <OverlayTrigger
                     trigger="click"
                     placement="bottom-end"
-                    overlay={popoverTodo}
+                    overlay={
+                      <PopoverTodo
+                        addCardClick={addCardClick}
+                        copyListClick={copyListClick}
+                        moveAllCardClick={moveAllCardClick}
+                        archiveAllCardClick={archiveAllCardClick}
+                        archiveListClick={archiveListClick}
+                      />
+                    }
                   >
                     <button className={style.todo_hover_button}>...</button>
                   </OverlayTrigger>
@@ -1082,7 +1016,7 @@ export default function TeamsDetail() {
                           <OverlayTrigger
                             trigger="click"
                             placement="right"
-                            overlay={popoverCardLabel}
+                            overlay={PopoverCardLabel}
                           >
                             <button className={style.card_button_container}>
                               <img
@@ -1114,7 +1048,7 @@ export default function TeamsDetail() {
                           <OverlayTrigger
                             trigger="click"
                             placement="right"
-                            overlay={popoverCardAssign}
+                            overlay={PopoverCardAssign}
                           >
                             <button className={style.card_button_container}>
                               <img
@@ -1127,22 +1061,16 @@ export default function TeamsDetail() {
                               </div>
                             </button>
                           </OverlayTrigger>
-                          <OverlayTrigger
-                            trigger="click"
-                            placement="right"
-                            overlay={popoverCardArchive}
-                          >
-                            <button className={style.card_button_container}>
-                              <img
-                                className={style.card_hovered_img}
-                                src={archive}
-                                alt="button"
-                              />
-                              <div className={style.card_hovered_button}>
-                                Archieve
-                              </div>
-                            </button>
-                          </OverlayTrigger>
+                          <button className={style.card_button_container}>
+                            <img
+                              className={style.card_hovered_img}
+                              src={archive}
+                              alt="button"
+                            />
+                            <div className={style.card_hovered_button}>
+                              Archieve
+                            </div>
+                          </button>
                         </Popover.Body>
                       </Popover>
                     </Overlay>
