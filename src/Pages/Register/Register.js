@@ -3,9 +3,10 @@ import { Formik } from "formik";
 import style from "../../Styling/Pages/Register/FormRegister.module.css";
 import Logo from "../../Assets/Logos/GreyLogo.png";
 import Right from "../../Assets/Icons/right blue.png";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getUserRegister } from "../../Redux/Action/UserAction";
 export default function Register() {
+  const error = useSelector((state) => state.error);
   const dispatch = useDispatch();
   return (
     <div>
@@ -27,6 +28,7 @@ export default function Register() {
             } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
               errors.email = "Invalid email address";
             }
+
             return errors;
           }}
           onSubmit={(values, { setSubmitting }) => {
@@ -56,8 +58,8 @@ export default function Register() {
               <input className={style.formInput} type="password" name="password" onChange={handleChange} onBlur={handleBlur} value={values.password} placeholder="Password min 8 characters" />
               {errors.password && touched.password && errors.password}
               <div className={style.checkboxTerms}>
-                <input className={style.checkboxInput} type="checkbox" />
-                <label>I agree with Whiteboard’s terms & conditions</label>
+                <input className={style.checkboxInput} type="checkbox" id="agreeTerms" name="submit" />
+                <label for="agreeTerms">I agree with Whiteboard’s terms & conditions</label>
               </div>
               <button type="submit" className={style.buttonSubmit} disabled={isSubmitting}>
                 Submit

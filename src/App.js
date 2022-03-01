@@ -23,7 +23,7 @@ import Account from "../src/Pages/Profile/Account";
 // import Login from "../src/Pages/Login";
 import Register from "../src/Pages/Register/Register";
 import Home from "../src/Pages/Home/Home";
-// import Card from "../src/Components/ShareComponent/Navbar/Card";
+import Card from "../src/Components/ShareComponent/Navbar/Card";
 
 function App() {
   return (
@@ -44,6 +44,7 @@ function App() {
         <Route path="todoList" element={<TodoList />} />
         <Route path="sidebarStatic" element={<SidebarStatic />} />
         <Route path="profil" element={<Account />} />
+        <Route path="card" element={<Card />} />
 
         {/* PROTECTED ROUTE PERSIST GATE (JATAH HAMDANI) */}
         {/*<Route
