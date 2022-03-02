@@ -49,7 +49,7 @@ export default function SidebarStatic() {
               <li className={style.listSidebar}>
                 <a className={style.anchorSidebar} href="/">
                   <Icons variant="purple" />
-                  Idev Project
+                  <div className={style.projectName}> Idev Project</div>
                 </a>
               </li>
               <li className={style.listSidebar}>

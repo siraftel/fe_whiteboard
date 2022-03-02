@@ -18,6 +18,7 @@ export const getAuthRegister = (state = initialState, action) => {
         ...state,
         loading: false,
         user: action.payload,
+        error: "",
       };
     case "USER_REGISTER_FAILED":
       return {

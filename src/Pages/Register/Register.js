@@ -6,7 +6,8 @@ import Right from "../../Assets/Icons/right blue.png";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserRegister } from "../../Redux/Action/UserAction";
 export default function Register() {
-  const error = useSelector((state) => state.error);
+  const error = useSelector((state) => state.getAuthRegister.error);
+  console.log(error);
   const dispatch = useDispatch();
   return (
     <div>
@@ -20,7 +21,7 @@ export default function Register() {
       </nav>
       <div className={style.containerLogin}>
         <Formik
-          initialValues={{ email: "", password: "", name: "" }}
+          initialValues={{ email: "", password: "", name: "", acceptTerm: false }}
           validate={(values) => {
             const errors = {};
             if (!values.email) {
@@ -28,10 +29,13 @@ export default function Register() {
             } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
               errors.email = "Invalid email address";
             }
-
+            if (!values.acceptTerm) {
+              errors.acceptTerm = "you have to agree with our T&C";
+            }
             return errors;
           }}
           onSubmit={(values, { setSubmitting }) => {
+            delete values.acceptTerm;
             console.log(values);
             dispatch(getUserRegister(values));
             setSubmitting(false);
@@ -54,13 +58,14 @@ export default function Register() {
               <input className={style.formInput} type="name" name="name" onChange={handleChange} onBlur={handleBlur} value={values.name} placeholder="Name" />
               {errors.name && touched.name && errors.name}
               <input className={style.formInput} type="email" name="email" onChange={handleChange} onBlur={handleBlur} value={values.email} placeholder="Email" />
-              {errors.email && touched.email && errors.email}
+              <p>{(errors.email && touched.email && errors.email) || error}</p>
               <input className={style.formInput} type="password" name="password" onChange={handleChange} onBlur={handleBlur} value={values.password} placeholder="Password min 8 characters" />
               {errors.password && touched.password && errors.password}
               <div className={style.checkboxTerms}>
-                <input className={style.checkboxInput} type="checkbox" id="agreeTerms" name="submit" />
+                <input className={style.checkboxInput} type="checkbox" id="agreeTerms" name="acceptTerm" checked={values.acceptTerm} onChange={handleChange} />
                 <label for="agreeTerms">I agree with Whiteboard’s terms & conditions</label>
               </div>
+              {errors.acceptTerm}
               <button type="submit" className={style.buttonSubmit} disabled={isSubmitting}>
                 Submit
               </button>
@@ -92,7 +97,7 @@ export default function Register() {
                       </clipPath>
                     </defs>
                   </svg>
-                  Sign in with Google
+                  <a href="http://see-event-app.herokuapp.com/api/v1/auth/google">Sign in with Google</a>
                 </button>
               </div>
             </form>
