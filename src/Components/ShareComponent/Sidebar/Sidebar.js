@@ -7,6 +7,7 @@ import Plus from "../../../Assets/Icons/plus.png";
 import Right from "../../../Assets/Icons/Sidebar left.png";
 import Icons from "./Icons";
 import { Modal, FormControl } from "react-bootstrap";
+
 export default function Sidebar() {
   const [sidebarLogic, setSidebarLogic] = useState(true);
   const [show, setShow] = useState(false);
@@ -94,12 +95,21 @@ export default function Sidebar() {
           </div>
         </div>
       </aside>
-      <Modal show={show} onHide={handleClose} aria-labelledby="contained-modal-title-vcenter" centered>
+      <Modal
+        show={show}
+        onHide={handleClose}
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
         <Modal.Header className={style.modal_header} closeButton>
           <p className={style.modal_title}>Create Team</p>
         </Modal.Header>
         <Modal.Body>
-          <FormControl placeholder="Team Name" aria-label="Team Name" aria-describedby="basic-addon1" />
+          <FormControl
+            placeholder="Team Name"
+            aria-label="Team Name"
+            aria-describedby="basic-addon1"
+          />
         </Modal.Body>
         <Modal.Footer>
           <button className={style.cancel_button} onClick={handleClose}>

@@ -1,5 +1,5 @@
 const inititailState = {
-  team: [],
+  teams: [],
   loading: true,
   error: "",
 };
@@ -15,7 +15,7 @@ export const teamReducer = (state = inititailState, action) => {
       return {
         ...state,
         loading: false,
-        team: action.payload,
+        teams: action.payload,
       };
     case "GET_TEAM_FAILED":
       return {

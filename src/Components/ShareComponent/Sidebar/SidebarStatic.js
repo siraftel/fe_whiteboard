@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import style from "../../../Styling/Components/SidebarStatic.module.css";
 import Home from "../../../Assets/Icons/home default.png";
 import Clipboard from "../../../Assets/Icons/clipboard.png";
@@ -6,10 +6,25 @@ import Tasks from "../../../Assets/Icons/checklist.png";
 import Plus from "../../../Assets/Icons/plus.png";
 import Icons from "./Icons";
 import { Modal, FormControl } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getTeam } from "../../../Redux/Action/Team Action";
+
 export default function SidebarStatic() {
+  const { teams, loading, error } = useSelector((state) => state.teamReducer);
   const [show, setShow] = useState(false);
 
+  const dispatch = useDispatch();
   // setSidebarLogic =
+
+  useEffect(() => {
+    dispatch(getTeam());
+  }, []);
+
+  //Testing
+  console.log(teams);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -46,52 +61,33 @@ export default function SidebarStatic() {
           </div>
           <div className={style.team_section}>
             <ul className={style.unListSidebar}>
-              <li className={style.listSidebar}>
-                <a className={style.anchorSidebar} href="/">
-                  <Icons variant="purple" />
-                  Idev Project
-                </a>
-              </li>
-              <li className={style.listSidebar}>
-                <a className={style.anchorSidebar} href="/">
-                  <Icons variant="yellow" />
-                  White Project
-                </a>
-              </li>
-              <li className={style.listSidebar}>
-                <a className={style.anchorSidebar} href="/">
-                  <Icons variant="red" />
-                  e-Project
-                </a>
-              </li>
-              <li className={style.listSidebar}>
-                <a className={style.anchorSidebar} href="/">
-                  <Icons variant="green" />
-                  Everyone Education Center
-                </a>
-              </li>
-              <li className={style.listSidebar}>
-                <a className={style.anchorSidebar} href="/">
-                  <Icons variant="blue" />
-                  One by Meja Putih
-                </a>
-              </li>
-              <li className={style.listSidebar}>
-                <a className={style.anchorSidebar} href="/">
-                  <Icons variant="red" />
-                  Millo Project
-                </a>
-              </li>
+              {teams.map((team) => {
+                <li className={style.listSidebar} key={team._id}>
+                  <Link className={style.anchorSidebar} href="team/:teamId">
+                    <Icons variant="random" />
+                    {team.teamName}
+                  </Link>
+                </li>;
+              })}
             </ul>
           </div>
         </div>
       </aside>
-      <Modal show={show} onHide={handleClose} aria-labelledby="contained-modal-title-vcenter" centered>
+      <Modal
+        show={show}
+        onHide={handleClose}
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
         <Modal.Header className={style.modal_header} closeButton>
           <p className={style.modal_title}>Create Team</p>
         </Modal.Header>
         <Modal.Body>
-          <FormControl placeholder="Team Name" aria-label="Team Name" aria-describedby="basic-addon1" />
+          <FormControl
+            placeholder="Team Name"
+            aria-label="Team Name"
+            aria-describedby="basic-addon1"
+          />
         </Modal.Body>
         <Modal.Footer>
           <button className={style.cancel_button} onClick={handleClose}>

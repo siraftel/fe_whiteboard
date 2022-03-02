@@ -1,7 +1,7 @@
 //CEK LAGI DISKUSI SAMA BACKEND
 import axios from "axios";
 
-export const getBoard = (teamId, token) => {
+export const getBoard = (teamId) => {
   return (dispatch, getState) => {
     dispatch({ type: "GET_BOARDS_REQUEST" });
     //API CALL
@@ -29,7 +29,7 @@ export const getBoard = (teamId, token) => {
   };
 };
 
-export const getMembers = (boardId, token) => {
+export const getMembers = (boardId) => {
   return (dispatch, getState) => {
     dispatch({ type: "GET_MEMBERS_REQUEST" });
     //API CALL
@@ -53,7 +53,7 @@ export const getMembers = (boardId, token) => {
   };
 };
 
-export const getMember = (boardId, token) => {
+export const getMember = (boardId) => {
   return (dispatch, getState) => {
     dispatch({ type: "GET_MEMBER_REQUEST" });
     //API CALL
@@ -80,7 +80,7 @@ export const getMember = (boardId, token) => {
   };
 };
 
-export const getBoardDetail = (boardId, token) => {
+export const getBoardDetail = (boardId) => {
   return (dispatch, getState) => {
     dispatch({ type: "GET_BOARD_DETAIL_REQUEST" });
     //API CALL
