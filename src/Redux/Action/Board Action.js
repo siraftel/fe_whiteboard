@@ -1,7 +1,7 @@
 //CEK LAGI DISKUSI SAMA BACKEND
 import axios from "axios";
 
-export const getBoard = (teamId, token) => {
+export const getBoard = (teamId) => {
   return (dispatch, getState) => {
     dispatch({ type: "GET_BOARDS_REQUEST" });
     //API CALL
@@ -10,8 +10,8 @@ export const getBoard = (teamId, token) => {
         headers: {
           //  Cara pertama dengan useSelector, state di component/page
           // Authorization: token,
-          //  Cara kedua dapatkan Token dari getstate
-          Authorization: getState().getAuthRegister.Token,
+          //  Cara kedua dapatkan token dari getstate
+          "Authorization": `Bearer ${getState().getAuthRegister.token}`,
         },
       })
       .then((response) => {
@@ -29,14 +29,14 @@ export const getBoard = (teamId, token) => {
   };
 };
 
-export const getMembers = (boardId, token) => {
+export const getMembers = (boardId) => {
   return (dispatch, getState) => {
     dispatch({ type: "GET_MEMBERS_REQUEST" });
     //API CALL
     axios
       .get(`${process.env.REACT_APP_BASE_URL}/board/${boardId}`, {
         headers: {
-          Authorization: getState().getAuthRegister.Token,
+          "Authorization": `Bearer ${getState().getAuthRegister.token}`,
         },
       })
       .then((response) => {
@@ -53,7 +53,7 @@ export const getMembers = (boardId, token) => {
   };
 };
 
-export const getMember = (boardId, token) => {
+export const getMember = (boardId) => {
   return (dispatch, getState) => {
     dispatch({ type: "GET_MEMBER_REQUEST" });
     //API CALL
@@ -62,7 +62,7 @@ export const getMember = (boardId, token) => {
         `${process.env.REACT_APP_BASE_URL}/board/members/${boardId}/member`,
         {
           headers: {
-            Authorization: getState().getAuthRegister.Token,
+            "Authorization": `Bearer ${getState().getAuthRegister.token}`,
           },
         }
       )
@@ -80,14 +80,14 @@ export const getMember = (boardId, token) => {
   };
 };
 
-export const getBoardDetail = (boardId, token) => {
+export const getBoardDetail = (boardId) => {
   return (dispatch, getState) => {
     dispatch({ type: "GET_BOARD_DETAIL_REQUEST" });
     //API CALL
     axios
       .get(`${process.env.REACT_APP_BASE_URL}/board/board/${boardId}`, {
         headers: {
-          Authorization: getState().getAuthRegister.Token,
+          "Authorization": `Bearer ${getState().getAuthRegister.token}`,
         },
       })
       .then((response) => {
@@ -108,14 +108,13 @@ export const postBoard = (data, teamId) => {
   return (dispatch, getState) => {
     dispatch({ type: "POST_BOARD_REQUEST" });
     //API CALL
-    axios
-      .post(`${process.env.REACT_APP_BASE_URL}/board/${teamId}`, {
-        data: JSON.stringify(data),
+      axios({ method: "POST",
+      url: `${process.env.REACT_APP_BASE_URL}/board/${teamId}`,
+      data: JSON.stringify(data),
         headers: {
           "Content-Type": "application/json",
-          Authorization: getState().getAuthRegister.Token,
-        },
-      })
+          "Authorization": `Bearer ${getState().getAuthRegister.token}`,}
+        })
       .then((response) => {
         //TESTING
         const newBoard = response.data.result;
@@ -134,14 +133,13 @@ export const postList = (boardId, data) => {
   return (dispatch, getState) => {
     dispatch({ type: "POST_LIST_REQUEST" });
     //API CALL
-    axios
-      .post(`${process.env.REACT_APP_BASE_URL}/board/${boardId}/list`, {
-        data: JSON.stringify(data),
+     axios({ method: "POST",
+      url: `${process.env.REACT_APP_BASE_URL}/board/${boardId}/list`,
+      data: JSON.stringify(data),
         headers: {
           "Content-Type": "application/json",
-          Authorization: getState().getAuthRegister.Token,
-        },
-      })
+          "Authorization": `Bearer ${getState().getAuthRegister.token}`,}
+        })
       .then((response) => {
         //TESTING
         const newList = response.data.result;
@@ -160,14 +158,13 @@ export const putArchiveList = (data, listId) => {
   return (dispatch, getState) => {
     dispatch({ type: "PUT_ARCHIVE_LIST_REQUEST" });
     //API CALL
-    axios
-      .put(`${process.env.REACT_APP_BASE_URL}/board/${listId}/archive`, {
-        data: JSON.stringify(data),
+     axios({ method: "PUT",
+      url: `${process.env.REACT_APP_BASE_URL}/board/${listId}/archive`,
+      data: JSON.stringify(data),
         headers: {
           "Content-Type": "application/json",
-          Authorization: getState().getAuthRegister.Token,
-        },
-      })
+          "Authorization": `Bearer ${getState().getAuthRegister.token}`,}
+        })
       .then((response) => {
         //TESTING
         const newList = response.data.result;
@@ -182,18 +179,17 @@ export const putArchiveList = (data, listId) => {
   };
 };
 
-export const putInviteMember = (data, listId) => {
+export const putInviteMember = (data, boardId) => {
   return (dispatch, getState) => {
     dispatch({ type: "PUT_INVITE_MEMBER_REQUEST" });
     //API CALL
-    axios
-      .put(`${process.env.REACT_APP_BASE_URL}/board/${listId}/archive`, {
-        data: JSON.stringify(data),
+       axios({ method: "PUT",
+      url: `${process.env.REACT_APP_BASE_URL}/board/members/${boardId}/member`,
+      data: JSON.stringify(data),
         headers: {
           "Content-Type": "application/json",
-          Authorization: getState().getAuthRegister.Token,
-        },
-      })
+          "Authorization": `Bearer ${getState().getAuthRegister.token}`,}
+        })
       .then((response) => {
         //TESTING
         const newList = response.data.result;

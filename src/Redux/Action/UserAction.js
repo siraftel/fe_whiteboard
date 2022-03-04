@@ -26,6 +26,8 @@ export const getUserRegister = (values) => {
 export const userLogin = (values) => {
   return (dispatch) => {
     dispatch({ type: "GET_USER_REGISTER_REQUEST" });
+    //Testing
+    console.log(process.env.REACT_APP_BASE_URL);
     axios
       .post(`${process.env.REACT_APP_BASE_URL}/auth/login`, values)
       .then((response) => {

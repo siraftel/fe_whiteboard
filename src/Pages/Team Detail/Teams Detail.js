@@ -34,8 +34,16 @@ import PopoverTodo from "./PopoverTodo";
 
 import style from "../../Styling/Pages/Team Detail/TeamsDetail.module.css";
 import { useState, useRef, useEffect, forwardRef } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getTeam } from "../../Redux/Action/Team Action";
+import {
+  getMembers,
+  getMember,
+  getBoardDetail,
+  postList,
+  putArchiveList,
+  putInviteMember,
+} from "../../Redux/Action/Board Action";
 
 // for testing
 import greenCheck from "../../Assets/Icons/green check.png";
@@ -44,6 +52,9 @@ import high from "../../Assets/Icons/high.png";
 import highest from "../../Assets/Icons/highest.png";
 
 export default function TeamsDetail() {
+  const { boards, boardDetail, loading, error, members, member } = useSelector(
+    (state) => state.boardReducer
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {

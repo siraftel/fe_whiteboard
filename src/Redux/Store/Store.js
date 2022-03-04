@@ -10,6 +10,7 @@ import reducers from "../Reducer";
 const persistConfig = {
   key: "root",
   storage,
+  whitelist: ["getAuthRegister"],
 };
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

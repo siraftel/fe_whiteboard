@@ -23,18 +23,20 @@ import Account from "../src/Pages/Profile/Account";
 // import Login from "../src/Pages/Login";
 import Register from "../src/Pages/Register/Register";
 import Home from "../src/Pages/Home/Home";
-// import Card from "../src/Components/ShareComponent/Navbar/Card";
+import Card from "../src/Components/ShareComponent/Navbar/Card";
 
 function App() {
   return (
     <>
       <Routes>
+        <Route path="team/:teamId" element={<TeamsBoards />}>
+          <Route path="board/:boardId" element={<TeamsDetail />} />
+        </Route>
         <Route exact path="/" element={<Homepage />} />
+        <Route path="teams-boards" element={<TeamsBoards />} />
         <Route path="/login" element={<Login />} />
         <Route path="/modals" element={<Modals />} />
-        <Route path="/teams-boards" element={<TeamsBoards />} />
         <Route path="/teams-boards-empty" element={<TeamsBoardsEmptyState />} />
-        <Route path="/teams-detail" element={<TeamsDetail />} />
         <Route path="/teams-detail-empty" element={<TeamsDetailEmptyState />} />
         <Route path="register" element={<Register />} />
         <Route path="home" element={<Home />} />
@@ -44,6 +46,7 @@ function App() {
         <Route path="sidebarStatic" element={<SidebarStatic />} />
         <Route path="profil" element={<Account />} />
         <Route path="*" element={<ErrorPage />} />
+        <Route path="card" element={<Card />} />
 
         {/* PROTECTED ROUTE PERSIST GATE (JATAH HAMDANI) */}
         {/*<Route
