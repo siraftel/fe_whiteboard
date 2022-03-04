@@ -4,17 +4,39 @@ export const getTeam = () => {
   return (dispatch, getState) => {
     dispatch({ type: "GET_TEAM_REQUEST" });
     //API CALL
-    console.log(getState());
     axios
-      .get(`${process.env.REACT_APP_BASE_URL}/team`)
+      .get(`${process.env.REACT_APP_BASE_URL}/team`, {
+        headers: {
+          "Authorization": `Bearer ${getState().getAuthRegister.token}`,
+        },
+      })
       .then((response) => {
         const team = response.data.result;
-        //FOR TESTING
-        console.log(response);
         dispatch({ type: "GET_TEAM_SUCCES", payload: team });
       })
       .catch((error) => {
         dispatch({ type: "GET_TEAM_FAILED", payload: error });
+      });
+  };
+};
+
+export const postTeam = (data) => {
+  return (dispatch, getState) => {
+    dispatch({ type: "POST_TEAM_REQUEST" });
+    //API CALL
+    axios({ method: "POST",
+      url: `${process.env.REACT_APP_BASE_URL}/team`,
+      data: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${getState().getAuthRegister.token}`,}
+        })
+      .then((response) => {
+        const team = response.data.result;
+        dispatch({ type: "POST_TEAM_SUCCES", payload: team });
+      })
+      .catch((error) => {
+        dispatch({ type: "POST_TEAM_FAILED", payload: error });
       });
   };
 };

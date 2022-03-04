@@ -1,4 +1,5 @@
 import axios from "axios";
+
 export const getUserRegister = (values) => {
   return (dispatch, getState) => {
     dispatch({ type: "GET_USER_REGISTER_REQUEST" });
@@ -8,11 +9,17 @@ export const getUserRegister = (values) => {
         console.log(response);
         const auth = response.data.token;
         dispatch({ type: "GET_USER_TOKEN", payload: auth });
-        dispatch({ type: "USER_REGISTER_SUCCES", payload: response.data.result });
+        dispatch({
+          type: "USER_REGISTER_SUCCES",
+          payload: response.data.result,
+        });
       })
       .catch((error) => {
         console.log(error.response.data.message);
-        dispatch({ type: "USER_REGISTER_FAILED", payload: error.response.data.message });
+        dispatch({
+          type: "USER_REGISTER_FAILED",
+          payload: error.response.data.message,
+        });
       });
   };
 };

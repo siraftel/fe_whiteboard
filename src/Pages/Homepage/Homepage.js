@@ -19,7 +19,10 @@ import deloite from "../../Assets/Logos/deloitte.png";
 import hawlett from "../../Assets/Logos/Hawlett.png";
 import sales_force from "../../Assets/Logos/sales_force.png";
 import Icons from "../../Components/ShareComponent/Sidebar/Icons";
+import { useSelector } from "react-redux";
 export default function Homepage() {
+  const token = useSelector((state) => state.getAuthRegister.token);
+  console.log(token);
   return (
     <>
       <Navbar className={style.navbarHomepage} variant="white">
@@ -29,16 +32,16 @@ export default function Homepage() {
           </Navbar.Brand>
           <Nav>
             <NavDropdown className={style.NavDropdown} title="Products" menuVariant="light">
-              <NavDropdown.Item href="/">Item 1</NavDropdown.Item>
-              <NavDropdown.Item href="/">Item 2</NavDropdown.Item>
-              <NavDropdown.Item href="/">Item 3</NavDropdown.Item>
+              <NavDropdown.Item href="/">Boards</NavDropdown.Item>
+              <NavDropdown.Item href="/">Team</NavDropdown.Item>
+              <NavDropdown.Item href="/">Membership</NavDropdown.Item>
+              <NavDropdown.Item href="/">Coming Soon</NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Nav>
             <NavDropdown className={style.NavDropdown} title="Supports" menuVariant="light">
-              <NavDropdown.Item href="/">Item 1</NavDropdown.Item>
-              <NavDropdown.Item href="/">Item 2</NavDropdown.Item>
-              <NavDropdown.Item href="/">Item 3</NavDropdown.Item>
+              <NavDropdown.Item href="/">Our Team</NavDropdown.Item>
+              <NavDropdown.Item href="/">Contact Us</NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Container>
@@ -151,6 +154,24 @@ export default function Homepage() {
           </Col>
         </Row>
       </Container>
+
+      {token ? (
+        <div className={style.containerBtntoboards}>
+          <a href="/home">
+            <button className={style.btn_SignUp} variant="SignUp">
+              Work Together on Whiteboard <img src={SignUp} alt="Button" />
+            </button>
+          </a>
+        </div>
+      ) : (
+        <div className={style.containerBtntoboards}>
+          <a href="/register">
+            <button className={style.btn_SignUp} variant="SignUp">
+              Work Together on Whiteboard <img src={SignUp} alt="Button" />
+            </button>
+          </a>
+        </div>
+      )}
       <div className={style.ContainerSallyDesk}>
         <Container>
           <Row className="d-flex align-items-center justify-content-center">
@@ -172,6 +193,7 @@ export default function Homepage() {
           </Row>
         </Container>
       </div>
+
       <Carousel className={`${style.containerCarouselUp} `} variant="dark">
         <Carousel.Item className={`${style.containerCarousel} md={1}`}>
           <div className={style.carouselImage}>
