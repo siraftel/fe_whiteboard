@@ -10,11 +10,12 @@ import { Link } from "react-router-dom";
 
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getTeam } from "../../../Redux/Action/Team Action";
+import { getTeam, postTeam } from "../../../Redux/Action/Team Action";
 
 export default function SidebarStatic() {
   const { teams, loading, error } = useSelector((state) => state.teamReducer);
   const [show, setShow] = useState(false);
+  const [newTeam, setNewTeam] = useState("");
 
   const dispatch = useDispatch();
   // setSidebarLogic =
@@ -23,11 +24,20 @@ export default function SidebarStatic() {
     dispatch(getTeam());
   }, []);
 
-  //Testing
-  console.log(teams);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const data = {
+      teamName: newTeam,
+      createdAt: new Date(),
+    };
+    dispatch(postTeam(data));
+    setNewTeam("");
+    setShow(false);
+  };
   return (
     <>
       <aside className={style.sidebar}>
@@ -61,14 +71,22 @@ export default function SidebarStatic() {
           </div>
           <div className={style.team_section}>
             <ul className={style.unListSidebar}>
-              {teams.map((team) => {
-                <li className={style.listSidebar} key={team._id}>
-                  <Link className={style.anchorSidebar} href="team/:teamId">
-                    <Icons variant="random" />
-                    {team.teamName}
-                  </Link>
-                </li>;
-              })}
+              {loading && !error ? (
+                <div>Loading Gan</div>
+              ) : (
+                teams.map((team) => (
+                  <li className={style.listSidebar} key={team._id}>
+                    <Link
+                      className={style.anchorSidebar}
+                      to={`team/${team._id}`}
+                    >
+                      <Icons variant="red" />
+                      {team.teamName}
+                    </Link>
+                  </li>
+                ))
+              )}
+              {error && <div>Unexpeccted Error Occured </div>}
             </ul>
           </div>
         </div>
@@ -87,13 +105,17 @@ export default function SidebarStatic() {
             placeholder="Team Name"
             aria-label="Team Name"
             aria-describedby="basic-addon1"
+            onChange={(e) => setNewTeam(e.target.value)}
           />
         </Modal.Body>
         <Modal.Footer>
           <button className={style.cancel_button} onClick={handleClose}>
             Cancel
           </button>
-          <button className={style.save_button} onClick={handleClose}>
+          <button
+            className={style.save_button}
+            onClick={(e) => handleSubmit(e)}
+          >
             Save
           </button>
         </Modal.Footer>

@@ -23,6 +23,23 @@ export const teamReducer = (state = inititailState, action) => {
         loading: false,
         error: action.payload,
       };
+    case "POST_TEAM_REQUEST":
+      return {
+        ...state,
+        loading: true,
+      };
+    case "POST_TEAM_SUCCES":
+      return {
+        ...state,
+        loading: false,
+        teams: [action.payload, ...state.teams],
+      };
+    case "POST_TEAM_FAILED":
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
     default:
       return state;
   }

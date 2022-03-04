@@ -1,5 +1,5 @@
 import Layout from "./Layout";
-import { Link } from "react-router-dom";
+import { Link, Outlet, useParams } from "react-router-dom";
 import { Container, Modal, FormControl } from "react-bootstrap";
 import plus from "../../Assets/Icons/plus blue.png";
 import team from "../../Assets/Icons/team.png";
@@ -7,13 +7,15 @@ import style from "../../Styling/Pages/Teams Boards/TeamsBoards.module.css";
 
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
 import { getBoard } from "../../Redux/Action/Board Action";
 
 export default function TeamsBoards() {
   const { boards, loading, error } = useSelector((state) => state.boardReducer);
+  const [newBoard, setNewBoard] = useState("");
+
   const dispatch = useDispatch();
-  const teamId = useParams();
+
+  const { teamId } = useParams();
 
   useEffect(() => {
     dispatch(getBoard(teamId));
@@ -24,23 +26,35 @@ export default function TeamsBoards() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const handleClick = (e) => {
+    e.preventDefault();
+
+    const data = {
+      title: newBoard,
+      createdAt: new Date()
+    }
+    setNewBoard("");
+    setShow(false);
+  }
+
   return (
     <Layout>
       <div className={`${style.content_wrapper} container`}>
         <div className={style.team_name}>
           <div className={style.title3}>
             {" "}
+            {/* team.teamName HOW TO ACQUIRE IT? */}
             One by Meja Putih{" "}
             <div className={style.team_icon_container}>
               <img className={style.team_icon} src={team} alt="icon teams" />
             </div>
           </div>
           <div className={style.link_container}>
-            <a href="/" className={style.link4}>
+            <a href="/teams-boards" className={style.link4}>
               Boards
             </a>
             <span> / </span>
-            <a href="/" className={style.link3}>
+            <a href="/teams-boards" className={style.link3}>
               One by Meja Putih
             </a>
           </div>
@@ -132,13 +146,14 @@ export default function TeamsBoards() {
             placeholder="Board Name"
             aria-label="Board Name"
             aria-describedby="basic-addon1"
+            onChange={(e) => setNewBoard(e.target.value)}
           />
         </Modal.Body>
         <Modal.Footer>
           <button className={style.cancel_button} onClick={handleClose}>
             Cancel
           </button>
-          <button className={style.save_button} onClick={handleClose}>
+          <button className={style.save_button} onClick={(e) => handleClick(e)}>
             Save
           </button>
         </Modal.Footer>
