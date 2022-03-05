@@ -33,20 +33,19 @@ function App() {
           <Route path="board/:boardId" element={<TeamsDetail />} />
         </Route>
         <Route exact path="/" element={<Homepage />} />
-        <Route path="teams-boards" element={<TeamsBoards />} />
         <Route path="/login" element={<Login />} />
         <Route path="/modals" element={<Modals />} />
-        <Route path="/teams-boards-empty" element={<TeamsBoardsEmptyState />} />
+        <Route path="/teams-boards" element={<TeamsBoardsEmptyState />} />
+        <Route path="/teams-detail" element={<TeamsDetail />} />
         <Route path="/teams-detail-empty" element={<TeamsDetailEmptyState />} />
         <Route path="register" element={<Register />} />
         <Route path="home" element={<Home />} />
         <Route path="tasks" element={<Task />} />
         <Route path="boards" element={<Boards />} />
         <Route path="todoList" element={<TodoList />} />
-        <Route path="sidebarStatic" element={<SidebarStatic />} />
         <Route path="profil" element={<Account />} />
-        <Route path="*" element={<ErrorPage />} />
         <Route path="card" element={<Card />} />
+        <Route path="*" element={<ErrorPage />} />
 
         {/* PROTECTED ROUTE PERSIST GATE (JATAH HAMDANI) */}
         {/*<Route

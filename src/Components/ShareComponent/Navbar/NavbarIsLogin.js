@@ -4,8 +4,10 @@ import notification from "../../../Assets/Icons/ringing bell.png";
 import help from "../../../Assets/Icons/help.png";
 import profile from "../../../Assets/Icons/default pofile picture.png";
 import style from "../../../Styling/ShareComponent/navbarUser.module.css";
+import { useSelector } from "react-redux";
 
 export default function UserNavbar() {
+  const { token } = useSelector((state) => state.getAuthRegister)
   return (
     <>
       <nav
@@ -15,6 +17,7 @@ export default function UserNavbar() {
           <a className={style.left_container} href="/">
             <img src={logo} alt="whiteboard" className={style.logo} />
           </a>
+          {token ? (
           <div className={style.right_container}>
             <div
               className={`${style.search} d-flex align-items-center p-2 bg-light`}
@@ -55,7 +58,8 @@ export default function UserNavbar() {
                 alt="default profile"
               />
             </a>
-          </div>
+          </div>) : 
+         <></>}
         </div>
       </nav>
     </>

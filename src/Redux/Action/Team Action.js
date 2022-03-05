@@ -40,3 +40,23 @@ export const postTeam = (data) => {
       });
   };
 };
+
+export const getTeamDetail = (teamId) => {
+  return (dispatch, getState) => {
+    dispatch({ type: "GET_TEAM_DETAIL_REQUEST" });
+    //API CALL
+    axios
+      .get(`${process.env.REACT_APP_BASE_URL}/team/detail/${teamId}`, {
+        headers: {
+          "Authorization": `Bearer ${getState().getAuthRegister.token}`,
+        },
+      })
+      .then((response) => {
+        const teamDetail = response.data.result;
+        dispatch({ type: "GET_TEAM_DETAIL_SUCCES", payload: teamDetail });
+      })
+      .catch((error) => {
+        dispatch({ type: "GET_TEAM_DETAIL_FAILED", payload: error });
+      });
+  };
+};

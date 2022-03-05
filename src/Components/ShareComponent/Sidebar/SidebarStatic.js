@@ -14,6 +14,7 @@ import { getTeam, postTeam } from "../../../Redux/Action/Team Action";
 
 export default function SidebarStatic() {
   const { teams, loading, error } = useSelector((state) => state.teamReducer);
+  const randomColor = ["red", "blue", "green", "navy", "purple", "pink", "red", "blue", "green", "navy"]
   const [show, setShow] = useState(false);
   const [newTeam, setNewTeam] = useState("");
 
@@ -74,13 +75,13 @@ export default function SidebarStatic() {
               {loading && !error ? (
                 <div>Loading Gan</div>
               ) : (
-                teams.map((team) => (
+                teams.map((team, index) => (
                   <li className={style.listSidebar} key={team._id}>
                     <Link
                       className={style.anchorSidebar}
                       to={`team/${team._id}`}
                     >
-                      <Icons variant="red" />
+                      <Icons variant={randomColor[randomColor.index]} />
                       {team.teamName}
                     </Link>
                   </li>
