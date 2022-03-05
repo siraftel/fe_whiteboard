@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import style from "../../Styling/Pages/Profile/Account.module.css";
 import BlueLogo from "../../Assets/Logos/BlueLogo.png";
 import squareHome from "../../Assets/Icons/SquareHome.png";
@@ -6,17 +6,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "../../Redux/Action/UserAction";
 import { getProfile } from "../../Redux/Action/ProfileAction";
 import { useNavigate } from "react-router";
-// const roleAndIndustry = ["Photography", "Design", "Development", "Marketing", "Business", "Lifestyle", "Music"];
+
 export default function Account() {
-  // const [categories, setCategories] = useState({
-  //   roleAndIndustry: "",
-  // });
   const image = useSelector((state) => state.getProfile.image);
   console.log(image);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleOnChange = (evt) => {
-    console.log(evt.target);
+    console.log(evt.target.value);
   };
   const handleOnClick = () => {
     dispatch(logOut());
@@ -84,15 +81,15 @@ export default function Account() {
         <div className={style.accountIndustryCompany}>
           <div className={style.accountIndustry}>
             <p>Industry</p>
-            <select className={style.Dropdown} onChange={handleOnChange}>
-              <option value="">All Category</option>
-              <option value="">Photography</option>
-              <option value="">Design</option>
-              <option value="">Development</option>
-              <option value="">Marketing</option>
-              <option value="">Business</option>
-              <option value="">Lifestyle</option>
-              <option value="">Music</option>
+            <select id="category" name="Role" className={style.Dropdown} onChange={handleOnChange}>
+              <option value="All Category">All Category</option>
+              <option value="Photography">Photography</option>
+              <option value="Design">Design</option>
+              <option value="Development">Development</option>
+              <option value="Marketing">Marketing</option>
+              <option value="Business">Business</option>
+              <option value="Lifestyle">Lifestyle</option>
+              <option value="Music">Music</option>
             </select>
           </div>
           <div className={style.accountCompanyName}>
