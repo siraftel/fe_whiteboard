@@ -43,7 +43,7 @@ function App() {
         <Route path="tasks" element={<Task />} />
         <Route path="boards" element={<Boards />} />
         <Route path="todoList" element={<TodoList />} />
-        <Route path="profil" element={<Account />} />
+        <Route path="profile" element={<Account />} />
         <Route path="card" element={<Card />} />
         <Route path="*" element={<ErrorPage />} />
 

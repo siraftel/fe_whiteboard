@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Todo from "../../Components/Assets/Todo";
 import SidebarStatic from "../../Components/ShareComponent/Sidebar/SidebarStatic";
 import style from "../../Styling/Pages/Home/Task.module.css";
 import NavbarIsLogin from "../../Components/ShareComponent/Navbar/NavbarIsLogin";
+import { useDispatch } from "react-redux";
+import { getTasks } from "../../Redux/Action/TasksAction";
 export default function Task() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getTasks());
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
   return (
     <>
       <NavbarIsLogin />

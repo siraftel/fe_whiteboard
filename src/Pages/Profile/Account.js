@@ -1,10 +1,27 @@
-import React from "react";
-
+import React, { useEffect } from "react";
 import style from "../../Styling/Pages/Profile/Account.module.css";
-import sally11 from "../../Assets/Images/Saly-11.png";
 import BlueLogo from "../../Assets/Logos/BlueLogo.png";
 import squareHome from "../../Assets/Icons/SquareHome.png";
+import { useDispatch, useSelector } from "react-redux";
+import { logOut } from "../../Redux/Action/UserAction";
+import { getProfile } from "../../Redux/Action/ProfileAction";
+import { useNavigate } from "react-router";
+
 export default function Account() {
+  const image = useSelector((state) => state.getProfile.image);
+  console.log(image);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const handleOnChange = (evt) => {
+    console.log(evt.target.value);
+  };
+  const handleOnClick = () => {
+    dispatch(logOut());
+    navigate("/");
+  };
+  useEffect(() => {
+    dispatch(getProfile());
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
   return (
     <body className={style.bodyAccount}>
       <nav className={style.navbar}>
@@ -18,14 +35,14 @@ export default function Account() {
           </a>
         </div>
         <div className={style.accountImageNav}>
-          <img src={sally11} alt="sally11" className={style.ImageNavbar} />
+          <img src={image} alt="sally11" className={style.ImageNavbar} />
         </div>
       </nav>
       <div className={style.account}>
         <div className={style.accountPict}>
           <h1>Your Photo</h1>
           <div className={style.accountImage}>
-            <img src={sally11} alt="sally11" className={style.Image} />
+            <img src={image} alt="sally11" className={style.Image} />
           </div>
           <input type="file" placeholder="ganti" id="file" className={style.photo} />
           <label className={style.btnUpload} for="file">
@@ -43,15 +60,15 @@ export default function Account() {
           <div className={style.accountRole}>
             <p>Role</p>
             <div className={style.containerDropdown}>
-              <select className={style.Dropdown}>
-                <option value="">All Category</option>
-                <option value="">Photography</option>
-                <option value="">Design</option>
-                <option value="">Development</option>
-                <option value="">Marketing</option>
-                <option value="">Business</option>
-                <option value="">Lifestyle</option>
-                <option value="">Music</option>
+              <select id="category" name="Role" className={style.Dropdown} onChange={handleOnChange}>
+                <option value="All Category">All Category</option>
+                <option value="Photography">Photography</option>
+                <option value="Design">Design</option>
+                <option value="Development">Development</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Business">Business</option>
+                <option value="Lifestyle">Lifestyle</option>
+                <option value="Music">Music</option>
               </select>
             </div>
             {/* <NavDropdown className={style.NavDropdown} title="Role" menuVariant="light">
@@ -64,15 +81,15 @@ export default function Account() {
         <div className={style.accountIndustryCompany}>
           <div className={style.accountIndustry}>
             <p>Industry</p>
-            <select className={style.Dropdown}>
-              <option value="">All Category</option>
-              <option value="">Photography</option>
-              <option value="">Design</option>
-              <option value="">Development</option>
-              <option value="">Marketing</option>
-              <option value="">Business</option>
-              <option value="">Lifestyle</option>
-              <option value="">Music</option>
+            <select id="category" name="Role" className={style.Dropdown} onChange={handleOnChange}>
+              <option value="All Category">All Category</option>
+              <option value="Photography">Photography</option>
+              <option value="Design">Design</option>
+              <option value="Development">Development</option>
+              <option value="Marketing">Marketing</option>
+              <option value="Business">Business</option>
+              <option value="Lifestyle">Lifestyle</option>
+              <option value="Music">Music</option>
             </select>
           </div>
           <div className={style.accountCompanyName}>
@@ -109,7 +126,7 @@ export default function Account() {
           <button className={style.btnChangelogout} type="button">
             Save
           </button>
-          <button className={style.btnChangelogout} type="button">
+          <button className={style.btnChangelogout} type="button" onClick={handleOnClick}>
             Log Out
           </button>
         </div>
