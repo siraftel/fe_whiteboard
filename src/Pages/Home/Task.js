@@ -9,7 +9,7 @@ export default function Task() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getTasks());
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <>

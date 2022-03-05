@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Nav, Navbar, NavDropdown, Col, Row, Carousel } from "react-bootstrap";
 import Logo from "../../Assets/Logos/GreyLogo.png";
 import SignUp from "../../Assets/Icons/right white.png";
@@ -18,11 +18,17 @@ import dell from "../../Assets/Logos/dell.png";
 import deloite from "../../Assets/Logos/deloitte.png";
 import hawlett from "../../Assets/Logos/Hawlett.png";
 import sales_force from "../../Assets/Logos/sales_force.png";
-import Icons from "../../Components/ShareComponent/Sidebar/Icons";
-import { useSelector } from "react-redux";
+import { getProfile } from "../../Redux/Action/ProfileAction";
+
+import { useDispatch, useSelector } from "react-redux";
 export default function Homepage() {
+  const image = useSelector((state) => state.getProfile.image);
+  console.log(image);
   const token = useSelector((state) => state.getAuthRegister.token);
-  console.log(token);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getProfile());
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
   return (
     <>
       <Navbar className={style.navbarHomepage} variant="white">
@@ -45,15 +51,21 @@ export default function Homepage() {
             </NavDropdown>
           </Nav>
         </Container>
-        <Container className={style.homepageRight}>
-          <Icons variant="purple" />
-          <Nav.Link href="/login">Log In</Nav.Link>
-          <a href="/register">
-            <button className={style.btn_SignUp} variant="SignUp">
-              Sign up free <img src={SignUp} alt="Button" />
-            </button>
-          </a>
-        </Container>
+        {token ? (
+          <Container className={style.homepageRight}>
+            <img className={style.icon} src={image} alt="ProfilePicture" />
+            <Nav.Link href="/profile">Profile Name</Nav.Link>
+          </Container>
+        ) : (
+          <Container className={style.homepageRight}>
+            <Nav.Link href="/login">Log In</Nav.Link>
+            <a href="/register">
+              <button className={style.btn_SignUp} variant="SignUp">
+                Sign up free <img src={SignUp} alt="Button" />
+              </button>
+            </a>
+          </Container>
+        )}
       </Navbar>
       <div className={style.hero}>
         <h1 className="text-center">
@@ -63,11 +75,19 @@ export default function Homepage() {
         <p className="text-center">
           The online collaborative to-do list platform to <br /> bring teams together, anytime, anywhere.
         </p>
-        <a href="/register">
-          <button className={style.btn_board} variant="board">
-            Start a board <img src={SignUp} alt="Button" />
-          </button>
-        </a>
+        {token ? (
+          <a href="/boards">
+            <button className={style.btn_board} variant="board">
+              Start a board <img src={SignUp} alt="Button" />
+            </button>
+          </a>
+        ) : (
+          <a href="/register">
+            <button className={style.btn_board} variant="board">
+              Start a board <img src={SignUp} alt="Button" />
+            </button>
+          </a>
+        )}
       </div>
       <div className={style.mainHomepage}>
         <Container>
@@ -226,11 +246,19 @@ export default function Homepage() {
         <Row>
           <Col className={style.footerUp}>
             <h1>Join over 10 million users</h1> <p>Start planning today – Save time, stay focused and work smarter with Whiteboard</p>
-            <a href="/register">
-              <button className={style.btn_board} variant="board">
-                Get Started – It’s FREE <img src={SignUp} alt="Button" />
-              </button>
-            </a>
+            {token ? (
+              <a href="/home">
+                <button className={style.btn_board} variant="board">
+                  Get Started <img src={SignUp} alt="Button" />
+                </button>
+              </a>
+            ) : (
+              <a href="/register">
+                <button className={style.btn_board} variant="board">
+                  Get Started – It’s FREE <img src={SignUp} alt="Button" />
+                </button>
+              </a>
+            )}
           </Col>
         </Row>
         <Container className={style.linkFooter}>

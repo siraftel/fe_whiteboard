@@ -1,7 +1,13 @@
 .navbarHomepage {
   width: 100%;
 }
-
+.icon {
+  /* background-color: aqua; */
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  padding: 7px;
+}
 .homepageLeft {
   display: flex;
   align-items: center;
@@ -129,6 +135,7 @@
   margin-top: 10%;
 }
 .footer {
+  padding-top: 5%;
   color: white;
   margin-top: 20px;
   background-color: var(--darkPurple);
