@@ -35,8 +35,6 @@ function App() {
         <Route exact path="/" element={<Homepage />} />
         <Route path="login" element={<Login />} />
         <Route path="modals" element={<Modals />} />
-        {/* <Route path="/teams-boards" element={<Team />} /> */}
-        {/* <Route path="/teams-detail" element={<TeamsDetail />} /> */}
         <Route path="teams-boards" element={<TeamsBoardsEmptyState />} />
         <Route path="teams-detail" element={<TeamsDetailEmptyState />} />
         <Route path="register" element={<Register />} />
