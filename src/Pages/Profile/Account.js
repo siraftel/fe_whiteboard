@@ -4,7 +4,13 @@ import style from "../../Styling/Pages/Profile/Account.module.css";
 import sally11 from "../../Assets/Images/Saly-11.png";
 import BlueLogo from "../../Assets/Logos/BlueLogo.png";
 import squareHome from "../../Assets/Icons/SquareHome.png";
+import { useDispatch } from "react-redux";
+import { logOut } from "../../Redux/Action/UserAction";
 export default function Account() {
+  const dispatch = useDispatch();
+  const handleOnClick = () => {
+    dispatch(logOut());
+  };
   return (
     <body className={style.bodyAccount}>
       <nav className={style.navbar}>
@@ -109,7 +115,7 @@ export default function Account() {
           <button className={style.btnChangelogout} type="button">
             Save
           </button>
-          <button className={style.btnChangelogout} type="button">
+          <button className={style.btnChangelogout} type="button" onClick={handleOnClick}>
             Log Out
           </button>
         </div>

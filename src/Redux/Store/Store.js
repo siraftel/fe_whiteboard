@@ -6,11 +6,14 @@ import thunk from "redux-thunk";
 
 //REDUCER
 import reducers from "../Reducer";
+import createFilter from "redux-persist-transform-filter";
+const saveSubsetFilter = createFilter("getAuthRegister", ["token"]);
 
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["getAuthRegister"],
+  transforms: [saveSubsetFilter],
+  // whitelist: ["getAuthRegister"],
 };
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
