@@ -1,10 +1,15 @@
 import { Overlay, Popover } from "react-bootstrap";
-import team from "../../Assets/Icons/team.png";
-import profile from "../../Assets/Icons/default pofile picture.png";
 import saly6 from "../../Assets/Images/Saly-6.png";
+import pp1 from "../../Assets/Icons/pp1.png";
+import pp2 from "../../Assets/Icons/pp2.png";
+import pp3 from "../../Assets/Icons/pp3.png";
+import pp4 from "../../Assets/Icons/pp4.png";
+import pp5 from "../../Assets/Icons/pp5.png";
+import teampict from "../../Assets/Icons/team.png";
+
 
 import UserNavbar from "../../Components/ShareComponent/Navbar/NavbarIsLogin";
-import Sidebar from "../../Components/ShareComponent/Sidebar/Sidebar";
+import SidebarStatic from "../../Components/ShareComponent/Sidebar/SidebarStatic";
 
 import { useState, useRef } from "react";
 import style from "../../Styling/Pages/Team Detail/TeamsDetail.module.css";
@@ -21,14 +26,18 @@ export default function TeamsDetail() {
   };
   return (
     <>
-      <UserNavbar />
+       <UserNavbar />
       <div className={style.main_container}>
-        <Sidebar />
+        <SidebarStatic />
         <div className={style.content_wrapper}>
           <div className={style.title3}>
             <span>Design Task</span>
             <div className={style.team_icon_container}>
-              <img className={style.team_icon} src={team} alt="icon teams" />
+              <img
+                className={style.team_icon}
+                src={teampict}
+                alt="icon teams"
+              />
             </div>
           </div>
           <div className={style.team_name}>
@@ -46,26 +55,53 @@ export default function TeamsDetail() {
             <div className={style.header_right_container}>
               <div className={style.team_member_container}>
                 <img
-                  className={style.todo_profile_picture1}
-                  src={profile}
+                  className={style.todo_profile_picture_top}
+                  style={{
+                    right: "100px",
+                    zIndex: 100,
+                  }}
+                  src={pp1}
                   alt="profile"
                 />
                 <img
-                  className={style.todo_profile_picture2}
-                  src={profile}
+                  className={style.todo_profile_picture_top}
+                  src={pp2}
                   alt="profile"
+                  style={{
+                    right: "75px",
+                    zIndex: 80,
+                  }}
                 />
                 <img
-                  className={style.todo_profile_picture3}
-                  src={profile}
+                  className={style.todo_profile_picture_top}
+                  src={pp3}
                   alt="profile"
+                  style={{
+                    right: "50px",
+                    zIndex: 60,
+                  }}
                 />
                 <img
-                  className={style.todo_profile_picture4}
-                  src={profile}
+                  className={style.todo_profile_picture_top}
+                  src={pp4}
                   alt="profile"
+                  style={{
+                    right: "25px",
+                    zIndex: 40,
+                  }}
                 />
-                <span className={style.leftover}>+2</span>
+                <span
+                  className={style.todo_profile_picture_top}
+                  style={{
+                    right: "0px",
+                    zIndex: 10,
+                    backgroundImage: `url(${pp5})`,
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  +2
+                </span>
               </div>
               <div ref={ref} className={style.invite_button_wrapper}>
                 <button
@@ -94,7 +130,7 @@ export default function TeamsDetail() {
                     <Popover.Body className={style.invite_popover_body}>
                       <div className={style.invite_input_container}>
                         <input
-                          className={style.invite_input}
+                          className={`${style.invite_input} form-control`}
                           required
                           type="text"
                           placeholder="Email Adress or Name"

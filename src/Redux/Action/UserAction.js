@@ -31,12 +31,18 @@ export const userLogin = (values) => {
       .post(`${process.env.REACT_APP_BASE_URL}/auth/login`, values)
       .then((response) => {
         console.log(response.data.result.token);
-        dispatch({ type: "GET_USER_TOKEN", payload: response.data.result.token });
+        dispatch({
+          type: "GET_USER_TOKEN",
+          payload: response.data.result.token,
+        });
         dispatch({ type: "USER_LOGIN_SUCCES", payload: response.config.data });
       })
       .catch((error) => {
         console.log(error.response.data.message);
-        dispatch({ type: "USER_LOGIN_FAILED", payload: error.response.data.message });
+        dispatch({
+          type: "USER_LOGIN_FAILED",
+          payload: error.response.data.message,
+        });
       });
   };
 };
