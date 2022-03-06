@@ -44,8 +44,9 @@ function App() {
         <Route path="todoList" element={<TodoList />} />
         <Route path="profile" element={<Account />} />
         <Route path="card" element={<Card />} />
+        <Route path="profile" element={<Account />} />
+        <Route path="card" element={<Card />} />
         <Route path="*" element={<ErrorPage />} />
-
         {/* PROTECTED ROUTE PERSIST GATE (JATAH HAMDANI) */}
         {/*<Route
           path="/test"

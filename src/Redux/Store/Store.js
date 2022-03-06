@@ -13,6 +13,7 @@ const persistConfig = {
   key: "root",
   storage,
   transforms: [saveSubsetFilter],
+  // whitelist: ["getAuthRegister"],
   whitelist: ["getAuthRegister"],
 };
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

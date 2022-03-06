@@ -2,7 +2,8 @@
     max-width: 80%;
 }
 
-/* .modal_title {
+@media (min-width: 1220px) {
+.modal_title {
     width: 100%;
     display: flex;
     flex-wrap: inherit;
@@ -13,7 +14,7 @@
 .title p {
     font-size: 13px;
     margin-top: 20px;
-    color: #80848D;
+    color: var(--grey1);
 }
 
 .btn_download {
@@ -36,15 +37,12 @@
     width: 100%;
 }
 
-.dropdown_button {
-    margin-top: 5px;
-}
-
 .description_title {
     margin-top: 20px;
     margin-bottom: 5px;
     font-weight: bold;
     font-size: 13px;
+    color: var(--darkGrey);
 }
 
 .input_description {
@@ -52,34 +50,44 @@
     margin-bottom: 5px;
 }
 
-.btn_description {
+.btn_description_cancel {
     align-items: flex-end;
     border-radius: 80px;
     width: 100px;
     height: 40px;
     margin: 10px;
-    color: #4859EF;
+    color: var(--darkBlue);
     font-size: 14px;
-}
-
-.cancel {
     margin-left: 66%;
 }
 
-.save {
+.btn_description_save {
+    align-items: flex-end;
+    border-radius: 80px;
+    width: 100px;
+    height: 40px;
+    margin: 10px;
+    font-size: 14px;
     background-color: #4859EF;
     color: white;
 }
 
-.btn_description:hover {
+.btn_description_cancel:hover {
     color: white;
     background-color: #4859EF;
+}
+
+.btn_description_save:hover {
+    color: white;
+    background-color: #4859EF;
+}
+
+.comment_section{
+    color: var(--darkGrey);
 }
 
 .comment {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 
 .comment_title{
@@ -95,6 +103,7 @@
 
 .input_comment {
     width: 93%;
+    margin-left: 10px;
 }
 
 .comment_wrapper {
@@ -102,6 +111,7 @@
     justify-content:flex-start;
     gap: 20px;
     align-items: baseline;
+    margin-top: 20px;
 }
 
 .name_profile {
@@ -118,10 +128,8 @@
     font-size: 13px;
 }
 
-.dropdown_toggle {
-    font-size: 12px;
-    padding: 9px;
-    margin-top: -5px;
+.dropdown_button {
+    margin-top: 3px;
 }
 
 .assign_member {
@@ -135,6 +143,7 @@
     font-weight: bold;
     font-size: 12px;
     align-items: center;
+    color: var(--darkGrey);
 }
 
 .add_priority {
@@ -146,6 +155,7 @@
 .add_priority p {
     font-weight: bold;
     font-size: 13px;
+    color: var(--darkGrey);
 }
 
 .add_date {
@@ -157,6 +167,7 @@
 .add_date p {
     font-weight: bold;
     font-size: 13px;
+    color: var(--darkGrey);
 }
 
 .add_labels {
@@ -168,4 +179,24 @@
 .add_labels p {
     font-weight: bold;
     font-size: 13px;
-}  */
+    color: var(--darkGrey);
+}
+
+/* @media (min-width: 576px) {
+    .btn_description_cancel {
+        margin-left: 35%;
+    }
+    .comment_wrapper {
+        margin-top: 15px;
+    }
+    .dropdown_button {
+        margin-top: 27px;
+    }
+    .input_member {
+        width: 190%;
+    }
+} */
+
+}
+
+

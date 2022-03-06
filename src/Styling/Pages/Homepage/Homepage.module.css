@@ -190,6 +190,12 @@
 .linkFooterLI {
   list-style-type: none;
 }
+
+.availApps {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
 @media (max-width: 1024) {
   .imageMain {
     width: 70%;

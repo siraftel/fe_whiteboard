@@ -358,7 +358,7 @@ export default function Homepage() {
                 />
               </svg>
               <p>Available on</p>
-              <div>
+              <div className={style.availApps}>
                 <img src={aplle} alt="aplle" />
                 <img src={playstore} alt="playstore" />
               </div>
