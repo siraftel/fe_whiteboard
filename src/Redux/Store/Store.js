@@ -14,6 +14,7 @@ const persistConfig = {
   storage,
   transforms: [saveSubsetFilter],
   // whitelist: ["getAuthRegister"],
+  whitelist: ["getAuthRegister"],
 };
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -25,10 +26,7 @@ if (module.hot) {
     store.replaceReducer(persistReducer(persistConfig, nextRootReducer));
   });
 }
-let store = createStore(
-  persistedReducer,
-  composeEnhancers(applyMiddleware(thunk))
-);
+let store = createStore(persistedReducer, composeEnhancers(applyMiddleware(thunk)));
 let persistor = persistStore(store);
 
 export { store, persistor };

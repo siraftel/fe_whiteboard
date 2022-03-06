@@ -5,9 +5,11 @@ import Logo from "../../Assets/Logos/GreyLogo.png";
 import Right from "../../Assets/Icons/right blue.png";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserRegister } from "../../Redux/Action/UserAction";
+import { useNavigate } from "react-router";
 export default function Register() {
   const error = useSelector((state) => state.getAuthRegister.error);
   console.log(error);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   return (
     <div>
@@ -41,6 +43,8 @@ export default function Register() {
             console.log(values);
             dispatch(getUserRegister(values));
             setSubmitting(false);
+            alert("Please Check your Email");
+            navigate("/login");
           }}
         >
           {({

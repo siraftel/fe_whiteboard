@@ -5,10 +5,12 @@ import Logo from "../../Assets/Logos/GreyLogo.png";
 import Right from "../../Assets/Icons/right blue.png";
 import { useDispatch, useSelector } from "react-redux";
 import { userLogin } from "../../Redux/Action/UserAction";
+import { useNavigate } from "react-router";
 
 export default function Login() {
   const error = useSelector((state) => state.getAuthRegister.error);
   console.log(error);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   return (
     <div>
@@ -37,6 +39,7 @@ export default function Login() {
           onSubmit={(values, { setSubmitting }) => {
             dispatch(userLogin(values));
             setSubmitting(false);
+            navigate("/");
           }}
         >
           {({
