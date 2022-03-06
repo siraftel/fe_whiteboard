@@ -187,8 +187,7 @@
   border-radius: 5px;
   color: var(--darkPurple);
 }
-.todo_hover_button:hover,
-:focus {
+.todo_hover_button:hover {
   background-color: white;
 }
 .popover_todo {
@@ -224,8 +223,7 @@
 .todo2_button,
 .todo3_button,
 .todo4_button,
-.todo5_button:hover,
-:focus {
+.todo5_button:hover {
   background-color: white !important;
 }
 .todo2_button {
@@ -383,7 +381,7 @@
   text-align: center;
 }
 .add_todo:hover,
-:focus {
+.add_todo:focus {
   background-color: none !important;
   color: var(--darkBlue);
 }
@@ -469,8 +467,7 @@
   border-radius: 5px;
   color: var(--darkPurple);
 }
-.box_hover_button:active,
-:focus {
+.box_hover_button:active {
   background-color: var(--lightGrey1);
 }
 .box_hover_button:hover {
@@ -508,8 +505,7 @@
   line-height: 12px;
   padding: 2%;
 }
-.card_button_container:hover,
-:focus {
+.card_button_container:hover {
   background-color: var(--darkBlueS);
 }
 

@@ -46,6 +46,7 @@ function App() {
         <Route path="sidebarStatic" element={<SidebarStatic />} />
         <Route path="profil" element={<Account />} />
         <Route path="*" element={<ErrorPage />} />
+        <Route path="profile" element={<Account />} />
         <Route path="card" element={<Card />} />
 
         {/* PROTECTED ROUTE PERSIST GATE (JATAH HAMDANI) */}

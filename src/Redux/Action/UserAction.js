@@ -6,6 +6,7 @@ export const getUserRegister = (values) => {
     axios
       .post(`${process.env.REACT_APP_BASE_URL}/auth/register`, values)
       .then((response) => {
+        console.log(response);
         const auth = response.data.token;
         dispatch({ type: "GET_USER_TOKEN", payload: auth });
         dispatch({
@@ -26,17 +27,22 @@ export const getUserRegister = (values) => {
 export const userLogin = (values) => {
   return (dispatch) => {
     dispatch({ type: "GET_USER_REGISTER_REQUEST" });
-    //Testing
-    console.log(process.env.REACT_APP_BASE_URL);
     axios
       .post(`${process.env.REACT_APP_BASE_URL}/auth/login`, values)
       .then((response) => {
-        console.log(response.config.data);
-        dispatch({
-          type: "GET_USER_TOKEN",
-          payload: response.data.result.token,
-        });
+        console.log(response.data.result.token);
+        dispatch({ type: "GET_USER_TOKEN", payload: response.data.result.token });
         dispatch({ type: "USER_LOGIN_SUCCES", payload: response.config.data });
+      })
+      .catch((error) => {
+        console.log(error.response.data.message);
+        dispatch({ type: "USER_LOGIN_FAILED", payload: error.response.data.message });
       });
+  };
+};
+// dispatch({ type: 'USER_LOGOUT' }) untuk log out kosongin token sama user
+export const logOut = () => {
+  return (dispatch) => {
+    dispatch({ type: "USER_LOGOUT" });
   };
 };
