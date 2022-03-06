@@ -16,7 +16,6 @@ export default function TeamsBoards() {
   const dispatch = useDispatch();
 
   const { teamId } = useParams();
-
   useEffect(() => {
     dispatch(getBoard(teamId));
   }, []);
@@ -31,11 +30,11 @@ export default function TeamsBoards() {
 
     const data = {
       title: newBoard,
-      createdAt: new Date()
-    }
+      createdAt: new Date(),
+    };
     setNewBoard("");
     setShow(false);
-  }
+  };
 
   return (
     <Layout>
@@ -120,11 +119,7 @@ export default function TeamsBoards() {
             <div className={style.column_new_board}>
               <div className={style.image_container}>
                 <button className={style.plus_button} onClick={handleShow}>
-                  <img
-                    src={plus}
-                    alt="icon for add new Board"
-                    className={style.plus_button_image}
-                  />
+                  <img src={plus} alt="icon for add new Board" className={style.plus_button_image} />
                 </button>
               </div>
               <div className={style.text_container}>Create new Board</div>
@@ -132,22 +127,12 @@ export default function TeamsBoards() {
           </div>
         </Container>
       </div>
-      <Modal
-        show={show}
-        onHide={handleClose}
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
+      <Modal show={show} onHide={handleClose} aria-labelledby="contained-modal-title-vcenter" centered>
         <Modal.Header className={style.modal_header} closeButton>
           <p className={style.modal_title}>New Board | One by Meja Putih</p>
         </Modal.Header>
         <Modal.Body>
-          <FormControl
-            placeholder="Board Name"
-            aria-label="Board Name"
-            aria-describedby="basic-addon1"
-            onChange={(e) => setNewBoard(e.target.value)}
-          />
+          <FormControl placeholder="Board Name" aria-label="Board Name" aria-describedby="basic-addon1" onChange={(e) => setNewBoard(e.target.value)} />
         </Modal.Body>
         <Modal.Footer>
           <button className={style.cancel_button} onClick={handleClose}>
