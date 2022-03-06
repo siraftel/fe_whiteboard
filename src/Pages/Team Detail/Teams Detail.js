@@ -62,7 +62,7 @@ export default function TeamsDetail() {
 
   useEffect(() => {
     dispatch(getMembers(boardId));
-  });
+  }, []);
 
   //FOR MODALS
   const [show, setShow] = useState(false);
@@ -1220,14 +1220,13 @@ export default function TeamsDetail() {
                        {loading && error ? (
   <div> Loading Bro </div>
 ) : (
-  boards.map((board, index) => (
+  members.map((member, index) => (
             <img
+            key={index}
                   className={style.todo_profile_picture_top}
                   style={{
-                    right: `100px - ${index} * 20`,
-                    zIndex: {10 - index},
-                     // right: "100px",
-                     // zIndex: 100,
+                    right: `${100 - (index * 20)}px`,
+                    zIndex: 10 - index,
                   }}
                   src={pp1}
                   alt="profile"
@@ -1235,18 +1234,18 @@ export default function TeamsDetail() {
                 )) 
               )}
               {error && <div>Unexpeccted Error Occured </div>}
-                <span
-                  className={style.todo_profile_picture_top}
-                  style={{
-                    right: "0px",
-                    zIndex: 10,
-                    backgroundImage: `url(${pp5})`,
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  +2
-                </span>
+                // <span
+                //   className={style.todo_profile_picture_top}
+                //   style={{
+                //     right: "0px",
+                //     zIndex: 10,
+                //     backgroundImage: `url(${pp5})`,
+                //     alignItems: "center",
+                //     justifyContent: "center",
+                //   }}
+                // >
+                //   +2
+                // </span>
               </div>
               <div ref={ref} className={style.invite_button_wrapper}>
                 <button

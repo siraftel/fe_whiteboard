@@ -4,7 +4,7 @@ import "./App.css";
 import SidebarStatic from "../src/Components/ShareComponent/Sidebar/SidebarStatic";
 // import Task from "../src/Pages/Task";
 import { Routes, Route } from "react-router-dom";
-import TeamsBoards from "./Pages/Teams Board/Teams Boards";
+import Team from "./Pages/Teams Board/Teams Boards";
 import TeamsDetail from "./Pages/Team Detail/Teams Detail";
 import ErrorPage from "./Pages/Error/Error";
 import Homepage from "./Pages/Homepage/Homepage";
@@ -29,15 +29,16 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="team/:teamId" element={<TeamsBoards />}>
+        <Route path="team/:teamId" element={<Team />}>
           <Route path="board/:boardId" element={<TeamsDetail />} />
         </Route>
         <Route exact path="/" element={<Homepage />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/modals" element={<Modals />} />
-        <Route path="/teams-boards" element={<TeamsBoardsEmptyState />} />
-        <Route path="/teams-detail" element={<TeamsDetail />} />
-        <Route path="/teams-detail-empty" element={<TeamsDetailEmptyState />} />
+        <Route path="login" element={<Login />} />
+        <Route path="modals" element={<Modals />} />
+        {/* <Route path="/teams-boards" element={<Team />} /> */}
+        {/* <Route path="/teams-detail" element={<TeamsDetail />} /> */}
+        <Route path="teams-boards" element={<TeamsBoardsEmptyState />} />
+        <Route path="teams-detail" element={<TeamsDetailEmptyState />} />
         <Route path="register" element={<Register />} />
         <Route path="home" element={<Home />} />
         <Route path="tasks" element={<Task />} />

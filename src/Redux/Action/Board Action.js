@@ -18,7 +18,6 @@ export const getBoard = (teamId) => {
       .then((response) => {
         //FOR TESTING
         const board = response.data.result;
-        console.log(response);
         dispatch({ type: "GET_BOARDS_SUCCESS", payload: board });
       })
       .catch((error) => {
@@ -109,6 +108,8 @@ export const postBoard = (data, teamId) => {
   return (dispatch, getState) => {
     dispatch({ type: "POST_BOARD_REQUEST" });
     //API CALL
+    console.log(data);
+    console.log(teamId);
     axios({
       method: "POST",
       url: `${process.env.REACT_APP_BASE_URL}/board/${teamId}`,

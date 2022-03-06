@@ -18,6 +18,7 @@ export const boardReducer = (state = inititailState, action) => {
       return {
         ...state,
         loading: false,
+        error: "",
         boards: action.payload,
       };
     case "GET_BOARDS_FAILED":
@@ -34,6 +35,7 @@ export const boardReducer = (state = inititailState, action) => {
     case "GET_BOARD_DETAIL_SUCCESS":
       return {
         ...state,
+        error: "",
         loading: false,
         boardDetail: action.payload,
       };
@@ -51,6 +53,7 @@ export const boardReducer = (state = inititailState, action) => {
     case "GET_BOARD_MEMBERS_SUCCESS":
       return {
         ...state,
+        error: "",
         loading: false,
         members: action.payload,
       };
@@ -68,6 +71,7 @@ export const boardReducer = (state = inititailState, action) => {
     case "GET_BOARD_MEMBER_SUCCESS":
       return {
         ...state,
+        error: "",
         loading: false,
         member: action.payload,
       };
@@ -85,6 +89,7 @@ export const boardReducer = (state = inititailState, action) => {
     case "POST_BOARD_SUCCESS":
       return {
         ...state,
+        error: "",
         loading: false,
         boards: [action.payload, ...state.boards],
       };
@@ -102,6 +107,7 @@ export const boardReducer = (state = inititailState, action) => {
     case "POST_LIST_SUCCESS":
       return {
         ...state,
+        error: "",
         loading: false,
         boards: [action.payload, ...state.boards],
       };
@@ -119,6 +125,7 @@ export const boardReducer = (state = inititailState, action) => {
     case "PUT_ARCHIVE_LIST_SUCCESS":
       return {
         ...state,
+        error: "",
         loading: false,
         boardDetail: [action.payload, ...state.boardDetail],
       };
@@ -136,6 +143,7 @@ export const boardReducer = (state = inititailState, action) => {
     case "PUT_INVITE_MEMBER_SUCCESS":
       return {
         ...state,
+        error: "",
         loading: false,
         members: [action.payload, ...state.members],
       };
