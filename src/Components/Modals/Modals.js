@@ -10,6 +10,7 @@ import InputMember from "./InputMember"
 import InputPriority from "./InputPriority";
 import InputDate from "./InputDate";
 import InputLabels from "./InputLabels";
+import InputDescription from "./InputDescription"
 import CommentsList from "../Comment/CommentList";
 
 import style from "../../Styling/Components/Modals/Modals.module.css";
@@ -84,9 +85,10 @@ function Modals() {
               </InputGroup>
               <div className={style.description_section}>
                 <p className={style.description_title}>Description</p>
-                <Form.Group className={style.input_description} controlId="exampleForm.ControlTextarea1">
+                {/* <Form.Group className={style.input_description} controlId="exampleForm.ControlTextarea1">
                   <Form.Control as="textarea" rows={6} />
-                </Form.Group>
+                </Form.Group> */}
+                <InputDescription />
                 <Button variant="light" className={style.btn_description_cancel}>Cancel</Button>
                 <Button variant="light" className={style.btn_description_save}>Save</Button>
               </div>
@@ -97,7 +99,7 @@ function Modals() {
                     <img className={style.image_profile} src={profile} />
                   </a>
                   <Form.Group className={style.input_comment} controlId="exampleForm.ControlTextarea1">
-                    <Form.Control as="textarea" rows={2} />
+                    <Form.Control as="textarea" rows={3} />
                   </Form.Group>
                 </div>
                 <Button size="" variant="light" className={style.btn_description_cancel}>Cancel</Button>
