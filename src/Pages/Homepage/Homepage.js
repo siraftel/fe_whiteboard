@@ -53,7 +53,7 @@ export default function Homepage() {
         </Container>
         {token ? (
           <Container className={style.homepageRight}>
-            <img className={style.icon} src={image} alt="ProfilePicture" />
+            <img className={style.icon} src={image || "https://res.cloudinary.com/dry2yqm3h/image/upload/v1644199101/image/whiteboard/no-profile-pic_zyup0u.png"} alt="ProfilePicture" />
             <Nav.Link href="/profile">Profile Name</Nav.Link>
           </Container>
         ) : (
