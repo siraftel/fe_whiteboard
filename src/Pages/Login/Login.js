@@ -37,9 +37,16 @@ export default function Login() {
             return errors;
           }}
           onSubmit={(values, { setSubmitting }) => {
-            dispatch(userLogin(values));
-            setSubmitting(false);
-            navigate("/");
+            dispatch(userLogin(values))
+              .then((res) => {
+                console.log(res);
+                if (res.status === 200 && res?.data?.result?.token) {
+                  navigate("/");
+                }
+              })
+              .finally(() => {
+                setSubmitting(false);
+              });
           }}
         >
           {({
@@ -60,7 +67,7 @@ export default function Login() {
               <input className={style.formInput} type="email" name="email" onChange={handleChange} onBlur={handleBlur} value={values.email} placeholder="Email" />
               {errors.email && touched.email && errors.email}
               <input className={style.formInput} type="password" name="password" onChange={handleChange} onBlur={handleBlur} value={values.password} placeholder="Password" />
-              <p>{(errors.password && touched.password && errors.password) || error}</p>
+              <p className={style.alertError}>{(errors.password && touched.password && errors.password) || error}</p>
 
               <button type="submit" className={style.buttonSubmit} disabled={isSubmitting}>
                 Submit
