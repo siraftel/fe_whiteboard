@@ -16,6 +16,7 @@ import Account from "../src/Pages/Profile/Account";
 import Register from "../src/Pages/Register/Register";
 import Home from "../src/Pages/Home/Home";
 import Card from "../src/Components/ShareComponent/Navbar/Card";
+import SidebarStatic from "../src/Components/ShareComponent/Sidebar/SidebarStatic";
 
 function App() {
   return (
