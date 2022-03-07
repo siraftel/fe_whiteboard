@@ -1,5 +1,6 @@
 import UserNavbar from "../../Components/ShareComponent/Navbar/NavbarIsLogin";
 import Sidebar from "../../Components/ShareComponent/Sidebar/Sidebar";
+import SidebarStatic from "../../Components/ShareComponent/Sidebar/SidebarStatic";
 import team from "../../Assets/Icons/team.png";
 import saly17 from "../../Assets/Images/Saly-17.png";
 import style from "../../Styling/Pages/Teams Boards/TeamsBoards.module.css";
@@ -9,7 +10,7 @@ export default function TeamsBoardsEmptyState() {
     <>
       <UserNavbar />
       <div className={style.main_container}>
-        <Sidebar />
+        <SidebarStatic />
         <div className={`${style.content_wrapper} container`}>
           <div className={style.team_name}>
             <div className={style.title3}>

@@ -41,10 +41,16 @@ export default function Register() {
           onSubmit={(values, { setSubmitting }) => {
             delete values.acceptTerm;
             console.log(values);
-            dispatch(getUserRegister(values));
-            setSubmitting(false);
-            alert("Please Check your Email");
-            navigate("/login");
+            dispatch(getUserRegister(values))
+              .then((res) => {
+                if (res.status === 201 && res?.data?.token) {
+                  alert("Please Check your Email");
+                  navigate("/login");
+                }
+              })
+              .finally(() => {
+                setSubmitting(false);
+              });
           }}
         >
           {({
@@ -64,7 +70,7 @@ export default function Register() {
               <input className={style.formInput} type="name" name="name" onChange={handleChange} onBlur={handleBlur} value={values.name} placeholder="Name" />
               {errors.name && touched.name && errors.name}
               <input className={style.formInput} type="email" name="email" onChange={handleChange} onBlur={handleBlur} value={values.email} placeholder="Email" />
-              <p>{(errors.email && touched.email && errors.email) || error}</p>
+              <p className={style.alertError}>{(errors.email && touched.email && errors.email) || error}</p>
               <input className={style.formInput} type="password" name="password" onChange={handleChange} onBlur={handleBlur} value={values.password} placeholder="Password min 8 characters" />
               {errors.password && touched.password && errors.password}
               <div className={style.checkboxTerms}>
