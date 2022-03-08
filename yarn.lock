@@ -3394,6 +3394,24 @@ cjs-module-lexer@^1.0.0:
   resolved "https://registry.yarnpkg.com/cjs-module-lexer/-/cjs-module-lexer-1.2.2.tgz#9f84ba3244a512f3a54e5277e8eef4c489864e40"
   integrity sha512-cOU9usZw8/dXIXKtwa8pM0OTJQuJkxMN6w30csNRUerHfeQ5R6U3kkU/FtJeIf3M202OHfY2U8ccInBG7/xogA==
 
+ckeditor5@^32.0.0:
+  version "32.0.0"
+  resolved "https://registry.yarnpkg.com/ckeditor5/-/ckeditor5-32.0.0.tgz#77ecf3d6b1f6b7966d47823833af26da82921eb2"
+  integrity sha512-PehBSDwclMcZcVIRFZRUv6BSEdQCK+9kUbnWdcAOtM9LJL8aWCwCTg6VZTq6+aDEzoz6BfkjO1eF3ZtQVJT97w==
+  dependencies:
+    "@ckeditor/ckeditor5-clipboard" "^32.0.0"
+    "@ckeditor/ckeditor5-core" "^32.0.0"
+    "@ckeditor/ckeditor5-engine" "^32.0.0"
+    "@ckeditor/ckeditor5-enter" "^32.0.0"
+    "@ckeditor/ckeditor5-paragraph" "^32.0.0"
+    "@ckeditor/ckeditor5-select-all" "^32.0.0"
+    "@ckeditor/ckeditor5-typing" "^32.0.0"
+    "@ckeditor/ckeditor5-ui" "^32.0.0"
+    "@ckeditor/ckeditor5-undo" "^32.0.0"
+    "@ckeditor/ckeditor5-upload" "^32.0.0"
+    "@ckeditor/ckeditor5-utils" "^32.0.0"
+    "@ckeditor/ckeditor5-widget" "^32.0.0"
+
 ckeditor@^4.12.1:
   version "4.12.1"
   resolved "https://registry.yarnpkg.com/ckeditor/-/ckeditor-4.12.1.tgz#954a7b028dd611e44ba51cc7c2fe051cf1052186"
