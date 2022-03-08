@@ -12,17 +12,29 @@ export const getProfile = () => {
         },
       })
       .then((response) => {
-        dispatch({ type: "GET_PROFILE_USER_ID", payload: response.data.result.userId });
+        // console.log(response);
+        dispatch({ type: "GET_PROFILE_USER_ID", payload: response.data.result.userId._id });
         dispatch({ type: "GET_PROFILE_IMAGE", payload: response.data.result.image });
+        dispatch({ type: "PROFILE_NAMA", payload: response.data.result.userId.name });
+        dispatch({ type: "PROFILE_EMAIL", payload: response.data.result.userId.email });
       })
       .catch((error) => console.log(error.response));
   };
 };
-export const editProfile = () => {
-  return (dispatch) => {
+export const editProfile = (pict) => {
+  return (dispatch, getState) => {
     dispatch({ type: "PROFILE_LOADING" });
     //nanti disini ada values yang diambil dari account.js
-    axios.put(`${process.env.REACT_APP_BASE_URL}/profile/`).then((response) => console.log(response));
+    axios
+      .put(`${process.env.REACT_APP_BASE_URL}/profile/`, pict, {
+        headers: {
+          //  Cara pertama dengan useSelector, state di component/page
+          // Authorization: token,
+          //  Cara kedua dapatkan token dari getstate
+          Authorization: `Bearer ${getState().getAuthRegister.token}`,
+        },
+      })
+      .then((response) => console.log(response));
   };
 };
 export const changeEmail = () => {

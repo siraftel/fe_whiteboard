@@ -23,6 +23,7 @@ import { getProfile } from "../../Redux/Action/ProfileAction";
 import { useDispatch, useSelector } from "react-redux";
 export default function Homepage() {
   const image = useSelector((state) => state.getProfile.image);
+  const nama = useSelector((state) => state.getProfile.nama);
   console.log(image);
   const token = useSelector((state) => state.getAuthRegister.token);
   const dispatch = useDispatch();
@@ -54,7 +55,7 @@ export default function Homepage() {
         {token ? (
           <Container className={style.homepageRight}>
             <img className={style.icon} src={image || "https://res.cloudinary.com/dry2yqm3h/image/upload/v1644199101/image/whiteboard/no-profile-pic_zyup0u.png"} alt="ProfilePicture" />
-            <Nav.Link href="/profile">Profile Name</Nav.Link>
+            <Nav.Link href="/profile">{nama}</Nav.Link>
           </Container>
         ) : (
           <Container className={style.homepageRight}>

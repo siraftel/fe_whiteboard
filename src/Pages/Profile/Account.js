@@ -4,14 +4,20 @@ import BlueLogo from "../../Assets/Logos/BlueLogo.png";
 import squareHome from "../../Assets/Icons/SquareHome.png";
 import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "../../Redux/Action/UserAction";
-import { getProfile } from "../../Redux/Action/ProfileAction";
+import { editProfile, getProfile } from "../../Redux/Action/ProfileAction";
 import { useNavigate } from "react-router";
 
 export default function Account() {
   const image = useSelector((state) => state.getProfile.image);
-  console.log(image);
+  const email = useSelector((state) => state.getProfile.email);
+  console.log(email);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const handleOnChangePict = (evt) => {
+    const pict = evt.target.files[0];
+    dispatch(editProfile(pict));
+    // console.log(pict);
+  };
   const handleOnChange = (evt) => {
     console.log(evt.target.value);
   };
@@ -44,7 +50,7 @@ export default function Account() {
           <div className={style.accountImage}>
             <img src={image} alt="sally11" className={style.Image} />
           </div>
-          <input type="file" placeholder="ganti" id="file" className={style.photo} />
+          <input type="file" placeholder="ganti" id="file" className={style.photo} onChange={handleOnChangePict} />
           <label className={style.btnUpload} for="file">
             Upload
           </label>
@@ -103,7 +109,7 @@ export default function Account() {
         <div className={style.containerEmail}>
           <div className={style.Email}>
             <h2>Email Address</h2>
-            <p>Your email address is hi@hello.mail</p>
+            <p>Your email address is {email}</p>
           </div>
           <div className={style.btnChangeContainer}>
             <button className={style.btnChange} type="button">
