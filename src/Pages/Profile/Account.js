@@ -18,8 +18,13 @@ export default function Account() {
   const navigate = useNavigate();
   const handleOnChangePict = (evt) => {
     const pict = evt.target.files[0];
-    dispatch(editProfile(pict));
-    // console.log(pict);
+    const formData = new FormData();
+    formData.append("image", pict);
+    // formData.append("company", pict);
+    // formData.append("company", pict);
+
+    dispatch(editProfile(formData));
+    console.log(formData);
   };
   const handleOnChange = (evt) => {
     console.log(evt.target.value);

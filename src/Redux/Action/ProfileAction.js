@@ -12,7 +12,6 @@ export const getProfile = () => {
         },
       })
       .then((response) => {
-        console.log(response);
         dispatch({ type: "GET_PROFILE_USER_ID", payload: response.data.result.userId._id });
         dispatch({ type: "GET_PROFILE_IMAGE", payload: response.data.result.image });
         dispatch({ type: "PROFILE_NAMA", payload: response.data.result.userId.name });
@@ -22,20 +21,27 @@ export const getProfile = () => {
       .catch((error) => console.log(error.response));
   };
 };
-export const editProfile = (pict) => {
+export const editProfile = (formData) => {
   return (dispatch, getState) => {
     dispatch({ type: "PROFILE_LOADING" });
     //nanti disini ada values yang diambil dari account.js
     axios
-      .put(`${process.env.REACT_APP_BASE_URL}/profile/`, pict, {
+      // ({
+      //   method: "PUT",
+      //   url: `${process.env.REACT_APP_BASE_URL}/profile`,
+      //   data: formData,
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //     Authorization: `Bearer ${getState().getAuthRegister.token}`,
+      //   },
+      // }).then((response) => console.log(response));
+      .put(`${process.env.REACT_APP_BASE_URL}/profile/`, formData, {
         headers: {
-          //  Cara pertama dengan useSelector, state di component/page
-          // Authorization: token,
-          //  Cara kedua dapatkan token dari getstate
           Authorization: `Bearer ${getState().getAuthRegister.token}`,
         },
       })
-      .then((response) => console.log(response));
+      .then((response) => window.location.reload()) //digunakan untuk buat reload NOTE:Nanti dibenerin dengan disatuin reducernya
+      .catch((error) => console.log(error));
   };
 };
 export const changeEmail = () => {
