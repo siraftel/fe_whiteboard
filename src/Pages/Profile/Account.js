@@ -10,6 +10,9 @@ import { useNavigate } from "react-router";
 export default function Account() {
   const image = useSelector((state) => state.getProfile.image);
   const email = useSelector((state) => state.getProfile.email);
+  const nama = useSelector((state) => state.getProfile.nama);
+  const companyName = useSelector((state) => state.getProfile.companyName);
+
   console.log(email);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -61,7 +64,8 @@ export default function Account() {
         <div className={style.accountNameRole}>
           <div className={style.accountName}>
             <p>Name</p>
-            <input className={style.inputName} type="text" placeholder="name" />
+            <input className={style.inputName} type="text" placeholder={nama} />
+            {/* <label>{nama}</label> */}
           </div>
           <div className={style.accountRole}>
             <p>Role</p>
@@ -101,7 +105,7 @@ export default function Account() {
           <div className={style.accountCompanyName}>
             <p>Company Name</p>
             <div>
-              <input className={style.inputName} type="text" placeholder="Company Name" />
+              <input className={style.inputName} type="text" placeholder={companyName} />
             </div>
           </div>
         </div>

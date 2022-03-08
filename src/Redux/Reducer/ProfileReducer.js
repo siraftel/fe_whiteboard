@@ -4,6 +4,7 @@ const initialState = {
   image: "",
   nama: "",
   email: "",
+  companyName: "",
 };
 export const getProfile = (state = initialState, action) => {
   switch (action.type) {
@@ -32,6 +33,11 @@ export const getProfile = (state = initialState, action) => {
       return {
         ...state,
         email: action.payload,
+      };
+    case "PROFILE_COMPANY_NAME":
+      return {
+        ...state,
+        companyName: action.payload,
       };
     default:
       return state;

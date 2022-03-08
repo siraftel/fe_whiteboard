@@ -12,11 +12,12 @@ export const getProfile = () => {
         },
       })
       .then((response) => {
-        // console.log(response);
+        console.log(response);
         dispatch({ type: "GET_PROFILE_USER_ID", payload: response.data.result.userId._id });
         dispatch({ type: "GET_PROFILE_IMAGE", payload: response.data.result.image });
         dispatch({ type: "PROFILE_NAMA", payload: response.data.result.userId.name });
         dispatch({ type: "PROFILE_EMAIL", payload: response.data.result.userId.email });
+        dispatch({ type: "PROFILE_COMPANY_NAME", payload: response.data.result.companyName });
       })
       .catch((error) => console.log(error.response));
   };
