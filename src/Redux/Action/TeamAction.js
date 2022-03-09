@@ -7,7 +7,7 @@ export const getTeam = () => {
     axios
       .get(`${process.env.REACT_APP_BASE_URL}/team`, {
         headers: {
-          "Authorization": `Bearer ${getState().getAuthRegister.token}`,
+          Authorization : `Bearer ${getState().getAuthRegister.token}`,
         },
       })
       .then((response) => {
