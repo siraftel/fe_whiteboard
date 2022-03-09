@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Formik } from "formik";
 import style from "../../Styling/Pages/Login/FormLogin.module.css";
 import Logo from "../../Assets/Logos/GreyLogo.png";
@@ -6,12 +6,30 @@ import Right from "../../Assets/Icons/right blue.png";
 import { useDispatch, useSelector } from "react-redux";
 import { userLogin } from "../../Redux/Action/UserAction";
 import { useNavigate } from "react-router";
+import { Modal, FormControl } from "react-bootstrap";
 
 export default function Login() {
   const error = useSelector((state) => state.getAuthRegister.error);
   console.log(error);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const [show, setShow] = useState(false);
+  const [value, setValue] = useState("");
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const data = {
+      email: value,
+    };
+    console.log(data);
+    // dispatch(postTeam(data));
+    setValue("");
+    setShow(false);
+  };
   return (
     <div>
       <nav className={style.nav}>
@@ -72,7 +90,7 @@ export default function Login() {
               <button type="submit" className={style.buttonSubmit} disabled={isSubmitting}>
                 Submit
               </button>
-              <a href="https://">Forgot Password</a>
+              <p onClick={handleShow}>Forgot Password</p>
               <p className={style.text}>or use your email to sign in:</p>
               <div>
                 <a className={style.signInMedia} href=" https://whiteboard-product.herokuapp.com/api/v1/auth/google">
@@ -110,6 +128,22 @@ export default function Login() {
           )}
         </Formik>
       </div>
+      <Modal show={show} onHide={handleClose} aria-labelledby="contained-modal-title-vcenter" centered>
+        <Modal.Header className={style.modal_header} closeButton>
+          <p className={style.modal_title}>Forgot Password</p>
+        </Modal.Header>
+        <Modal.Body>
+          <FormControl placeholder="Your Email" aria-label="Team Name" aria-describedby="basic-addon1" onChange={(e) => setValue(e.target.value)} />
+        </Modal.Body>
+        <Modal.Footer>
+          <button className={style.cancel_button} onClick={handleClose}>
+            Cancel
+          </button>
+          <button className={style.save_button} onClick={(e) => handleSubmit(e)}>
+            Send
+          </button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 }

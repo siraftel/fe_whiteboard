@@ -88,7 +88,29 @@ input {
   margin: auto;
   padding-left: 12px;
 }
-
+.cancel_button {
+  background-color: var(--darkBlueS);
+  color: var(--darkBlue);
+  width: 20%;
+  height: 45px;
+  border-radius: 35px;
+  transition-duration: 0.8s;
+  border: none;
+}
+.cancel_button:hover,
+.save_button:hover {
+  background: #f2d555;
+  color: black;
+}
+.save_button {
+  background-color: var(--darkBlue);
+  color: white;
+  width: 20%;
+  height: 45px;
+  border-radius: 35px;
+  transition-duration: 0.8s;
+  border: none;
+}
 /* media query */
 @media (max-width: 1024px) {
   .formSubmit {
