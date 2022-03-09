@@ -89,8 +89,8 @@ function Modals() {
                   <Form.Control as="textarea" rows={6} />
                 </Form.Group> */}
                 <InputDescription />
-                <Button variant="light" className={style.btn_description_cancel}>Cancel</Button>
-                <Button variant="light" className={style.btn_description_save}>Save</Button>
+                <Button variant="light" className={style.btn_cancel}>Cancel</Button>
+                <Button variant="light" className={style.btn_save}>Save</Button>
               </div>
               <div className={style.comment_section}>
                 <p className={style.comment_title}>Comments</p>
@@ -102,8 +102,8 @@ function Modals() {
                     <Form.Control as="textarea" rows={3} />
                   </Form.Group>
                 </div>
-                <Button size="" variant="light" className={style.btn_description_cancel}>Cancel</Button>
-                <Button variant="light" className={style.btn_description_save}>Save</Button>
+                <Button size="" variant="light" className={style.btn_cancel}>Cancel</Button>
+                <Button variant="light" className={style.btn_save}>Save</Button>
                 <CommentsList data={dataComment.data} />
                 <div className={style.comment_wrapper}>
                   <a>
@@ -142,6 +142,10 @@ function Modals() {
               <div className={style.add_labels} >
                 <p>labels</p>
                 <InputLabels />
+              </div>
+              <div className={style.save_card}>
+              <Button size="" variant="light" className={style.btn_cancel_card}>Cancel</Button>
+              <Button variant="light" className={style.btn_save_card}>Save</Button>
               </div>
             </Col>
           </Row>
