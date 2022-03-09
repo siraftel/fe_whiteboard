@@ -49,14 +49,14 @@ export default function Account() {
           </a>
         </div>
         <div className={style.accountImageNav}>
-          <img src={image} alt="sally11" className={style.ImageNavbar} />
+          <img src={image || "https://res.cloudinary.com/dry2yqm3h/image/upload/v1644199101/image/whiteboard/no-profile-pic_zyup0u.png"} alt="sally11" className={style.ImageNavbar} />
         </div>
       </nav>
       <div className={style.account}>
         <div className={style.accountPict}>
           <h1>Your Photo</h1>
           <div className={style.accountImage}>
-            <img src={image} alt="sally11" className={style.Image} />
+            <img src={image || "https://res.cloudinary.com/dry2yqm3h/image/upload/v1644199101/image/whiteboard/no-profile-pic_zyup0u.png"} alt="sally11" className={style.Image} />
           </div>
           <input type="file" placeholder="ganti" id="file" className={style.photo} onChange={handleOnChangePict} />
           <label className={style.btnUpload} for="file">
@@ -120,11 +120,7 @@ export default function Account() {
             <h2>Email Address</h2>
             <p>Your email address is {email}</p>
           </div>
-          <div className={style.btnChangeContainer}>
-            <button className={style.btnChange} type="button">
-              Change
-            </button>
-          </div>
+          <div className={style.btnChangeContainer}></div>
         </div>
         <div className={style.Line}></div>
         <div className={style.containerPassword}>

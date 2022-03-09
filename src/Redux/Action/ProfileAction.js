@@ -41,9 +41,27 @@ export const editProfile = (formData) => {
         },
       })
       .then((response) => window.location.reload()) //digunakan untuk buat reload NOTE:Nanti dibenerin dengan disatuin reducernya
-      .catch((error) => console.log(error));
+      .catch((error) => console.log(error.response));
   };
 };
+export const changePassword = (data) => {
+  return (dispatch) => {
+    dispatch({ type: "PROFILE_LOADING" });
+    return axios
+      .post(`${process.env.REACT_APP_BASE_URL}/auth/forgot-password`, data)
+      .then((res) => {
+        console.log(res);
+        dispatch({ type: "CHANGE_PASSWORD_SUCCESS", payload: res?.data?.message });
+        // return Promise.resolve(res);
+      })
+      .catch((error) => {
+        console.log(error.response);
+        dispatch({ type: "CHANGE_PASSWORD_FAILED", payload: error?.response?.data?.message });
+        // return Promise.reject(error);
+      });
+  };
+};
+
 export const changeEmail = () => {
   return (dispatch) => {
     dispatch({ type: "PROFILE_LOADING" });

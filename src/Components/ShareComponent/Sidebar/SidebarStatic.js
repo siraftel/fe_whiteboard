@@ -8,20 +8,23 @@ import Icons from "./Icons";
 import { Modal, FormControl } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
+// import { useParams } from "react-router";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getTeam, postTeam } from "../../../Redux/Action/Team Action";
+import { getTeam, getTeamDetail, postTeam } from "../../../Redux/Action/TeamAction";
 
 export default function SidebarStatic() {
-  const { teams, loading, error } = useSelector((state) => state.teamReducer);
-  const randomColor = ["red", "blue", "green", "purple", "red", "blue", "green"];
+  const { teams, loading, error, teamDetail } = useSelector((state) => state.teamReducer);
+  const randomColor = ["red", "blue", "green", "purple", "red", "blue", "green", "red", "blue", "green", "purple", "red", "blue", "green"];
   const [show, setShow] = useState(false);
   const [newTeam, setNewTeam] = useState("");
 
   const dispatch = useDispatch();
+  // const {teamId} = useParams();
 
   useEffect(() => {
     dispatch(getTeam());
+    // dispatch(getTeamDetail(teamId));
   }, []);
 
   const handleClose = () => setShow(false);
@@ -38,54 +41,80 @@ export default function SidebarStatic() {
     setNewTeam("");
     setShow(false);
   };
+
+  const teamActive = (team, index) => {
+    if (team.teamName === teamDetail.teamName) {
+      return (
+        <li className={style.listSidebar} key={index}>
+          <Link className={style.anchorSidebar} to={`/team/${team._id}`}>
+            <Icons
+              variant={randomColor[index]}
+              style={{
+                background: "grey",
+              }}
+            />
+            {team.teamName}
+          </Link>
+        </li>
+      );
+    } else {
+      return (
+        <li className={style.listSidebar} key={index}>
+          <Link className={style.anchorSidebar} to={`/team/${team._id}`}>
+            <Icons variant={randomColor[index]} />
+            {team.teamName}
+          </Link>
+        </li>
+      );
+    }
+  };
   return (
     <>
       <aside className={style.sidebar}>
-        <div className={style.hideSidebar}>
+        <ul className={style.unListSidebar}>
+          <li className={style.listSidebar}>
+            <a className={style.anchorSidebar} href="/">
+              <img src={Home} alt="Home" />
+              Home
+            </a>
+          </li>
+          <li className={style.listSidebar}>
+            <a className={style.anchorSidebar} href="/boards">
+              <img src={Clipboard} alt="Clipboard" />
+              Boards
+            </a>
+          </li>
+          <li className={style.listSidebar}>
+            <a className={style.anchorSidebar} href="/tasks">
+              <img src={Tasks} alt="Tasks" />
+              Tasks
+            </a>
+          </li>
+        </ul>
+        <div className={style.line}></div>
+        <div className={style.team_sidebar}>
+          <p className={style.team_sidebarText}>TEAM</p>
+          <button className={style.plus_button} onClick={handleShow}>
+            <img src={Plus} alt="icon for add new Board" />
+          </button>
+        </div>
+        <div className={style.team_section}>
           <ul className={style.unListSidebar}>
-            <li className={style.listSidebar}>
-              <a className={style.anchorSidebar} href="/">
-                <img src={Home} alt="Home" />
-                Home
-              </a>
-            </li>
-            <li className={style.listSidebar}>
-              <a className={style.anchorSidebar} href="/boards">
-                <img src={Clipboard} alt="Clipboard" />
-                Boards
-              </a>
-            </li>
-            <li className={style.listSidebar}>
-              <a className={style.anchorSidebar} href="/tasks">
-                <img src={Tasks} alt="Tasks" />
-                Tasks
-              </a>
-            </li>
+            {loading && !error ? (
+              <div>Loading Gan</div>
+            ) : (
+              teams.map((team, index) => (
+                // teamActive(team, active)
+                <li className={style.listSidebar} key={index}>
+                  <Link className={style.anchorSidebar} to={`/team/${team._id}`}>
+                    <Icons variant={randomColor[index]} />
+                    {team.teamName}
+                  </Link>
+                </li>
+              ))
+            )}
+            {error && <div>Unexpeccted Error Occured </div>}
           </ul>
-          <div className={style.line}></div>
-          <div className={style.team_sidebar}>
-            <p className={style.team_sidebarText}>TEAM</p>
-            <button className={style.plus_button} onClick={handleShow}>
-              <img src={Plus} alt="icon for add new Board" />
-            </button>
-          </div>
-          <div className={style.team_section}>
-            <ul className={style.unListSidebar}>
-              {loading && !error ? (
-                <div>Loading Gan</div>
-              ) : (
-                teams.map((team, index) => (
-                  <li className={style.listSidebar} key={index}>
-                    <Link className={style.anchorSidebar} to={`/team/${team._id}`}>
-                      <Icons variant={randomColor[index]} />
-                      {team.teamName}
-                    </Link>
-                  </li>
-                ))
-              )}
-              {error && <div>Unexpeccted Error Occured </div>}
-            </ul>
-          </div>
         </div>
       </aside>
       <Modal show={show} onHide={handleClose} aria-labelledby="contained-modal-title-vcenter" centered>

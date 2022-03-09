@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Formik } from "formik";
 import style from "../../Styling/Pages/Login/FormLogin.module.css";
 import Logo from "../../Assets/Logos/GreyLogo.png";
@@ -7,10 +7,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { userLogin } from "../../Redux/Action/UserAction";
 import { useNavigate } from "react-router";
 import { Modal, FormControl } from "react-bootstrap";
+import { changePassword } from "../../Redux/Action/ProfileAction";
 
 export default function Login() {
   const error = useSelector((state) => state.getAuthRegister.error);
-  console.log(error);
+  const messageSuccess = useSelector((state) => state.getProfile.messageSuccess);
+  const messageFail = useSelector((state) => state.getProfile.error);
+  console.log(messageFail);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -26,10 +29,23 @@ export default function Login() {
       email: value,
     };
     console.log(data);
-    // dispatch(postTeam(data));
+    dispatch(changePassword(data));
+    // .then((res) => {
+    // console.log(res);
+    // if (res.status === 200) {
+    //   alert(`${messageSuccess}`);
+    // }
+    // })
+    // .catch((errors) => {console.log(errors.response)});
     setValue("");
     setShow(false);
   };
+  useEffect(() => {
+    if (messageFail || messageSuccess) {
+      alert(`${messageSuccess || messageFail}`);
+    }
+  }, [messageFail, messageSuccess]);
+
   return (
     <div>
       <nav className={style.nav}>

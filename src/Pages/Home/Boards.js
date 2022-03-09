@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import NavbarIsLogin from "../../Components/ShareComponent/Navbar/NavbarIsLogin";
 import SidebarStatic from "../../Components/ShareComponent/Sidebar/SidebarStatic";
 import style from "../../Styling/Pages/Home/Boards.module.css";
 import Card from "../../Components/ShareComponent/Navbar/Card";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { getTasks } from "../../Redux/Action/TasksAction";
 export default function Boards() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getTasks());
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
   const getTeam = useSelector((state) => state.teamReducer.teams);
-  console.log(getTeam);
   return (
     <>
       <NavbarIsLogin />

@@ -4,8 +4,8 @@ import "./App.css";
 // import SidebarStatic from "../src/Components/ShareComponent/Sidebar/SidebarStatic";
 // import Task from "../src/Pages/Task";
 import { Routes, Route } from "react-router-dom";
-import Team from "./Pages/Teams Board/Teams Boards";
-import TeamsDetail from "./Pages/Team Detail/Teams Detail";
+import Team from "./Pages/Teams Board/TeamsBoards";
+import TeamsDetail from "./Pages/Team Detail/TeamsDetail";
 import ErrorPage from "./Pages/Error/Error";
 import Homepage from "./Pages/Homepage/Homepage";
 import Login from "./Pages/Login/Login";
@@ -13,14 +13,10 @@ import Modals from "./Components/Modals/Modals";
 import TeamsBoardsEmptyState from "./Pages/Teams Board/TeamsBoardsEmptyState";
 import TeamsDetailEmptyState from "./Pages/Team Detail/TeamsDetailEmptyState";
 // import { ProtectedRoute } from "./Components/Route/ProtectedRoute";
-// import Modals from "./Components/Modals/Modals";
 import TodoList from "../src/Components/Assets/Todo";
-// import Sidebar from "../src/Components/ShareComponent/Sidebar/Sidebar";
 import Task from "../src/Pages/Home/Task";
 import Boards from "../src/Pages/Home/Boards";
 import Account from "../src/Pages/Profile/Account";
-// import Homepage from "../src/Pages/Homepage";
-// import Login from "../src/Pages/Login";
 import Register from "../src/Pages/Register/Register";
 import Home from "../src/Pages/Home/Home";
 import Card from "../src/Components/ShareComponent/Navbar/Card";
@@ -35,8 +31,6 @@ function App() {
         <Route exact path="/" element={<Homepage />} />
         <Route path="login" element={<Login />} />
         <Route path="modals" element={<Modals />} />
-        {/* <Route path="/teams-boards" element={<Team />} /> */}
-        {/* <Route path="/teams-detail" element={<TeamsDetail />} /> */}
         <Route path="teams-boards" element={<TeamsBoardsEmptyState />} />
         <Route path="teams-detail" element={<TeamsDetailEmptyState />} />
         <Route path="register" element={<Register />} />
@@ -45,9 +39,10 @@ function App() {
         <Route path="boards" element={<Boards />} />
         <Route path="todoList" element={<TodoList />} />
         <Route path="profile" element={<Account />} />
+        <Route path="card/" element={<Card />} />
+        <Route path="profile" element={<Account />} />
         <Route path="card" element={<Card />} />
         <Route path="*" element={<ErrorPage />} />
-
         {/* PROTECTED ROUTE PERSIST GATE (JATAH HAMDANI) */}
         {/*<Route
           path="/test"

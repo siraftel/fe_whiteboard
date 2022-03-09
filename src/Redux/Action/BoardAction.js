@@ -1,4 +1,3 @@
-//CEK LAGI DISKUSI SAMA BACKEND
 import axios from "axios";
 
 export const getBoard = (teamId) => {
@@ -12,7 +11,7 @@ export const getBoard = (teamId) => {
           // Authorization: token,
           //Cara kedua memakai local storage
           //  Cara ketiga dapatkan token dari getstate
-          Authorization: `Bearer ${getState().getAuthRegister.token}`,
+          "Authorization": `Bearer ${getState().getAuthRegister.token}`,
         },
       })
       .then((response) => {
@@ -23,7 +22,9 @@ export const getBoard = (teamId) => {
       .catch((error) => {
         dispatch({
           type: "GET_BOARDS_FAILED",
-          payload: error.status + "" + error.massage,
+          payload: error.response ? 
+          error?.response?.data?.message :
+          error
         });
       });
   };
@@ -36,7 +37,7 @@ export const getMembers = (boardId) => {
     axios
       .get(`${process.env.REACT_APP_BASE_URL}/board/${boardId}`, {
         headers: {
-          Authorization: `Bearer ${getState().getAuthRegister.token}`,
+          "Authorization": `Bearer ${getState().getAuthRegister.token}`,
         },
       })
       .then((response) => {
@@ -47,7 +48,9 @@ export const getMembers = (boardId) => {
       .catch((error) => {
         dispatch({
           type: "GET_BOARD_MEMBERS_FAILED",
-          payload: error.status + "" + error.massage,
+          payload: error.response ? 
+          error?.response?.data?.message :
+          error
         });
       });
   };
@@ -62,7 +65,7 @@ export const getMember = (boardId) => {
         `${process.env.REACT_APP_BASE_URL}/board/members/${boardId}/member`,
         {
           headers: {
-            Authorization: `Bearer ${getState().getAuthRegister.token}`,
+            "Authorization": `Bearer ${getState().getAuthRegister.token}`,
           },
         }
       )
@@ -74,31 +77,9 @@ export const getMember = (boardId) => {
       .catch((error) => {
         dispatch({
           type: "GET_MEMBER_FAILED",
-          payload: error.status + "" + error.massage,
-        });
-      });
-  };
-};
-
-export const getBoardDetail = (boardId) => {
-  return (dispatch, getState) => {
-    dispatch({ type: "GET_BOARD_DETAIL_REQUEST" });
-    //API CALL
-    axios
-      .get(`${process.env.REACT_APP_BASE_URL}/board/board/${boardId}`, {
-        headers: {
-          Authorization: `Bearer ${getState().getAuthRegister.token}`,
-        },
-      })
-      .then((response) => {
-        //TESTING
-        const detail = response.data.result;
-        dispatch({ type: "GET_BOARD_DETAIL_SUCCESS", payload: detail });
-      })
-      .catch((error) => {
-        dispatch({
-          type: "GET_BOARD_DETAIL_FAILED",
-          payload: error.status + "" + error.massage,
+          payload: error.response ? 
+          error?.response?.data?.message :
+          error
         });
       });
   };
@@ -116,7 +97,7 @@ export const postBoard = (data, teamId) => {
       data: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${getState().getAuthRegister.token}`,
+        "Authorization": `Bearer ${getState().getAuthRegister.token}`,
       },
     })
       .then((response) => {
@@ -127,7 +108,9 @@ export const postBoard = (data, teamId) => {
       .catch((error) => {
         dispatch({
           type: "POST_BOARD_FAILED",
-          payload: error.status + "" + error.massage,
+          payload: error.response ? 
+          error?.response?.data?.message :
+          error
         });
       });
   };
@@ -143,7 +126,7 @@ export const postList = (boardId, data) => {
       data: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${getState().getAuthRegister.token}`,
+        "Authorization": `Bearer ${getState().getAuthRegister.token}`,
       },
     })
       .then((response) => {
@@ -154,7 +137,9 @@ export const postList = (boardId, data) => {
       .catch((error) => {
         dispatch({
           type: "POST_LIST_FAILED",
-          payload: error.status + "" + error.massage,
+          payload: error.response ? 
+          error?.response?.data?.message :
+          error
         });
       });
   };
@@ -170,7 +155,7 @@ export const putArchiveList = (data, listId) => {
       data: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${getState().getAuthRegister.token}`,
+        "Authorization": `Bearer ${getState().getAuthRegister.token}`,
       },
     })
       .then((response) => {
@@ -181,7 +166,9 @@ export const putArchiveList = (data, listId) => {
       .catch((error) => {
         dispatch({
           type: "PUT_ARCHIVE_LIST_FAILED",
-          payload: error.status + "" + error.massage,
+          payload: error.response ? 
+          error?.response?.data?.message :
+          error
         });
       });
   };
@@ -197,7 +184,7 @@ export const putInviteMember = (data, boardId) => {
       data: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${getState().getAuthRegister.token}`,
+        "Authorization": `Bearer ${getState().getAuthRegister.token}`,
       },
     })
       .then((response) => {
@@ -208,7 +195,9 @@ export const putInviteMember = (data, boardId) => {
       .catch((error) => {
         dispatch({
           type: "PUT_INVITE_MEMBER_FAILED",
-          payload: error.status + "" + error.massage,
+          payload: error.response ? 
+          error?.response?.data?.message :
+          error
         });
       });
   };

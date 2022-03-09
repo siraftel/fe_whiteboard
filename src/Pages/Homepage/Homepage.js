@@ -92,7 +92,7 @@ export default function Homepage() {
       </div>
       <div className={style.mainHomepage}>
         <Container>
-          <Row className={style.imageHero} d-flex align-items-center justify-content-center>
+          <Row className={style.imageHero}>
             <Col>
               <h3>Work with any team</h3>
               <p>
