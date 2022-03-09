@@ -2,16 +2,13 @@ import React from "react";
 import download from "../../Assets/Icons/download.png"
 import share from "../../Assets/Icons/share.png"
 import profile from "../../Assets/Icons/default pofile picture.png";
-import axios from 'axios';
 import { useState, useEffect } from "react";
-import { useParams } from 'react-router-dom';
 import { Button, Col, Container, Dropdown, DropdownButton, FormControl, Form, InputGroup, Modal, Row} from "react-bootstrap";
 import InputMember from "./InputMember"
 import InputPriority from "./InputPriority";
 import InputDate from "./InputDate";
 import InputLabels from "./InputLabels";
 import InputDescription from "./InputDescription"
-import CommentsList from "../Comment/CommentList";
 
 import style from "../../Styling/Components/Modals/Modals.module.css";
 
@@ -20,34 +17,6 @@ function Modals() {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-  const [dataComment, setDataComment] = useState({
-    isLoading: true,
-    data: false,
-    error: false,
-  });
-
-  const params = useParams();
-
-  useEffect(() => {
-    // Get Comments
-    axios
-      .get(`${process.env.REACT_APP_BASE_URL}comment/${params.eventId}`)
-      .then((res) => {
-        setDataComment({
-          isLoading: false,
-          data: res.data.results,
-          error: false,
-        });
-      })
-      .catch((error) => {
-        setDataComment({
-          isLoading: false,
-          data: false,
-          error: error.message,
-        });
-      });
-  }, [params.eventId]);
 
   return (
     <>
@@ -85,9 +54,6 @@ function Modals() {
               </InputGroup>
               <div className={style.description_section}>
                 <p className={style.description_title}>Description</p>
-                {/* <Form.Group className={style.input_description} controlId="exampleForm.ControlTextarea1">
-                  <Form.Control as="textarea" rows={6} />
-                </Form.Group> */}
                 <InputDescription />
                 <Button variant="light" className={style.btn_cancel}>Cancel</Button>
                 <Button variant="light" className={style.btn_save}>Save</Button>
@@ -104,7 +70,6 @@ function Modals() {
                 </div>
                 <Button size="" variant="light" className={style.btn_cancel}>Cancel</Button>
                 <Button variant="light" className={style.btn_save}>Save</Button>
-                <CommentsList data={dataComment.data} />
                 <div className={style.comment_wrapper}>
                   <a>
                     <img className={style.image_profile} src={profile} alt="image-profile"/>
