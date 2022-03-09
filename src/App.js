@@ -1,7 +1,7 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import Team from "./Pages/Teams Board/Teams Boards";
-import TeamsDetail from "./Pages/Team Detail/Teams Detail";
+import Team from "./Pages/Teams Board/TeamsBoards";
+import TeamsDetail from "./Pages/Team Detail/TeamsDetail";
 import ErrorPage from "./Pages/Error/Error";
 import Homepage from "./Pages/Homepage/Homepage";
 import Login from "./Pages/Login/Login";

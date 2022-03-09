@@ -24,15 +24,13 @@ import attach from "../../Assets/Icons/attach.png";
 import check from "../../Assets/Icons/check.png";
 import plus from "../../Assets/Icons/plus blue.png";
 import todoPlus from "../../Assets/Icons/plus.png";
+import greenCheck from "../../Assets/Icons/green check.png";
+import low from "../../Assets/Icons/low.png";
+import high from "../../Assets/Icons/high.png";
+import highest from "../../Assets/Icons/highest.png";
 
 import UserNavbar from "../../Components/ShareComponent/Navbar/NavbarIsLogin";
-
-//for popover
 import SidebarStatic from "../../Components/ShareComponent/Sidebar/SidebarStatic";
-import PopoverCardAssign from "./PopoverCardAssign";
-import PopoverCardLabel from "./PopoverCardLabel";
-// import PopoverCardPriority from "./PopoverCardPriority";
-import PopoverTodo from "./PopoverTodo";
 
 import style from "../../Styling/Pages/Team Detail/TeamsDetail.module.css";
 import { useState, useRef, useEffect } from "react";
@@ -41,28 +39,30 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   getMembers,
   getMember,
-  getBoardDetail,
-  postList,
-  putArchiveList,
   putInviteMember,
-} from "../../Redux/Action/Board Action";
-
-// for testing
-import greenCheck from "../../Assets/Icons/green check.png";
-import low from "../../Assets/Icons/low.png";
-import high from "../../Assets/Icons/high.png";
-import highest from "../../Assets/Icons/highest.png";
+} from "../../Redux/Action/BoardAction";
+import { getBoardDetail, postList } from "../../Redux/Action/ListAction";
+import { getTeamDetail } from "../../Redux/Action/TeamAction";
 
 export default function TeamsDetail() {
   const { boards, boardDetail, loading, error, members, member } = useSelector(
     (state) => state.boardReducer
   );
-  const dispatch = useDispatch();
-  const { boardId } = useParams();
+  const { list} = useSelector((state) => state.listReducer)
+  const {teamDetail} = useSelector((state) => state.teamReducer)
 
+  
+  const dispatch = useDispatch();
+  const params = useParams();
+  console.log(params);
+  const { boardId } = useParams();
+  
   useEffect(() => {
-    dispatch(getMembers(boardId));
+    dispatch(getBoardDetail(boardId))
   }, []);
+  
+  //For New List
+  const [newList, setNewList] = useState("");
 
   //FOR MODALS
   const [show, setShow] = useState(false);
@@ -80,25 +80,36 @@ export default function TeamsDetail() {
     setTargetInvite(event.target);
   };
 
+  const handleClickNewList = (e) => {
+    e.preventDefault();
+
+    const data = {
+      title: newList,
+    };
+    dispatch(postList(data,boardId));
+    setNewList("");
+    setShow(false);
+  }
+
   //FOR POPOVER
   const [showCard, setShowCard] = useState(false);
   const [targetCard, setTargetCard] = useState(null);
 
   //Popover todo
   const addCardClick = () => {
-    alert("Testing");
+    alert("Fungsi Card Fakhri");
   };
   const copyListClick = () => {
-    alert("Testing");
+    alert("Copy List Click");
   };
   const moveAllCardClick = () => {
-    alert("Testing");
+    alert("Move all card");
   };
   const archiveAllCardClick = () => {
-    alert("Testing");
+    alert("Archive Card");
   };
   const archiveListClick = () => {
-    alert("Testing");
+    alert("Archive List");
   };
 
   const handleClickCard = (event) => {
@@ -106,7 +117,9 @@ export default function TeamsDetail() {
     setTargetCard(event.target);
   };
 
-  //testing popover
+  //Popover
+
+  //1. Popover CardPriority
   const [priority, setPriority] = useState("");
   const popoverCardPriority = (
     <Popover id="popover-basic" className={style.popover_card_priority}>
@@ -212,6 +225,106 @@ export default function TeamsDetail() {
     </Popover>
   );
 
+  //2. Popover Todo
+  const popoverTodo = (
+    <Popover id="popover-basic" className={style.popover_todo}>
+      <PopoverHeader className={style.todo_popover_header}>
+        Action List
+      </PopoverHeader>
+      <PopoverBody className={style.popover_todo_body}>
+        <div className={style.popover_todo_body_container1}>
+          <button onClick={addCardClick} className={style.todo1_button}>
+            Add Card
+          </button>
+          <button onClick={copyListClick} className={style.todo2_button}>
+            Copy List
+          </button>
+        </div>
+        <div className={style.popover_todo_body_container2}>
+          <button onClick={moveAllCardClick} className={style.todo3_button}>
+            Move All Card in This List
+          </button>
+          <button onClick={archiveAllCardClick} className={style.todo4_button}>
+            Archive All Card in This List
+          </button>
+        </div>
+        <div className={style.popover_todo_body_container3}>
+          <button onClick={archiveListClick} className={style.todo5_button}>
+            Archive This List
+          </button>
+        </div>
+      </PopoverBody>
+    </Popover>
+  );
+
+  //3. Popover CardLabel
+  const popoverCardLabel = (
+    <Popover id="popover-basic" className={style.popover_label}>
+      <PopoverHeader className={style.popover_label_header}>
+        <div className={style.label_category_popover}>
+          <div className={style.label_category}>Development</div>
+        </div>
+      </PopoverHeader>
+      <PopoverBody className={style.popover_label_body}>
+        <div className={style.popover_label_body_top}>
+          Select an Option or Create One
+        </div>
+        <div className={style.label_all_category_container}>
+          <div className={style.label_category_popover}>
+            <div className={style.label_category}>Design</div>
+          </div>
+          <div className={style.label_category_popover}>
+            <div className={style.label_category}>Development</div>
+          </div>
+          <div className={style.label_category_popover}>
+            <div className={style.label_category}>UI/UX</div>
+          </div>
+        </div>
+      </PopoverBody>
+    </Popover>
+  );
+
+  //4. Popover CardAsign
+  const popoverCardAsign = (
+    <Popover id="popover-basic" className={style.popover_asign}>
+      <PopoverHeader className={style.popover_asign_header}>
+        <span className={style.asign_name}>Khalid</span>
+        <span className={style.asign_name}>Juan</span>
+      </PopoverHeader>
+      <PopoverBody className={style.popover_assign_body}>
+        <div className={style.popover_label_body_top}>
+          Select an Option or Create One
+        </div>
+        <ol className={style.asign_pp_container}>
+          <li className={style.pp_wrapper}>
+            <img
+              className={style.profile_picture_asign}
+              src={pp1}
+              alt="profile"
+            />
+            <span>Hamdani</span>
+          </li>
+          <li className={style.pp_wrapper}>
+            <img
+              className={style.profile_picture_asign}
+              src={pp2}
+              alt="profile"
+            />
+            <span>Adam</span>
+          </li>
+          <li className={style.pp_wrapper}>
+            <img
+              className={style.profile_picture_asign}
+              src={pp3}
+              alt="profile"
+            />
+            <span>Fakhri</span>
+          </li>
+        </ol>
+      </PopoverBody>
+    </Popover>
+  );
+
   return (
     <>
       <UserNavbar />
@@ -219,7 +332,7 @@ export default function TeamsDetail() {
         <SidebarStatic />
         <div className={style.content_wrapper}>
           <div className={style.title3}>
-            <span>Design Task</span>
+            <span>BackEnd Whiteboard 5DS</span>
             <div className={style.team_icon_container}>
               <img
                 className={style.team_icon}
@@ -234,9 +347,13 @@ export default function TeamsDetail() {
                 <a href="/" className={style.link4}>
                   Boards
                 </a>
-                <span> / </span>
-                <a href="/" className={style.link3}>
-                  One by Meja Putih
+                <span> /  </span>
+                <a href="/teams-boards" className={style.link4}>
+                  {teamDetail.teamName}
+                </a>
+                 <span> / </span>
+                <a href="/teams-boards" className={style.link3}>
+                 BackEnd Whiteboard 5DS
                 </a>
               </div>
             </div>
@@ -253,19 +370,28 @@ export default function TeamsDetail() {
                 />
                 <img
                   className={style.todo_profile_picture_top}
-                  src={pp2}
+                  src={profile}
                   alt="profile"
                   style={{
                     right: "75px",
                     zIndex: 80,
                   }}
                 />
-                <img
+                 <img
                   className={style.todo_profile_picture_top}
-                  src={pp3}
+                  src={profile}
                   alt="profile"
                   style={{
                     right: "50px",
+                    zIndex: 70,
+                  }}
+                />
+                <img
+                  className={style.todo_profile_picture_top}
+                  src={profile}
+                  alt="profile"
+                  style={{
+                    right: "25px",
                     zIndex: 60,
                   }}
                 />
@@ -274,11 +400,11 @@ export default function TeamsDetail() {
                   src={pp4}
                   alt="profile"
                   style={{
-                    right: "25px",
+                    right: "1px",
                     zIndex: 40,
                   }}
                 />
-                <span
+                {/* <span
                   className={style.todo_profile_picture_top}
                   style={{
                     right: "0px",
@@ -289,7 +415,7 @@ export default function TeamsDetail() {
                   }}
                 >
                   +2
-                </span>
+                </span> */}
               </div>
               <div ref={ref} className={style.invite_button_wrapper}>
                 <button
@@ -351,24 +477,16 @@ export default function TeamsDetail() {
             <div className={style.content_column}>
               <div className={style.todo_header}>
                 <div className={style.todo_container}>
-                  <p className={style.todo}>TO DO</p>
+                  <p className={style.todo}>Whiteboard</p>
                 </div>
                 <div className={style.total_todo}>
-                  <button className={style.todo_button}>4</button>
+                  <button className={style.todo_button}>2</button>
                 </div>
                 <div className={style.todo_button_cotaniner}>
                   <OverlayTrigger
                     trigger="click"
                     placement="bottom-end"
-                    overlay={
-                      <PopoverTodo
-                        addCardClick={addCardClick}
-                        copyListClick={copyListClick}
-                        moveAllCardClick={moveAllCardClick}
-                        archiveAllCardClick={archiveAllCardClick}
-                        archiveListClick={archiveListClick}
-                      />
-                    }
+                    overlay={popoverTodo}
                   >
                     <button className={style.todo_hover_button}>...</button>
                   </OverlayTrigger>
@@ -378,7 +496,7 @@ export default function TeamsDetail() {
                 <div className={style.box_header}>
                   <div className={style.box_header_content}>
                     <div className={style.category_container}>
-                      <div className={style.box_category}>Category</div>
+                      <div className={style.box_category}>Development</div>
                     </div>
                     {/* POPOVER FOR CARD */}
                     <Overlay
@@ -393,7 +511,7 @@ export default function TeamsDetail() {
                           <OverlayTrigger
                             trigger="click"
                             placement="right"
-                            overlay={PopoverCardLabel}
+                            overlay={popoverCardLabel}
                           >
                             <button className={style.card_button_container}>
                               <img
@@ -425,7 +543,7 @@ export default function TeamsDetail() {
                           <OverlayTrigger
                             trigger="click"
                             placement="right"
-                            overlay={PopoverCardAssign}
+                            overlay={popoverCardAsign}
                           >
                             <button className={style.card_button_container}>
                               <img
@@ -460,7 +578,266 @@ export default function TeamsDetail() {
                   </div>
                   <div className={style.title_container}>
                     <div className={style.box_title}>
-                      Reveral For Cryptosional
+                      Posting API in Postman
+                    </div>
+                  </div>
+                </div>
+                <div className={style.box_footer}>
+                  <div className={style.left_footer}>
+                    <img
+                      className={style.todo_attach}
+                      src={attach}
+                      alt="attacment"
+                    />
+                    <img
+                      className={style.todo_checklist}
+                      src={check}
+                      alt="checklist"
+                    />
+                    <span className={style.finish_todo}>3/6</span>
+                  </div>
+                  <div className={style.right_footer}>
+                    <img
+                      className={style.todo_priority}
+                      src={high}
+                      alt="priority"
+                    />
+                    <img
+                      className={style.todo_profile_picture}
+                      src={profile}
+                      alt="profile"
+                    />
+                  </div>
+                </div>
+              </div>{" "}
+              <div className={style.detail_box}>
+                <div className={style.box_header}>
+                  <div className={style.box_header_content}>
+                    <div className={style.category_container}>
+                      <div className={style.box_category}>Design</div>
+                    </div>
+                    {/* POPOVER FOR CARD */}
+                    <Overlay
+                      show={showCard}
+                      target={targetCard}
+                      placement="bottom-end"
+                      container={ref}
+                      containerPadding={20}
+                    >
+                      <Popover id="popover-basic">
+                        <Popover.Body className={style.popover_card_body}>
+                          <OverlayTrigger
+                            trigger="click"
+                            placement="right"
+                            overlay={popoverCardLabel}
+                          >
+                            <button className={style.card_button_container}>
+                              <img
+                                className={style.card_hovered_img}
+                                src={label}
+                                alt="label button"
+                              />
+                              <div className={style.card_hovered_button}>
+                                Add Label
+                              </div>
+                            </button>
+                          </OverlayTrigger>
+                          <OverlayTrigger
+                            trigger="click"
+                            placement="right"
+                            overlay={popoverCardPriority}
+                          >
+                            <button className={style.card_button_container}>
+                              <img
+                                className={style.card_hovered_img}
+                                src={changePriority}
+                                alt="change Prioritybutton"
+                              />
+                              <div className={style.card_hovered_button}>
+                                Change Priority
+                              </div>
+                            </button>
+                          </OverlayTrigger>
+                          <OverlayTrigger
+                            trigger="click"
+                            placement="right"
+                            overlay={popoverCardAsign}
+                          >
+                            <button className={style.card_button_container}>
+                              <img
+                                className={style.card_hovered_img}
+                                src={assignTo}
+                                alt="button"
+                              />
+                              <div className={style.card_hovered_button}>
+                                Assign to
+                              </div>
+                            </button>
+                          </OverlayTrigger>
+                          <button className={style.card_button_container}>
+                            <img
+                              className={style.card_hovered_img}
+                              src={archive}
+                              alt="button"
+                            />
+                            <div className={style.card_hovered_button}>
+                              Archieve
+                            </div>
+                          </button>
+                        </Popover.Body>
+                      </Popover>
+                    </Overlay>
+                    <button
+                      className={style.box_hover_button}
+                      onClick={handleClickCard}
+                    >
+                      ...
+                    </button>
+                  </div>
+                  <div className={style.title_container}>
+                    <div className={style.box_title}>
+                      API for Archive File
+                    </div>
+                  </div>
+                </div>
+                <div className={style.box_footer}>
+                  <div className={style.left_footer}>
+                    <img
+                      className={style.todo_attach}
+                      src={attach}
+                      alt="attacment"
+                    />
+                    <img
+                      className={style.todo_checklist}
+                      src={check}
+                      alt="checklist"
+                    />
+                    <span className={style.finish_todo}>4/6</span>
+                  </div>
+                  <div className={style.right_footer}>
+                    <img
+                      className={style.todo_priority}
+                      src={low}
+                      alt="priority"
+                    />
+                    <img
+                      className={style.todo_profile_picture}
+                      src={profile}
+                      alt="profile"
+                    />
+                  </div>
+                </div>
+              </div>{" "}
+              <button className={style.add_todo}>
+                <img className={style.todo_plus} src={todoPlus} alt="Plus" />
+                <p className={style.add_todo_text}>Add New Card</p>
+              </button>
+            </div>
+              <div className={style.content_column}>
+              <div className={style.todo_header}>
+                <div className={style.todo_container}>
+                  <p className={style.todo}>on Review</p>
+                </div>
+                <div className={style.total_todo}>
+                  <button className={style.todo_button}>1</button>
+                </div>
+                <div className={style.todo_button_cotaniner}>
+                  <OverlayTrigger
+                    trigger="click"
+                    placement="bottom-end"
+                    overlay={popoverTodo}
+                  >
+                    <button className={style.todo_hover_button}>...</button>
+                  </OverlayTrigger>
+                </div>
+              </div>
+              <div className={style.detail_box}>
+                <div className={style.box_header}>
+                  <div className={style.box_header_content}>
+                    <div className={style.category_container}>
+                      <div className={style.box_category}>Development</div>
+                    </div>
+                    {/* POPOVER FOR CARD */}
+                    <Overlay
+                      show={showCard}
+                      target={targetCard}
+                      placement="bottom-end"
+                      container={ref}
+                      containerPadding={20}
+                    >
+                      <Popover id="popover-basic">
+                        <Popover.Body className={style.popover_card_body}>
+                          <OverlayTrigger
+                            trigger="click"
+                            placement="right"
+                            overlay={popoverCardLabel}
+                          >
+                            <button className={style.card_button_container}>
+                              <img
+                                className={style.card_hovered_img}
+                                src={label}
+                                alt="label button"
+                              />
+                              <div className={style.card_hovered_button}>
+                                Add Label
+                              </div>
+                            </button>
+                          </OverlayTrigger>
+                          <OverlayTrigger
+                            trigger="click"
+                            placement="right"
+                            overlay={popoverCardPriority}
+                          >
+                            <button className={style.card_button_container}>
+                              <img
+                                className={style.card_hovered_img}
+                                src={changePriority}
+                                alt="change Prioritybutton"
+                              />
+                              <div className={style.card_hovered_button}>
+                                Change Priority
+                              </div>
+                            </button>
+                          </OverlayTrigger>
+                          <OverlayTrigger
+                            trigger="click"
+                            placement="right"
+                            overlay={popoverCardAsign}
+                          >
+                            <button className={style.card_button_container}>
+                              <img
+                                className={style.card_hovered_img}
+                                src={assignTo}
+                                alt="button"
+                              />
+                              <div className={style.card_hovered_button}>
+                                Assign to
+                              </div>
+                            </button>
+                          </OverlayTrigger>
+                          <button className={style.card_button_container}>
+                            <img
+                              className={style.card_hovered_img}
+                              src={archive}
+                              alt="button"
+                            />
+                            <div className={style.card_hovered_button}>
+                              Archieve
+                            </div>
+                          </button>
+                        </Popover.Body>
+                      </Popover>
+                    </Overlay>
+                    <button
+                      className={style.box_hover_button}
+                      onClick={handleClickCard}
+                    >
+                      ...
+                    </button>
+                  </div>
+                  <div className={style.title_container}>
+                    <div className={style.box_title}>
+                      API For Validation
                     </div>
                   </div>
                 </div>
@@ -481,7 +858,7 @@ export default function TeamsDetail() {
                   <div className={style.right_footer}>
                     <img
                       className={style.todo_priority}
-                      src={lowest}
+                      src={highest}
                       alt="priority"
                     />
                     <img
@@ -492,656 +869,6 @@ export default function TeamsDetail() {
                   </div>
                 </div>
               </div>{" "}
-              <div className={style.detail_box}>
-                <div className={style.box_header}>
-                  <div className={style.category_container}>
-                    <div className={style.box_category}>Category</div>
-                  </div>
-                  <div className={style.title_container}>
-                    <div className={style.box_title}>
-                      UEFA Championship sional
-                    </div>
-                  </div>
-                </div>
-                <div className={style.box_footer}>
-                  <div className={style.left_footer}>
-                    <img
-                      className={style.todo_attach}
-                      src={attach}
-                      alt="attacment"
-                    />
-                    <img
-                      className={style.todo_checklist}
-                      src={check}
-                      alt="checklist"
-                    />
-                    <span className={style.finish_todo}>3/7</span>
-                  </div>
-                  <div className={style.right_footer}>
-                    <img
-                      className={style.todo_priority}
-                      src={lowest}
-                      alt="priority"
-                    />
-                    <img
-                      className={style.todo_profile_picture}
-                      src={profile}
-                      alt="profile"
-                    />
-                  </div>
-                </div>
-              </div>{" "}
-              <div className={style.detail_box}>
-                <div className={style.box_header}>
-                  <div className={style.category_container}>
-                    <div className={style.box_category}>Category</div>
-                  </div>
-                  <div className={style.title_container}>
-                    <div className={style.box_title}>FIFA Interview</div>
-                  </div>
-                </div>
-                <div className={style.box_footer}>
-                  <div className={style.left_footer}>
-                    <img
-                      className={style.todo_attach}
-                      src={attach}
-                      alt="attacment"
-                    />
-                    <img
-                      className={style.todo_checklist}
-                      src={check}
-                      alt="checklist"
-                    />
-                    <span className={style.finish_todo}>1/2</span>
-                  </div>
-                  <div className={style.right_footer}>
-                    <img
-                      className={style.todo_priority}
-                      src={lowest}
-                      alt="priority"
-                    />
-                    <img
-                      className={style.todo_profile_picture}
-                      src={profile}
-                      alt="profile"
-                    />
-                  </div>
-                </div>
-              </div>{" "}
-              <div className={style.detail_box}>
-                <div className={style.box_header}>
-                  <div className={style.category_container}>
-                    <div className={style.box_category}>Category</div>
-                  </div>
-                  <div className={style.title_container}>
-                    <div className={style.box_title}>Rescheduling sional</div>
-                  </div>
-                </div>
-                <div className={style.box_footer}>
-                  <div className={style.left_footer}>
-                    <img
-                      className={style.todo_attach}
-                      src={attach}
-                      alt="attacment"
-                    />
-                    <img
-                      className={style.todo_checklist}
-                      src={check}
-                      alt="checklist"
-                    />
-                    <span className={style.finish_todo}>9/10</span>
-                  </div>
-                  <div className={style.right_footer}>
-                    <img
-                      className={style.todo_priority}
-                      src={lowest}
-                      alt="priority"
-                    />
-                    <img
-                      className={style.todo_profile_picture}
-                      src={profile}
-                      alt="profile"
-                    />
-                  </div>
-                </div>
-              </div>
-              <button className={style.add_todo}>
-                <img className={style.todo_plus} src={todoPlus} alt="Plus" />
-                <p className={style.add_todo_text}>Add New Card</p>
-              </button>
-            </div>
-            <div className={style.content_column}>
-              <div className={style.todo_header}>
-                <div className={style.todo_container}>
-                  <p className={style.todo}>IN PROGRESS</p>
-                </div>
-                <div className={style.total_todo}>
-                  <button className={style.todo_button}>2</button>
-                </div>
-                <div className={style.todo_button_cotaniner}>
-                  <OverlayTrigger
-                    trigger="click"
-                    placement="bottom-end"
-                    overlay={
-                      <PopoverTodo
-                        addCardClick={addCardClick}
-                        copyListClick={copyListClick}
-                        moveAllCardClick={moveAllCardClick}
-                        archiveAllCardClick={archiveAllCardClick}
-                        archiveListClick={archiveListClick}
-                      />
-                    }
-                  >
-                    <button className={style.todo_hover_button}>...</button>
-                  </OverlayTrigger>
-                </div>
-              </div>
-              <div className={style.detail_box}>
-                <div className={style.box_header}>
-                  <div className={style.box_header_content}>
-                    <div className={style.category_container}>
-                      <div className={style.box_category}>Category</div>
-                    </div>
-                    {/* POPOVER FOR CARD */}
-                    <Overlay
-                      show={showCard}
-                      target={targetCard}
-                      placement="bottom-end"
-                      container={ref}
-                      containerPadding={20}
-                    >
-                      <Popover id="popover-basic">
-                        <Popover.Body className={style.popover_card_body}>
-                          <OverlayTrigger
-                            trigger="click"
-                            placement="right"
-                            overlay={PopoverCardLabel}
-                          >
-                            <button className={style.card_button_container}>
-                              <img
-                                className={style.card_hovered_img}
-                                src={label}
-                                alt="label button"
-                              />
-                              <div className={style.card_hovered_button}>
-                                Add Label
-                              </div>
-                            </button>
-                          </OverlayTrigger>
-                          <OverlayTrigger
-                            trigger="click"
-                            placement="right"
-                            overlay={popoverCardPriority}
-                          >
-                            <button className={style.card_button_container}>
-                              <img
-                                className={style.card_hovered_img}
-                                src={changePriority}
-                                alt="change Prioritybutton"
-                              />
-                              <div className={style.card_hovered_button}>
-                                Change Priority
-                              </div>
-                            </button>
-                          </OverlayTrigger>
-                          <OverlayTrigger
-                            trigger="click"
-                            placement="right"
-                            overlay={PopoverCardAssign}
-                          >
-                            <button className={style.card_button_container}>
-                              <img
-                                className={style.card_hovered_img}
-                                src={assignTo}
-                                alt="button"
-                              />
-                              <div className={style.card_hovered_button}>
-                                Assign to
-                              </div>
-                            </button>
-                          </OverlayTrigger>
-
-                          <button className={style.card_button_container}>
-                            <img
-                              className={style.card_hovered_img}
-                              src={archive}
-                              alt="button"
-                            />
-                            <div className={style.card_hovered_button}>
-                              Archieve
-                            </div>
-                          </button>
-                        </Popover.Body>
-                      </Popover>
-                    </Overlay>
-                    <button
-                      className={style.box_hover_button}
-                      onClick={handleClickCard}
-                    >
-                      ...
-                    </button>
-                  </div>
-                  <div className={style.title_container}>
-                    <div className={style.box_title}>
-                      Bug for Stack Leadsional
-                    </div>
-                  </div>
-                </div>
-                <div className={style.box_footer}>
-                  <div className={style.left_footer}>
-                    <img
-                      className={style.todo_attach}
-                      src={attach}
-                      alt="attacment"
-                    />
-                    <img
-                      className={style.todo_checklist}
-                      src={check}
-                      alt="checklist"
-                    />
-                    <span className={style.finish_todo}>3/4</span>
-                  </div>
-                  <div className={style.right_footer}>
-                    <img
-                      className={style.todo_priority}
-                      src={lowest}
-                      alt="priority"
-                    />
-                    <img
-                      className={style.todo_profile_picture}
-                      src={profile}
-                      alt="profile"
-                    />
-                  </div>
-                </div>
-              </div>{" "}
-              <div className={style.detail_box}>
-                <div className={style.box_header}>
-                  <div className={style.category_container}>
-                    <div className={style.box_category}>Category</div>
-                  </div>
-                  <div className={style.title_container}>
-                    <div className={style.box_title}>Problem for UI/UX</div>
-                  </div>
-                </div>
-                <div className={style.box_footer}>
-                  <div className={style.left_footer}>
-                    <img
-                      className={style.todo_attach}
-                      src={attach}
-                      alt="attacment"
-                    />
-                    <img
-                      className={style.todo_checklist}
-                      src={check}
-                      alt="checklist"
-                    />
-                    <span className={style.finish_todo}>5/6</span>
-                  </div>
-                  <div className={style.right_footer}>
-                    <img
-                      className={style.todo_priority}
-                      src={lowest}
-                      alt="priority"
-                    />
-                    <img
-                      className={style.todo_profile_picture}
-                      src={profile}
-                      alt="profile"
-                    />
-                  </div>
-                </div>
-              </div>{" "}
-              <button className={style.add_todo}>
-                <img className={style.todo_plus} src={todoPlus} alt="Plus" />
-                <p className={style.add_todo_text}>Add New Card</p>
-              </button>
-            </div>
-            <div className={style.content_column}>
-              <div className={style.todo_header}>
-                <div className={style.todo_container}>
-                  <p className={style.todo}>ON HOLD 2</p>
-                </div>
-                <div className={style.total_todo}>
-                  <button className={style.todo_button}>2</button>
-                </div>
-                <div className={style.todo_button_cotaniner}>
-                  <OverlayTrigger
-                    trigger="click"
-                    placement="bottom-end"
-                    overlay={
-                      <PopoverTodo
-                        addCardClick={addCardClick}
-                        copyListClick={copyListClick}
-                        moveAllCardClick={moveAllCardClick}
-                        archiveAllCardClick={archiveAllCardClick}
-                        archiveListClick={archiveListClick}
-                      />
-                    }
-                  >
-                    <button className={style.todo_hover_button}>...</button>
-                  </OverlayTrigger>
-                </div>
-              </div>
-              <div className={style.detail_box}>
-                <div className={style.box_header}>
-                  <div className={style.box_header_content}>
-                    <div className={style.category_container}>
-                      <div className={style.box_category}>Category</div>
-                    </div>
-                    {/* POPOVER FOR CARD */}
-                    <Overlay
-                      show={showCard}
-                      target={targetCard}
-                      placement="bottom-end"
-                      container={ref}
-                      containerPadding={20}
-                    >
-                      <Popover id="popover-basic">
-                        <Popover.Body className={style.popover_card_body}>
-                          <OverlayTrigger
-                            trigger="click"
-                            placement="right"
-                            overlay={PopoverCardLabel}
-                          >
-                            <button className={style.card_button_container}>
-                              <img
-                                className={style.card_hovered_img}
-                                src={label}
-                                alt="label button"
-                              />
-                              <div className={style.card_hovered_button}>
-                                Add Label
-                              </div>
-                            </button>
-                          </OverlayTrigger>
-                          <OverlayTrigger
-                            trigger="click"
-                            placement="right"
-                            overlay={popoverCardPriority}
-                          >
-                            <button className={style.card_button_container}>
-                              <img
-                                className={style.card_hovered_img}
-                                src={changePriority}
-                                alt="change Prioritybutton"
-                              />
-                              <div className={style.card_hovered_button}>
-                                Change Priority
-                              </div>
-                            </button>
-                          </OverlayTrigger>
-                          <OverlayTrigger
-                            trigger="click"
-                            placement="right"
-                            overlay={PopoverCardAssign}
-                          >
-                            <button className={style.card_button_container}>
-                              <img
-                                className={style.card_hovered_img}
-                                src={assignTo}
-                                alt="button"
-                              />
-                              <div className={style.card_hovered_button}>
-                                Assign to
-                              </div>
-                            </button>
-                          </OverlayTrigger>
-                          <button className={style.card_button_container}>
-                            <img
-                              className={style.card_hovered_img}
-                              src={archive}
-                              alt="button"
-                            />
-                            <div className={style.card_hovered_button}>
-                              Archieve
-                            </div>
-                          </button>
-                        </Popover.Body>
-                      </Popover>
-                    </Overlay>
-                    <button
-                      className={style.box_hover_button}
-                      onClick={handleClickCard}
-                    >
-                      ...
-                    </button>
-                  </div>
-                  <div className={style.title_container}>
-                    <div className={style.box_title}>
-                      Problem for UI/UXsional
-                    </div>
-                  </div>
-                </div>
-                <div className={style.box_footer}>
-                  <div className={style.left_footer}>
-                    <img
-                      className={style.todo_attach}
-                      src={attach}
-                      alt="attacment"
-                    />
-                    <img
-                      className={style.todo_checklist}
-                      src={check}
-                      alt="checklist"
-                    />
-                    <span className={style.finish_todo}>7/8</span>
-                  </div>
-                  <div className={style.right_footer}>
-                    <img
-                      className={style.todo_priority}
-                      src={lowest}
-                      alt="priority"
-                    />
-                    <img
-                      className={style.todo_profile_picture}
-                      src={profile}
-                      alt="profile"
-                    />
-                  </div>
-                </div>
-              </div>{" "}
-              <div className={style.detail_box}>
-                <div className={style.box_header}>
-                  <div className={style.category_container}>
-                    <div className={style.box_category}>Category</div>
-                  </div>
-                  <div className={style.title_container}>
-                    <div className={style.box_title}>
-                      API Quality Checkersional
-                    </div>
-                  </div>
-                </div>
-                <div className={style.box_footer}>
-                  <div className={style.left_footer}>
-                    <img
-                      className={style.todo_attach}
-                      src={attach}
-                      alt="attacment"
-                    />
-                    <img
-                      className={style.todo_checklist}
-                      src={check}
-                      alt="checklist"
-                    />
-                    <span className={style.finish_todo}>3/4</span>
-                  </div>
-                  <div className={style.right_footer}>
-                    <img
-                      className={style.todo_priority}
-                      src={lowest}
-                      alt="priority"
-                    />
-                    <img
-                      className={style.todo_profile_picture}
-                      src={profile}
-                      alt="profile"
-                    />
-                  </div>
-                </div>
-              </div>{" "}
-              <button className={style.add_todo}>
-                <img className={style.todo_plus} src={todoPlus} alt="Plus" />
-                <p className={style.add_todo_text}>Add New Card</p>
-              </button>
-            </div>
-            <div className={style.content_column}>
-              <div className={style.todo_header}>
-                <div className={style.todo_container}>
-                  <p className={style.todo}>ON REVIEW</p>
-                </div>
-                <div className={style.total_todo}>
-                  <button className={style.todo_button}>1</button>
-                </div>
-                <div className={style.todo_button_cotaniner}>
-                  <OverlayTrigger
-                    trigger="click"
-                    placement="bottom-end"
-                    overlay={
-                      <PopoverTodo
-                        addCardClick={addCardClick}
-                        copyListClick={copyListClick}
-                        moveAllCardClick={moveAllCardClick}
-                        archiveAllCardClick={archiveAllCardClick}
-                        archiveListClick={archiveListClick}
-                      />
-                    }
-                  >
-                    <button className={style.todo_hover_button}>...</button>
-                  </OverlayTrigger>
-                </div>
-              </div>
-              <div className={style.detail_box}>
-                <div className={style.box_header}>
-                  <div className={style.box_header_content}>
-                    <div className={style.category_container}>
-                      <div className={style.box_category}>Category</div>
-                    </div>
-                    {/* POPOVER FOR CARD */}
-                    <Overlay
-                      show={showCard}
-                      target={targetCard}
-                      placement="bottom-end"
-                      container={ref}
-                      containerPadding={20}
-                    >
-                      <Popover id="popover-basic">
-                        <Popover.Body className={style.popover_card_body}>
-                          <OverlayTrigger
-                            trigger="click"
-                            placement="right"
-                            overlay={PopoverCardLabel}
-                          >
-                            <button className={style.card_button_container}>
-                              <img
-                                className={style.card_hovered_img}
-                                src={label}
-                                alt="label button"
-                              />
-                              <div className={style.card_hovered_button}>
-                                Add Label
-                              </div>
-                            </button>
-                          </OverlayTrigger>
-                          <OverlayTrigger
-                            trigger="click"
-                            placement="right"
-                            overlay={popoverCardPriority}
-                          >
-                            <button className={style.card_button_container}>
-                              <img
-                                className={style.card_hovered_img}
-                                src={changePriority}
-                                alt="change Prioritybutton"
-                              />
-                              <div className={style.card_hovered_button}>
-                                Change Priority
-                              </div>
-                            </button>
-                          </OverlayTrigger>
-                          <OverlayTrigger
-                            trigger="click"
-                            placement="right"
-                            overlay={PopoverCardAssign}
-                          >
-                            <button className={style.card_button_container}>
-                              <img
-                                className={style.card_hovered_img}
-                                src={assignTo}
-                                alt="button"
-                              />
-                              <div className={style.card_hovered_button}>
-                                Assign to
-                              </div>
-                            </button>
-                          </OverlayTrigger>
-                          <button className={style.card_button_container}>
-                            <img
-                              className={style.card_hovered_img}
-                              src={archive}
-                              alt="button"
-                            />
-                            <div className={style.card_hovered_button}>
-                              Archieve
-                            </div>
-                          </button>
-                        </Popover.Body>
-                      </Popover>
-                    </Overlay>
-                    <button
-                      className={style.box_hover_button}
-                      onClick={handleClickCard}
-                    >
-                      ...
-                    </button>
-                  </div>
-                  <div className={style.title_container}>
-                    <div className={style.box_title}>
-                      Waiting for Project Ownersional
-                    </div>
-                  </div>
-                </div>
-                <div className={style.box_footer}>
-                  <div className={style.left_footer}>
-                    <img
-                      className={style.todo_attach}
-                      src={attach}
-                      alt="attacment"
-                    />
-                    <img
-                      className={style.todo_checklist}
-                      src={check}
-                      alt="checklist"
-                    />
-                    <span className={style.finish_todo}>3/5</span>
-                  </div>
-                  <div className={style.right_footer}>
-                    <img
-                      className={style.todo_priority}
-                      src={lowest}
-                      alt="priority"
-                    />
-                    <img
-                      className={style.todo_profile_picture}
-                      src={profile}
-                      alt="profile"
-                    />
-                  </div>
-                </div>
-              </div>{" "}
-              <button className={style.add_todo}>
-                <img className={style.todo_plus} src={todoPlus} alt="Plus" />
-                <p className={style.add_todo_text}>Add New Card</p>
-              </button>
-            </div>
-            <div className={style.content_column}>
-              <div className={style.new_list_input_container}>
-                <input
-                  placeholder="List Name"
-                  type="text"
-                  className={`${style.input_new_list} form-control`}
-                />
-              </div>
               <button className={style.add_todo}>
                 <img className={style.todo_plus} src={todoPlus} alt="Plus" />
                 <p className={style.add_todo_text}>Add New Card</p>
@@ -1153,7 +880,7 @@ export default function TeamsDetail() {
                   <img src={plus} alt="icon for add new Board" />
                 </button>
               </div>
-              <div className={style.text_container}>Create new Board</div>
+              <div className={style.text_container}>Add Another List</div>
             </div>
           </div>
         </div>
@@ -1172,13 +899,16 @@ export default function TeamsDetail() {
             placeholder="List Name"
             aria-label="List Name"
             aria-describedby="basic-addon1"
+            onChange={(e) => setNewList(e.target.value)}
           />
         </Modal.Body>
         <Modal.Footer>
           <button className={style.cancel_button} onClick={handleClose}>
             Cancel
           </button>
-          <button className={style.save_button} onClick={handleClose}>
+          <button className={style.save_button} 
+          onClick={(e) => handleClickNewList(e)}
+          >
             Save
           </button>
         </Modal.Footer>
@@ -1316,15 +1046,8 @@ export default function TeamsDetail() {
                   <OverlayTrigger
                     trigger="click"
                     placement="bottom-end"
-                    overlay={
-                      <PopoverTodo
-                        addCardClick={addCardClick}
-                        copyListClick={copyListClick}
-                        moveAllCardClick={moveAllCardClick}
-                        archiveAllCardClick={archiveAllCardClick}
-                        archiveListClick={archiveListClick}
-                      />
-                    }
+                                    overlay={popoverTodo}
+
                   >
                     <button className={style.todo_hover_button}>...</button>
                   </OverlayTrigger>
@@ -1349,7 +1072,7 @@ export default function TeamsDetail() {
                           <OverlayTrigger
                             trigger="click"
                             placement="right"
-                            overlay={PopoverCardLabel}
+                            overlay={popoverCardLabel}
                           >
                             <button className={style.card_button_container}>
                               <img
@@ -1381,7 +1104,7 @@ export default function TeamsDetail() {
                           <OverlayTrigger
                             trigger="click"
                             placement="right"
-                            overlay={PopoverCardAssign}
+                            overlay={popoverCardAsign}
                           >
                             <button className={style.card_button_container}>
                               <img
@@ -1578,16 +1301,8 @@ export default function TeamsDetail() {
                   <OverlayTrigger
                     trigger="click"
                     placement="bottom-end"
-                    overlay={
-                      <PopoverTodo
-                        addCardClick={addCardClick}
-                        copyListClick={copyListClick}
-                        moveAllCardClick={moveAllCardClick}
-                        archiveAllCardClick={archiveAllCardClick}
-                        archiveListClick={archiveListClick}
-                      />
-                    }
-                  >
+                                   overlay={popoverTodo}
+
                     <button className={style.todo_hover_button}>...</button>
                   </OverlayTrigger>
                 </div>
@@ -1611,7 +1326,7 @@ export default function TeamsDetail() {
                           <OverlayTrigger
                             trigger="click"
                             placement="right"
-                            overlay={PopoverCardLabel}
+                            overlay={popoverCardLabel}
                           >
                             <button className={style.card_button_container}>
                               <img
@@ -1643,7 +1358,7 @@ export default function TeamsDetail() {
                           <OverlayTrigger
                             trigger="click"
                             placement="right"
-                            overlay={PopoverCardAssign}
+                            overlay={popoverCardAsign}
                           >
                             <button className={style.card_button_container}>
                               <img
@@ -1765,16 +1480,8 @@ export default function TeamsDetail() {
                   <OverlayTrigger
                     trigger="click"
                     placement="bottom-end"
-                    overlay={
-                      <PopoverTodo
-                        addCardClick={addCardClick}
-                        copyListClick={copyListClick}
-                        moveAllCardClick={moveAllCardClick}
-                        archiveAllCardClick={archiveAllCardClick}
-                        archiveListClick={archiveListClick}
-                      />
-                    }
-                  >
+                                     overlay={popoverTodo}
+
                     <button className={style.todo_hover_button}>...</button>
                   </OverlayTrigger>
                 </div>
@@ -1798,7 +1505,7 @@ export default function TeamsDetail() {
                           <OverlayTrigger
                             trigger="click"
                             placement="right"
-                            overlay={PopoverCardLabel}
+                            overlay={popoverCardLabel}
                           >
                             <button className={style.card_button_container}>
                               <img
@@ -1830,7 +1537,7 @@ export default function TeamsDetail() {
                           <OverlayTrigger
                             trigger="click"
                             placement="right"
-                            overlay={PopoverCardAssign}
+                            overlay={popoverCardAsign}
                           >
                             <button className={style.card_button_container}>
                               <img
@@ -1954,15 +1661,8 @@ export default function TeamsDetail() {
                     trigger="click"
                     placement="bottom-end"
                     overlay={
-                      <PopoverTodo
-                        addCardClick={addCardClick}
-                        copyListClick={copyListClick}
-                        moveAllCardClick={moveAllCardClick}
-                        archiveAllCardClick={archiveAllCardClick}
-                        archiveListClick={archiveListClick}
-                      />
-                    }
-                  >
+                                      overlay={popoverTodo}
+
                     <button className={style.todo_hover_button}>...</button>
                   </OverlayTrigger>
                 </div>
@@ -1986,7 +1686,7 @@ export default function TeamsDetail() {
                           <OverlayTrigger
                             trigger="click"
                             placement="right"
-                            overlay={PopoverCardLabel}
+                            overlay={popoverCardLabel}
                           >
                             <button className={style.card_button_container}>
                               <img
@@ -2018,7 +1718,7 @@ export default function TeamsDetail() {
                           <OverlayTrigger
                             trigger="click"
                             placement="right"
-                            overlay={PopoverCardAssign}
+                            overlay={popoverCardAsign}
                           >
                             <button className={style.card_button_container}>
                               <img

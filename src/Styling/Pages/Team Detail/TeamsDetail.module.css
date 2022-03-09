@@ -250,6 +250,8 @@
 }
 .content_column {
   width: 350px;
+  min-height: 170vh;
+  height: max-content;
   background-color: var(--lightGrey2);
   margin-top: 1%;
   display: flex;

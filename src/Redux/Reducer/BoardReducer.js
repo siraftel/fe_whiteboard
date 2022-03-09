@@ -1,6 +1,5 @@
 const inititailState = {
   boards: [],
-  boardDetail: [],
   members: [],
   member: [],
   loading: true,
@@ -22,24 +21,6 @@ export const boardReducer = (state = inititailState, action) => {
         boards: action.payload,
       };
     case "GET_BOARDS_FAILED":
-      return {
-        ...state,
-        loading: false,
-        error: action.payload,
-      };
-    case "GET_BOARD_DETAIL_REQUEST":
-      return {
-        ...state,
-        loading: true,
-      };
-    case "GET_BOARD_DETAIL_SUCCESS":
-      return {
-        ...state,
-        error: "",
-        loading: false,
-        boardDetail: action.payload,
-      };
-    case "GET_BOARD_DETAIL_FAILED":
       return {
         ...state,
         loading: false,
@@ -89,47 +70,10 @@ export const boardReducer = (state = inititailState, action) => {
     case "POST_BOARD_SUCCESS":
       return {
         ...state,
-        error: "",
         loading: false,
         boards: [action.payload, ...state.boards],
       };
     case "POST_BOARD_FAILED":
-      return {
-        ...state,
-        loading: false,
-        error: action.payload,
-      };
-    case "POST_LIST_REQUEST":
-      return {
-        ...state,
-        loading: true,
-      };
-    case "POST_LIST_SUCCESS":
-      return {
-        ...state,
-        error: "",
-        loading: false,
-        boards: [action.payload, ...state.boards],
-      };
-    case "POST_LIST_FAILED":
-      return {
-        ...state,
-        loading: false,
-        error: action.payload,
-      };
-    case "PUT_ARCHIVE_LIST_REQUEST":
-      return {
-        ...state,
-        loading: true,
-      };
-    case "PUT_ARCHIVE_LIST_SUCCESS":
-      return {
-        ...state,
-        error: "",
-        loading: false,
-        boardDetail: [action.payload, ...state.boardDetail],
-      };
-    case "PUT_ARCHIVE_LIST_FAILED":
       return {
         ...state,
         loading: false,
