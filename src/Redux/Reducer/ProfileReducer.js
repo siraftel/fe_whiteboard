@@ -2,6 +2,9 @@ const initialState = {
   loading: true,
   userId: "",
   image: "",
+  nama: "",
+  email: "",
+  companyName: "",
 };
 export const getProfile = (state = initialState, action) => {
   switch (action.type) {
@@ -20,6 +23,21 @@ export const getProfile = (state = initialState, action) => {
         ...state,
         loading: true,
         image: action.payload,
+      };
+    case "PROFILE_NAMA":
+      return {
+        ...state,
+        nama: action.payload,
+      };
+    case "PROFILE_EMAIL":
+      return {
+        ...state,
+        email: action.payload,
+      };
+    case "PROFILE_COMPANY_NAME":
+      return {
+        ...state,
+        companyName: action.payload,
       };
     default:
       return state;

@@ -1,7 +1,9 @@
 import React from "react";
 import style from "../../../Styling/Components/card.module.css";
 import Icon from "../../../Components/ShareComponent/Sidebar/Icons";
+import { useSelector } from "react-redux";
 export default function Card() {
+  const assignedToMe = useSelector((state) => state.getTasks.task);
   return (
     <section className={style.Card}>
       <div className={style.stripedCard}></div>
@@ -16,7 +18,7 @@ export default function Card() {
           <a href="/" className={style.teamTask}>
             My open tasks
           </a>
-          <p className={style.counter}>2</p>
+          <p className={style.counter}>{assignedToMe.length}</p>
         </div>
         <div className={style.projectTask}>
           <a href="/" className={style.taskDone}>
