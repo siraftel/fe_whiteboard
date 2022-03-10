@@ -19,7 +19,9 @@ export default function Todo() {
           <div className={styles.textTodo}>
             <div>
               <label>{evt.title}</label>
-              <p>{evt.desc} • One by Meja Putih</p>
+              <p>
+                {evt.boards?.title} • {evt.teams?.teamName}
+              </p>
             </div>
             <p>Due {evt.createdAt}</p>
           </div>

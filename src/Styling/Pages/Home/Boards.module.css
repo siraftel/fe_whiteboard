@@ -1,4 +1,5 @@
 .boardsContainer {
+  overflow-x: auto;
   width: 100%;
   display: flex;
   margin-top: 5%;
@@ -13,7 +14,7 @@
 }
 .cards {
   display: flex;
-  width: 100%;
+  width: 100vw;
   gap: 2%;
 }
 @media (max-width: 320px) {
@@ -36,13 +37,13 @@
 }
 @media (min-width: 425px) and (max-width: 650px) {
   .Boards {
-    margin-top: 5%;
+    margin-top: 10%;
     margin-left: 33%;
   }
 }
 @media (min-width: 650px) and (max-width: 700px) {
   .Boards {
-    margin-top: 5%;
+    margin-top: 10%;
     margin-left: 44%;
   }
 }

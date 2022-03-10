@@ -2,8 +2,9 @@ import React, { useEffect } from "react";
 import style from "../../../Styling/Components/card.module.css";
 import Icon from "../../../Components/ShareComponent/Sidebar/Icons";
 import { useDispatch, useSelector } from "react-redux";
-import { getBoard } from "../../../Redux/Action/BoardAction";
+// import { getBoard } from "../../../Redux/Action/BoardAction";
 import { useParams } from "react-router";
+import { getBoards } from "../../../Redux/Action/BoardsAction";
 export default function Card() {
   const assignedToMe = useSelector((state) => state.getTasks.task);
   // const getTeam = useSelector((state) => state.teamReducer.teams);
@@ -11,7 +12,7 @@ export default function Card() {
   const { teamId } = useParams();
   console.log(teamId);
   useEffect(() => {
-    dispatch(getBoard(teamId));
+    dispatch(getBoards(teamId));
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
   return (
     <section className={style.Card}>

@@ -79,7 +79,7 @@ export default function SidebarStatic() {
             </a>
           </li>
           <li className={style.listSidebar}>
-            <a className={style.anchorSidebar} href="/boards">
+            <a className={style.anchorSidebar} href="/team/detail/:teamId">
               <img src={Clipboard} alt="Clipboard" />
               Boards
             </a>
