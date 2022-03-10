@@ -2,7 +2,7 @@ import React from "react";
 import download from "../../Assets/Icons/download.png"
 import share from "../../Assets/Icons/share.png"
 import profile from "../../Assets/Icons/default pofile picture.png";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Button, Col, Container, Dropdown, DropdownButton, FormControl, Form, InputGroup, Modal, Row} from "react-bootstrap";
 import InputMember from "./InputMember"
 import InputPriority from "./InputPriority";

@@ -12,6 +12,9 @@ export const getAssignTo = (teamId) => {
             .then((response) => {
                 const assignTo = response.data.result;
                 dispatch({type: "GET_ASSIGN_TO_SUCCES", payload: assignTo});
+            })
+            .catch((error) => {
+                dispatch({ type: "GET_ASSIGN_TO_FAILED", payload: error });
             });
     };
 };

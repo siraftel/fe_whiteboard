@@ -1,6 +1,7 @@
 const inititailState = {
     assignTo: [],
     loading: true,
+    error: "",
 };
 
 export const assignToReducer = (state = inititailState, action) => {
@@ -16,7 +17,11 @@ export const assignToReducer = (state = inititailState, action) => {
                 loading: false,
                 teams: action.payload,
             };
-        default:
-            return state;
+        case "GET_ASSIGN_TO_FAILED":
+            return {
+                ...state,
+                loading: false,
+                error: action.payload,
+            };
     }
 };

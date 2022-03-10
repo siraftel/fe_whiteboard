@@ -88,6 +88,7 @@ export default function SidebarStatic() {
       )
     }
   }
+  
   return (
     <>
       <aside className={style.sidebar}>
