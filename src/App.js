@@ -36,10 +36,10 @@ function App() {
         <Route path="register" element={<Register />} />
         <Route path="home" element={<Home />} />
         <Route path="tasks" element={<Task />} />
-        <Route path="team/detail/:teamId" element={<Boards />} />
+        <Route path="boards" element={<Boards />} />
         <Route path="todoList" element={<TodoList />} />
         <Route path="profile" element={<Account />} />
-        <Route path="team/detail/:teamId" element={<Card />} />
+        <Route path="card" element={<Card />} />
         <Route path="profile" element={<Account />} />
         <Route path="card" element={<Card />} />
         <Route path="*" element={<ErrorPage />} />

@@ -73,13 +73,13 @@ export default function SidebarStatic() {
       <aside className={style.sidebar}>
         <ul className={style.unListSidebar}>
           <li className={style.listSidebar}>
-            <a className={style.anchorSidebar} href="/">
+            <a className={style.anchorSidebar} href="/home">
               <img src={Home} alt="Home" />
               Home
             </a>
           </li>
           <li className={style.listSidebar}>
-            <a className={style.anchorSidebar} href="/team/detail/:teamId">
+            <a className={style.anchorSidebar} href="/boards">
               <img src={Clipboard} alt="Clipboard" />
               Boards
             </a>

@@ -77,7 +77,7 @@ export default function Homepage() {
           The online collaborative to-do list platform to <br /> bring teams together, anytime, anywhere.
         </p>
         {token ? (
-          <a href="/team/detail/:teamId">
+          <a href="/boards">
             <button className={style.btn_board} variant="board">
               Start a board <img src={SignUp} alt="Button" />
             </button>
