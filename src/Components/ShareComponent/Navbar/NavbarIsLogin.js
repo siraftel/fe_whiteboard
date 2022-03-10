@@ -8,6 +8,8 @@ import { useSelector } from "react-redux";
 
 export default function UserNavbar() {
   const { token } = useSelector((state) => state.getAuthRegister);
+  const image = useSelector((state) => state.getProfile.image);
+
   return (
     <>
       <nav
@@ -53,9 +55,12 @@ export default function UserNavbar() {
               </a>
               <a className={style.profile_wrapper} href="/profile">
                 <img
-                  className={style.profile_pict}
-                  src={profile}
-                  alt="default profile"
+                  src={
+                    image ||
+                    "https://res.cloudinary.com/dry2yqm3h/image/upload/v1644199101/image/whiteboard/no-profile-pic_zyup0u.png"
+                  }
+                  alt="sally11"
+                  className={style.ImageNavbar}
                 />
               </a>
             </div>

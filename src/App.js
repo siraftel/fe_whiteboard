@@ -40,12 +40,9 @@ function App() {
         <Route path="tasks" element={<Task />} />
         <Route path="boards" element={<Boards />} />
         <Route path="todoList" element={<TodoList />} />
-        <Route path="profile" element={<Account />} />
-        <Route path="card" element={<Card />} />
-        <Route path="profile" element={<Account />} />
-        <Route path="card" element={<Card />} />
         <Route path="*" element={<ErrorPage />} />
-        {/* PROTECTED ROUTE PERSIST GATE (JATAH HAMDANI) */}
+        <Route path="profile" element={<Account />} />
+        {/* PROTECTED ROUTE PERSIST GATE ) */}
         {/*<Route
           path="/test"
           element={

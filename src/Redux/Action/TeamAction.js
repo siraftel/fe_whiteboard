@@ -71,7 +71,7 @@ export const getOneTeam = (teamId) => {
     axios
       .get(`${process.env.REACT_APP_BASE_URL}/team/${teamId}`, {
         headers: {
-          Authorization : `Bearer ${getState().getAuthRegister.token}`,
+          Authorization: `Bearer ${getState().getAuthRegister.token}`,
         },
       })
       .then((response) => {
