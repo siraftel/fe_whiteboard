@@ -32,10 +32,8 @@ import { useDispatch, useSelector } from "react-redux";
 export default function Homepage() {
   const image = useSelector((state) => state.getProfile.image);
   const nama = useSelector((state) => state.getProfile.nama);
-  console.log(image);
   const token = useSelector((state) => state.getAuthRegister.token);
   const dispatch = useDispatch();
-  console.log(token);
   useEffect(() => {
     dispatch(getProfile());
   }, []); // eslint-disable-line react-hooks/exhaustive-deps

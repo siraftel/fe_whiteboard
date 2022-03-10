@@ -16,7 +16,7 @@ import plus from "../../Assets/Icons/plus blue.png";
 import todoPlus from "../../Assets/Icons/plus.png";
 import profile from "../../Assets/Icons/default pofile picture.png";
 import lowest from "../../Assets/Icons/lowest.png";
-import archive from "../../Assets/Icons/archive.png";
+import archive2 from "../../Assets/Icons/archive.png";
 import changePriority from "../../Assets/Icons/change priority.png";
 import label from "../../Assets/Icons/label.png";
 import assignTo from "../../Assets/Icons/arrow right.png";
@@ -58,6 +58,23 @@ export default function TeamsDetail() {
     { id: uuidv4(), content: "First task" },
     { id: uuidv4(), content: "Second task" },
     { id: uuidv4(), content: "Third task" },
+  ];
+
+  const mockupCategory = [
+    { text: "UI/UX", id: uuidv4() },
+    { text: "Design", id: uuidv4() },
+    { text: "Marketing", id: uuidv4() },
+    { text: "UI/UX", id: uuidv4() },
+    { text: "Design", id: uuidv4() },
+    { text: "API", id: uuidv4() },
+  ];
+  const mockupDescription = [
+    { desc: "RESTFull API", id: uuidv4() },
+    { desc: "Profil API", id: uuidv4() },
+    { desc: "Homepage API", id: uuidv4() },
+    { desc: "Drag and Drop API", id: uuidv4() },
+    { desc: "Boards API", id: uuidv4() },
+    { desc: "Postman Documentation", id: uuidv4() },
   ];
 
   const columnsFromBackend = {
@@ -889,7 +906,7 @@ export default function TeamsDetail() {
                                                         className={
                                                           style.card_hovered_img
                                                         }
-                                                        src={archive}
+                                                        src={archive2}
                                                         alt="button"
                                                       />
                                                       <div
