@@ -7,6 +7,7 @@ import { getAuthRegister } from "./UserReducer";
 import { getTasks } from "./TasksReducer";
 import { getProfile } from "./ProfileReducer";
 import { listReducer } from "./ListReducer";
+import { cardReducer } from "./CardReducer";
 
 const reducers = combineReducers({
   //Masukan Reducer yang telah diimport kesini
@@ -16,6 +17,7 @@ const reducers = combineReducers({
   getTasks,
   getProfile,
   listReducer,
+  cardReducer,
 });
 
 export default reducers;

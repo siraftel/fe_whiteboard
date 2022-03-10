@@ -7,6 +7,12 @@
   height: auto;
   margin-left: 282px;
 }
+.detail_box_container{
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .left_container {
   display: flex;
   align-items: center;
@@ -250,13 +256,13 @@
 }
 .content_column {
   width: 350px;
+  flex-direction: column;
+  align-items: center;
   min-height: 170vh;
   height: max-content;
   background-color: var(--lightGrey2);
   margin-top: 1%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 .todo_button {
   font-size: 12px;

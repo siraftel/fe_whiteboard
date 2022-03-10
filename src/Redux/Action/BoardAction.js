@@ -22,9 +22,7 @@ export const getBoard = (teamId) => {
       .catch((error) => {
         dispatch({
           type: "GET_BOARDS_FAILED",
-          payload: error.response ? 
-          error?.response?.data?.message :
-          error
+          payload: error.response ? error?.response?.data?.message : error,
         });
       });
   };
@@ -35,22 +33,20 @@ export const getMembers = (boardId) => {
     dispatch({ type: "GET_BOARD_MEMBERS_REQUEST" });
     //API CALL
     axios
-      .get(`${process.env.REACT_APP_BASE_URL}/board/${boardId}`, {
+      .get(`${process.env.REACT_APP_BASE_URL}/board/members/${boardId}`, {
         headers: {
           "Authorization": `Bearer ${getState().getAuthRegister.token}`,
         },
       })
       .then((response) => {
         //TESTING
-        const members = response.data.result;
+        const members = response.data.result[0];
         dispatch({ type: "GET_BOARD_MEMBERS_SUCCESS", payload: members });
       })
       .catch((error) => {
         dispatch({
           type: "GET_BOARD_MEMBERS_FAILED",
-          payload: error.response ? 
-          error?.response?.data?.message :
-          error
+          payload: error.response ? error?.response?.data?.message : error,
         });
       });
   };
@@ -77,9 +73,7 @@ export const getMember = (boardId) => {
       .catch((error) => {
         dispatch({
           type: "GET_MEMBER_FAILED",
-          payload: error.response ? 
-          error?.response?.data?.message :
-          error
+          payload: error.response ? error?.response?.data?.message : error,
         });
       });
   };
@@ -89,8 +83,6 @@ export const postBoard = (data, teamId) => {
   return (dispatch, getState) => {
     dispatch({ type: "POST_BOARD_REQUEST" });
     //API CALL
-    console.log(data);
-    console.log(teamId);
     axios({
       method: "POST",
       url: `${process.env.REACT_APP_BASE_URL}/board/${teamId}`,
@@ -108,9 +100,7 @@ export const postBoard = (data, teamId) => {
       .catch((error) => {
         dispatch({
           type: "POST_BOARD_FAILED",
-          payload: error.response ? 
-          error?.response?.data?.message :
-          error
+          payload: error.response ? error?.response?.data?.message : error,
         });
       });
   };
@@ -137,9 +127,7 @@ export const postList = (boardId, data) => {
       .catch((error) => {
         dispatch({
           type: "POST_LIST_FAILED",
-          payload: error.response ? 
-          error?.response?.data?.message :
-          error
+          payload: error.response ? error?.response?.data?.message : error,
         });
       });
   };
@@ -166,9 +154,7 @@ export const putArchiveList = (data, listId) => {
       .catch((error) => {
         dispatch({
           type: "PUT_ARCHIVE_LIST_FAILED",
-          payload: error.response ? 
-          error?.response?.data?.message :
-          error
+          payload: error.response ? error?.response?.data?.message : error,
         });
       });
   };
@@ -195,9 +181,29 @@ export const putInviteMember = (data, boardId) => {
       .catch((error) => {
         dispatch({
           type: "PUT_INVITE_MEMBER_FAILED",
-          payload: error.response ? 
-          error?.response?.data?.message :
-          error
+          payload: error.response ? error?.response?.data?.message : error,
+        });
+      });
+  };
+};
+export const getBoardDetail = (boardId) => {
+  return (dispatch, getState) => {
+    dispatch({ type: "GET_LIST_REQUEST" });
+    //API CALL
+    axios
+      .get(`${process.env.REACT_APP_BASE_URL}/board/detail/${boardId}`, {
+        headers: {
+          "Authorization": `Bearer ${getState().getAuthRegister.token}`,
+        },
+      })
+      .then((response) => {
+        const boardDetail = response.data.result;
+        dispatch({ type: "GET_LIST_SUCCESS", payload: boardDetail });
+      })
+      .catch((error) => {
+        dispatch({
+          type: "GET_LIST_FAILED",
+          payload: error.response ? error?.response?.data?.message : error,
         });
       });
   };
