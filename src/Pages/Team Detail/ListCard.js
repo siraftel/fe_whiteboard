@@ -1,7 +1,6 @@
 import {
   Overlay,
   Popover,
-  FormControl,
   OverlayTrigger,
   PopoverBody,
   PopoverHeader,

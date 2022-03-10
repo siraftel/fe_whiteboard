@@ -8,7 +8,7 @@ import style from "../../Styling/Pages/Teams Boards/TeamsBoards.module.css";
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getBoard, postBoard } from "../../Redux/Action/BoardAction";
-import { getOneTeam} from "../../Redux/Action/TeamAction";
+import { getOneTeam } from "../../Redux/Action/TeamAction";
 
 const TeamsBoards = () => {
   const { boards, loading, error } = useSelector((state) => state.boardReducer);
@@ -23,7 +23,7 @@ const TeamsBoards = () => {
   useEffect(() => {
     //tambahin functional if di dalam useEffect
     dispatch(getBoard(teamId));
-    dispatch(getOneTeam(teamId))
+    dispatch(getOneTeam(teamId));
   }, []);
 
   const [show, setShow] = useState(false);
@@ -82,7 +82,9 @@ const TeamsBoards = () => {
                       <p className={style.body3}>Active Issue</p>
                     </div>
                     <div className={style.button_container}>
-                      <button className={style.button_issue}>{boards.length}</button>
+                      <button className={style.button_issue}>
+                        {boards.length}
+                      </button>
                     </div>
                   </div>
                 </Link>

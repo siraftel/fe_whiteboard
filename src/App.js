@@ -16,6 +16,7 @@ import Account from "../src/Pages/Profile/Account";
 import Register from "../src/Pages/Register/Register";
 import Home from "../src/Pages/Home/Home";
 import Card from "../src/Components/ShareComponent/Navbar/Card";
+import Dnd from "./Pages/Team Detail/Dnd";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="team/:teamId" element={<Team />}>
           <Route path="board/:boardId" element={<TeamsDetail />} />
         </Route>
+        <Route path="testdnd" element={<Dnd />} />
         <Route exact path="/" element={<Homepage />} />
         <Route path="login" element={<Login />} />
         <Route path="modals" element={<Modals />} />
