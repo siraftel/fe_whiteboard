@@ -4,7 +4,7 @@ import BlueLogo from "../../Assets/Logos/BlueLogo.png";
 import squareHome from "../../Assets/Icons/SquareHome.png";
 import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "../../Redux/Action/UserAction";
-import { editProfile, getProfile } from "../../Redux/Action/ProfileAction";
+import { changePassword, editProfile, getProfile } from "../../Redux/Action/ProfileAction";
 import { useNavigate } from "react-router";
 
 export default function Account() {
@@ -12,8 +12,8 @@ export default function Account() {
   const email = useSelector((state) => state.getProfile.email);
   const nama = useSelector((state) => state.getProfile.nama);
   const companyName = useSelector((state) => state.getProfile.companyName);
+  // console.log(email);
 
-  console.log(email);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleOnChangePict = (evt) => {
@@ -22,13 +22,22 @@ export default function Account() {
     formData.append("image", pict);
     // formData.append("company", pict);
     // formData.append("company", pict);
-
     dispatch(editProfile(formData));
     console.log(formData);
   };
+
+  //handle
   const handleOnChange = (evt) => {
     console.log(evt.target.value);
   };
+
+  //change Password
+  const handleOnChangePassword = () => {
+    console.log(email);
+    dispatch(changePassword(email));
+  };
+
+  //LogOut
   const handleOnClick = () => {
     dispatch(logOut());
     navigate("/");
@@ -128,7 +137,7 @@ export default function Account() {
             <h2>Password</h2>
           </div>
           <div className={style.btnChangeContainer}>
-            <button className={style.btnChange} type="button">
+            <button className={style.btnChange} onClick={handleOnChangePassword} type="button">
               Change
             </button>
           </div>

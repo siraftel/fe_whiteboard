@@ -6,13 +6,13 @@ import Card from "../../Components/ShareComponent/Navbar/Card";
 import { useDispatch, useSelector } from "react-redux";
 import { getTasks } from "../../Redux/Action/TasksAction";
 import { getBoards } from "../../Redux/Action/BoardsAction";
-import { useParams } from "react-router";
+// import { useParams } from "react-router";
 export default function Boards() {
   const dispatch = useDispatch();
-  const { teamId } = useParams();
-  console.log(teamId);
+  // const { teamId } = useParams();
+  // console.log(teamId);
   useEffect(() => {
-    dispatch(getBoards(teamId));
+    dispatch(getBoards());
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => {
     dispatch(getTasks());
