@@ -76,6 +76,20 @@ export default function TeamsDetail() {
   //For New List
   const [newList, setNewList] = useState("");
 
+  //For Add Card
+  const [addCard, setAddCard] = useState("");
+
+  // const handleClick = (e) => {
+  //   e.preventDefault();
+
+  //   const data = {
+  //     title: addCard,
+  //   };
+  //   dispatch(postBoard(data, teamId));
+  //   setNewBoard("");
+  //   setShow(false);
+  // };
+
   //FOR MODALS ADD ANOTHER LIST
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -106,6 +120,8 @@ export default function TeamsDetail() {
     setNewList("");
     setShow(false);
   }
+
+  
 
   //FOR POPOVER
   const [showCard, setShowCard] = useState(false);
