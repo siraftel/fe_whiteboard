@@ -23,7 +23,7 @@ export default function Todo() {
                 {evt.boards?.title} • {evt.teams?.teamName}
               </p>
             </div>
-            <p>Due {evt.createdAt}</p>
+            <p>Due 2022-03-10</p>
           </div>
         </div>
       ))}
