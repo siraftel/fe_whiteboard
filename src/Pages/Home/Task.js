@@ -32,9 +32,9 @@ export default function Task() {
           <div className={style.Todos}>
             <Todo />
 
-            <button className={style.ButtonLoadMore} type="button">
+            {/* <button className={style.ButtonLoadMore} type="button">
               Load More
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

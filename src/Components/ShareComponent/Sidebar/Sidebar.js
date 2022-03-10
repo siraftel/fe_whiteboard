@@ -79,7 +79,7 @@ export default function Sidebar() {
               {teams.map((evt, index) => (
                 <li className={style.listSidebar} key={index}>
                   <a className={style.anchorSidebar} href={`/team/${evt._id}`}>
-                    <Icons variant="purple" />
+                    <Icons variant={randomColor[index]} />
                     {evt.teamName}
                   </a>
                 </li>
@@ -93,13 +93,13 @@ export default function Sidebar() {
           <p className={style.modal_title}>Create Team</p>
         </Modal.Header>
         <Modal.Body>
-          <FormControl placeholder="Team Name" aria-label="Team Name" aria-describedby="basic-addon1" />
+          <FormControl placeholder="Team Name" aria-label="Team Name" aria-describedby="basic-addon1" onChange={(e) => setNewTeam(e.target.value)} />
         </Modal.Body>
         <Modal.Footer>
           <button className={style.cancel_button} onClick={handleClose}>
             Cancel
           </button>
-          <button className={style.save_button} onClick={handleClose}>
+          <button className={style.save_button} onClick={(e) => handleSubmit(e)}>
             Save
           </button>
         </Modal.Footer>
