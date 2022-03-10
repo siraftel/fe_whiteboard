@@ -31,10 +31,10 @@ export default function Task() {
           <div className={style.Line}></div>
           <div className={style.Todos}>
             <Todo />
-            <Todo />
-            <button className={style.ButtonLoadMore} type="button">
+
+            {/* <button className={style.ButtonLoadMore} type="button">
               Load More
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

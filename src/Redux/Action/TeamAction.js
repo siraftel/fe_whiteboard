@@ -7,7 +7,7 @@ export const getTeam = () => {
     axios
       .get(`${process.env.REACT_APP_BASE_URL}/team`, {
         headers: {
-          Authorization : `Bearer ${getState().getAuthRegister.token}`,
+          Authorization: `Bearer ${getState().getAuthRegister.token}`,
         },
       })
       .then((response) => {
@@ -24,15 +24,18 @@ export const postTeam = (data) => {
   return (dispatch, getState) => {
     dispatch({ type: "POST_TEAM_REQUEST" });
     //API CALL
-    axios({ method: "POST",
+    axios({
+      method: "POST",
       url: `${process.env.REACT_APP_BASE_URL}/team`,
       data: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Bearer ${getState().getAuthRegister.token}`,}
-        })
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${getState().getAuthRegister.token}`,
+      },
+    })
       .then((response) => {
         const team = response.data.result;
+        console.log(team);
         dispatch({ type: "POST_TEAM_SUCCES", payload: team });
       })
       .catch((error) => {
@@ -48,7 +51,7 @@ export const getTeamDetail = (teamId) => {
     axios
       .get(`${process.env.REACT_APP_BASE_URL}/board/${teamId}`, {
         headers: {
-          "Authorization": `Bearer ${getState().getAuthRegister.token}`,
+          Authorization: `Bearer ${getState().getAuthRegister.token}`,
         },
       })
       .then((response) => {

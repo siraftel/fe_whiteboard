@@ -31,6 +31,7 @@ import { getProfile } from "../../Redux/Action/ProfileAction";
 import { useDispatch, useSelector } from "react-redux";
 export default function Homepage() {
   const image = useSelector((state) => state.getProfile.image);
+  const nama = useSelector((state) => state.getProfile.nama);
   console.log(image);
   const token = useSelector((state) => state.getAuthRegister.token);
   const dispatch = useDispatch();
@@ -70,8 +71,15 @@ export default function Homepage() {
         </Container>
         {token ? (
           <Container className={style.homepageRight}>
-            <img className={style.icon} src={image} alt="ProfilePicture" />
-            <Nav.Link href="/profile">Profile Name</Nav.Link>
+            <img
+              className={style.icon}
+              src={
+                image ||
+                "https://res.cloudinary.com/dry2yqm3h/image/upload/v1644199101/image/whiteboard/no-profile-pic_zyup0u.png"
+              }
+              alt="ProfilePicture"
+            />
+            <Nav.Link href="/profile">{nama}</Nav.Link>
           </Container>
         ) : (
           <Container className={style.homepageRight}>
@@ -109,12 +117,7 @@ export default function Homepage() {
       </div>
       <div className={style.mainHomepage}>
         <Container>
-          <Row
-            className={style.imageHero}
-            d-flex
-            align-items-center
-            justify-content-center
-          >
+          <Row className={style.imageHero}>
             <Col>
               <h3>Work with any team</h3>
               <p>
@@ -122,10 +125,17 @@ export default function Homepage() {
                 your team can manage work more efficiences <br /> that you have
                 done before
               </p>
-              <a href="/register">
-                Learn more about Whiteboard board{" "}
-                <img src={Learn} alt="Linkto" />
-              </a>
+              {token ? (
+                <a href="/boards">
+                  Learn more about Whiteboard board{" "}
+                  <img src={Learn} alt="Linkto" />
+                </a>
+              ) : (
+                <a href="/register">
+                  Learn more about Whiteboard board{" "}
+                  <img src={Learn} alt="Linkto" />
+                </a>
+              )}
             </Col>
             <Col>
               <img className={style.imageMain} src={Sally} alt="WorkWithTeam" />
@@ -141,29 +151,43 @@ export default function Homepage() {
                 alt="WorkWithHand"
               />
             </Col>
-            <Col>
+            <Col className={style.imageMainMid}>
               <h3>Information at glance</h3>
               <p>
                 easy to use, use to watch <br /> your team can easier to
                 understand your work <br /> it's Simple !
               </p>
-              <a href="/register">
-                Learn more about Whiteboard board{" "}
-                <img src={Learn} alt="Linkto" />
-              </a>
+              {token ? (
+                <a href="/boards">
+                  Learn more about Whiteboard board{" "}
+                  <img src={Learn} alt="Linkto" />
+                </a>
+              ) : (
+                <a href="/register">
+                  Learn more about Whiteboard board{" "}
+                  <img src={Learn} alt="Linkto" />
+                </a>
+              )}
             </Col>
           </Row>
           <Row className="d-flex align-items-center justify-content-center">
-            <Col>
+            <Col className={style.imageMainMid}>
               <h3>Built-in workflow</h3>
               <p>
                 You will realize that your workflow <br /> will be so smooth
                 without dificult <br /> because you can handle your workflow
               </p>
-              <a href="/register">
-                Learn more about Whiteboard board{" "}
-                <img src={Learn} alt="Linkto" />
-              </a>
+              {token ? (
+                <a href="/boards">
+                  Learn more about Whiteboard board{" "}
+                  <img src={Learn} alt="Linkto" />
+                </a>
+              ) : (
+                <a href="/register">
+                  Learn more about Whiteboard board{" "}
+                  <img src={Learn} alt="Linkto" />
+                </a>
+              )}
             </Col>
             <Col className={style.imageHeroDown}>
               <img
@@ -235,7 +259,7 @@ export default function Homepage() {
       <div className={style.ContainerSallyDesk}>
         <Container>
           <Row className="d-flex align-items-center justify-content-center">
-            <Col>
+            <Col className={style.scaleDesk}>
               <h1>
                 Scale collaboration <br />
                 with confidence
@@ -244,10 +268,17 @@ export default function Homepage() {
                 Dont worry about big Project or so many People <br /> Just sit,
                 relax, and working ! <br /> we will help it !
               </p>
-              <a href="/register">
-                Learn more about Whiteboard board{" "}
-                <img src={Learn} alt="Linkto" />
-              </a>
+              {token ? (
+                <a href="/boards">
+                  Learn more about Whiteboard board{" "}
+                  <img src={Learn} alt="Linkto" />
+                </a>
+              ) : (
+                <a href="/register">
+                  Learn more about Whiteboard board{" "}
+                  <img src={Learn} alt="Linkto" />
+                </a>
+              )}
             </Col>
             <Col>
               <img
@@ -291,7 +322,7 @@ export default function Homepage() {
             <img className={style.cobaCara} src={cisco} alt="third slide" />
           </div>
           <Carousel.Caption className={style.carouselCaption}>
-            <h1>Work smarter with Adam</h1>
+            <h1>Work smarter with Your Team</h1>
             <p>join with 10M+ users worldwide</p>
           </Carousel.Caption>
         </Carousel.Item>

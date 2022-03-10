@@ -4,17 +4,40 @@ import BlueLogo from "../../Assets/Logos/BlueLogo.png";
 import squareHome from "../../Assets/Icons/SquareHome.png";
 import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "../../Redux/Action/UserAction";
-import { getProfile } from "../../Redux/Action/ProfileAction";
+import { changePassword, editProfile, getProfile } from "../../Redux/Action/ProfileAction";
 import { useNavigate } from "react-router";
 
 export default function Account() {
   const image = useSelector((state) => state.getProfile.image);
-  console.log(image);
+  const email = useSelector((state) => state.getProfile.email);
+  const nama = useSelector((state) => state.getProfile.nama);
+  const companyName = useSelector((state) => state.getProfile.companyName);
+  // console.log(email);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const handleOnChangePict = (evt) => {
+    const pict = evt.target.files[0];
+    const formData = new FormData();
+    formData.append("image", pict);
+    // formData.append("company", pict);
+    // formData.append("company", pict);
+    dispatch(editProfile(formData));
+    console.log(formData);
+  };
+
+  //handle
   const handleOnChange = (evt) => {
     console.log(evt.target.value);
   };
+
+  //change Password
+  const handleOnChangePassword = () => {
+    console.log(email);
+    dispatch(changePassword(email));
+  };
+
+  //LogOut
   const handleOnClick = () => {
     dispatch(logOut());
     navigate("/");
@@ -35,16 +58,16 @@ export default function Account() {
           </a>
         </div>
         <div className={style.accountImageNav}>
-          <img src={image} alt="sally11" className={style.ImageNavbar} />
+          <img src={image || "https://res.cloudinary.com/dry2yqm3h/image/upload/v1644199101/image/whiteboard/no-profile-pic_zyup0u.png"} alt="sally11" className={style.ImageNavbar} />
         </div>
       </nav>
       <div className={style.account}>
         <div className={style.accountPict}>
           <h1>Your Photo</h1>
           <div className={style.accountImage}>
-            <img src={image} alt="sally11" className={style.Image} />
+            <img src={image || "https://res.cloudinary.com/dry2yqm3h/image/upload/v1644199101/image/whiteboard/no-profile-pic_zyup0u.png"} alt="sally11" className={style.Image} />
           </div>
-          <input type="file" placeholder="ganti" id="file" className={style.photo} />
+          <input type="file" placeholder="ganti" id="file" className={style.photo} onChange={handleOnChangePict} />
           <label className={style.btnUpload} for="file">
             Upload
           </label>
@@ -55,7 +78,8 @@ export default function Account() {
         <div className={style.accountNameRole}>
           <div className={style.accountName}>
             <p>Name</p>
-            <input className={style.inputName} type="text" placeholder="name" />
+            <input className={style.inputName} type="text" placeholder={nama} />
+            {/* <label>{nama}</label> */}
           </div>
           <div className={style.accountRole}>
             <p>Role</p>
@@ -95,7 +119,7 @@ export default function Account() {
           <div className={style.accountCompanyName}>
             <p>Company Name</p>
             <div>
-              <input className={style.inputName} type="text" placeholder="Company Name" />
+              <input className={style.inputName} type="text" placeholder={companyName} />
             </div>
           </div>
         </div>
@@ -103,13 +127,9 @@ export default function Account() {
         <div className={style.containerEmail}>
           <div className={style.Email}>
             <h2>Email Address</h2>
-            <p>Your email address is hi@hello.mail</p>
+            <p>Your email address is {email}</p>
           </div>
-          <div className={style.btnChangeContainer}>
-            <button className={style.btnChange} type="button">
-              Change
-            </button>
-          </div>
+          <div className={style.btnChangeContainer}></div>
         </div>
         <div className={style.Line}></div>
         <div className={style.containerPassword}>
@@ -117,7 +137,7 @@ export default function Account() {
             <h2>Password</h2>
           </div>
           <div className={style.btnChangeContainer}>
-            <button className={style.btnChange} type="button">
+            <button className={style.btnChange} onClick={handleOnChangePassword} type="button">
               Change
             </button>
           </div>
