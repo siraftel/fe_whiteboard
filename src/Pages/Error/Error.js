@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styles from "../../Styling/Pages/ErrorPage.module.css";
+import styles from "../../Styling/Pages/Error/ErrorPage.module.css";
 import UserNavbar from "../../Components/ShareComponent/Navbar/NavbarIsLogin";
 const ErrorPage = () => {
   return (

@@ -1,5 +1,12 @@
-import { forwardRef } from 'react';
-import { Group, Avatar, Text, MultiSelect, Box, CloseButton } from '@mantine/core';
+import { forwardRef } from "react";
+import {
+  Group,
+  Avatar,
+  Text,
+  MultiSelect,
+  Box,
+  CloseButton,
+} from "@mantine/core";
 import profile1 from "../../Assets/Icons/profile sample 1.png";
 import profile2 from "../../Assets/Icons/profile sample 2.png";
 import profile3 from "../../Assets/Icons/profile sample 3.png";
@@ -10,20 +17,22 @@ function Value({ image, value, label, onRemove, ...others }) {
     <div {...others}>
       <Box
         sx={(theme) => ({
-          display: 'flex',
-          cursor: 'default',
-          alignItems: 'center',
+          display: "flex",
+          cursor: "default",
+          alignItems: "center",
           paddingLeft: 10,
-          // border: `1px solid ${theme.colors.gray[4]}`,
-          // borderRadius: 4,
-          // background: 'transparant'
         })}
       >
         <div style={{ marginRight: 5 }}>
-          <img src={image} alt="label icon"/>
+          <img src={image} alt="label icon" />
         </div>
-        {/* <div style={{ lineHeight: 1, fontSize: 12 }}>{label}</div> */}
-        <CloseButton onMouseDown={onRemove} variant="transparent" size={22} iconSize={14} tabIndex={-1} />
+        <CloseButton
+          onMouseDown={onRemove}
+          variant="transparent"
+          size={22}
+          iconSize={14}
+          tabIndex={-1}
+        />
       </Box>
     </div>
   );
@@ -31,44 +40,41 @@ function Value({ image, value, label, onRemove, ...others }) {
 
 const data = [
   {
-    image: (profile1),
-    label: 'Adam Akbar',
-    value: 'Adam Akbar',
+    image: profile1,
+    label: "Adam Akbar",
+    value: "Adam Akbar",
   },
 
   {
-    image: (profile2),
-    label: 'Fakhri Al Fatah',
-    value: 'Fakhri Al Fatah',
+    image: profile2,
+    label: "Fakhri Al Fatah",
+    value: "Fakhri Al Fatah",
   },
   {
-    image: (profile3),
-    label: 'Hamdani Abdullah',
-    value: 'Hamdani Abdullah',
+    image: profile3,
+    label: "Hamdani Abdullah",
+    value: "Hamdani Abdullah",
   },
   {
-    image: (profile),
-    label: 'John Doe',
-    value: 'John Doe',
+    image: profile,
+    label: "John Doe",
+    value: "John Doe",
   },
 ];
 
 // !important: Forwarding ref is required
-const SelectItem = forwardRef(
-  ({ image, label, ...others }, ref) => {
-    return (
+const SelectItem = forwardRef(({ image, label, ...others }, ref) => {
+  return (
     <div ref={ref} {...others}>
       <Group noWrap>
         <Avatar src={image} />
-
         <div>
           <Text>{label}</Text>
         </div>
       </Group>
     </div>
-    )
-  }
-);
+  );
+});
 
 function InputMember() {
   return (

@@ -4,12 +4,14 @@
 }
 .textTodo {
   display: flex;
-  width: 50%;
+  width: 100%;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .input {
-  margin-top: 9px;
+  margin-top: 6px;
+  width: 10%;
 }
 
 .form {
