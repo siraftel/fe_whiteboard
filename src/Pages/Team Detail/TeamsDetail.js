@@ -45,17 +45,8 @@ import { useParams } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { v4 as uuidv4 } from "uuid";
-import {
-  getMembers,
-  // putArchiveList,
-  putInviteMember,
-} from "../../Redux/Action/BoardAction";
-import {
-  getList,
-  postList,
-  // archiveList,
-  // copyList,
-} from "../../Redux/Action/ListAction";
+import { getMembers, putInviteMember } from "../../Redux/Action/BoardAction";
+import { getList, postList } from "../../Redux/Action/ListAction";
 import { ListCard } from "./ListCard";
 
 // For Modals Addcard
@@ -368,9 +359,9 @@ export default function TeamsDetail() {
 
   useEffect(() => {
     dispatch(getList(boardId));
-    dispatch(getMembers(boardId)); 
+    dispatch(getMembers(boardId));
     // eslint-disable-next-line
-  }, []); 
+  }, []);
 
   // For invite Email
   const [newEmail, setNewEmail] = useState("");
@@ -438,7 +429,7 @@ export default function TeamsDetail() {
   };
   const archiveListClick = () => {
     alert("List have been Archived");
-    // if (archive === false) {
+    // if (archive ==== false) {
     //   setArchive(true);
     // } else {
     //   setArchive(false);
