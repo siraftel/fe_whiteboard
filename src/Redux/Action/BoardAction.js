@@ -7,10 +7,6 @@ export const getBoard = (teamId) => {
     axios
       .get(`${process.env.REACT_APP_BASE_URL}/board/${teamId}`, {
         headers: {
-          //  Cara pertama dengan useSelector, state di component/page
-          // Authorization: token,
-          //Cara kedua memakai local storage
-          //  Cara ketiga dapatkan token dari getstate
           Authorization: `Bearer ${getState().getAuthRegister.token}`,
         },
       })
