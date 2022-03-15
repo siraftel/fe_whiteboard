@@ -41,8 +41,6 @@ import InputPriority from "../../Components/Modals/InputPriority";
 import InputDate from "../../Components/Modals/InputDate";
 import InputLabels from "../../Components/Modals/InputLabels";
 import InputDescription from "../../Components/Modals/InputDescription";
-// "start": "node --max_old_space_size=4096 node_modules/.bin/react-scripts start",
-// "build": "node --max_old_space_size=4096 node_modules/.bin/react-scripts build",
 export default function TeamsDetail() {
   const { loading, error, boardMembers } = useSelector(
     (state) => state.boardReducer
